@@ -12,6 +12,7 @@ import java.util.Objects;
  * @author andrew
  */
 public class Player implements Serializable{
+    // class instance variables
     private String name;
     private boolean gender;
 
