@@ -5,13 +5,14 @@
  */
 package byui.cit260.treasure.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author andrew
  */
-public class Inventory {
+public class Inventory implements Serializable{
     // class instance variables
     private String item;
     private int quantity;

@@ -6,7 +6,7 @@
 package byui.cit260.treasure.model;
 
 import java.io.Serializable;
-
+import java.util.Objects;
 /**
  *
  * @author andrew
