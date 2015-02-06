@@ -20,10 +20,10 @@ public class Treasure {
         Player player = new Player();
         player.setName("Fred Flinstone");
         player.setGender(true);
-        
-        String playerInfo=player.toString();
+
+        String playerInfo = player.toString();
         System.out.println(playerInfo);
-        
+
     }
-    
+
 }

@@ -10,5 +10,5 @@ package byui.cit260.treasure.view;
  * @author andrew
  */
 public class View {
-    
+
 }

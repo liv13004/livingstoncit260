@@ -12,13 +12,15 @@ import java.util.Objects;
  *
  * @author andrew
  */
-public class Inventory implements Serializable{
+public class Inventory implements Serializable {
+
     // class instance variables
+
     private String item;
     private int quantity;
-    
-    public Inventory(){
-        
+
+    public Inventory() {
+
     }
 
     public String getItem() {
@@ -67,6 +69,5 @@ public class Inventory implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

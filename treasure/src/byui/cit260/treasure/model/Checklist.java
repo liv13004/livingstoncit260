@@ -8,14 +8,14 @@ package byui.cit260.treasure.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-
 /**
  *
  * @author Braden
  */
+public class Checklist implements Serializable {
 
-public class Checklist implements Serializable{
     //class instance variable
+
     private int progress;
     private boolean lumber;
     private boolean sail;
@@ -32,8 +32,7 @@ public class Checklist implements Serializable{
     public void setProgress(int progress) {
         this.progress = progress;
     }
-    
-    
+
     public Boolean getLumber(boolean lumber) {
         return lumber;
     }
@@ -109,8 +108,3 @@ public class Checklist implements Serializable{
         return true;
     }
 }
-    
-    
-    
-
-    

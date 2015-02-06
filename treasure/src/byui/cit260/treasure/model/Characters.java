@@ -12,20 +12,10 @@ import java.util.Objects;
  *
  * @author andrew
  */
-public class Characters implements Serializable{
-    // class instance variables
-    private String name;
-    
-    public Characters(){
-        
-    }
+public class Characters implements Serializable {
 
-    public String getName() {
-        return name;
-    }
+    public Characters() {
 
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override
@@ -54,5 +44,11 @@ public class Characters implements Serializable{
         }
         return true;
     }
-    
+
+    private int parrot;
+    private int trader;
+    private int dolfin;
+    private int seaturtle;
+	private int name;
+
 }

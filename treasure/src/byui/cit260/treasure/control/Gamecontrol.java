@@ -10,5 +10,5 @@ package byui.cit260.treasure.control;
  * @author andrew
  */
 public class Gamecontrol {
-    
+
 }

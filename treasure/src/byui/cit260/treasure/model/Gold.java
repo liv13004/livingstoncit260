@@ -6,16 +6,19 @@
 package byui.cit260.treasure.model;
 
 import java.io.Serializable;
+
 /**
  *
  * @author andrew
  */
-public class Gold implements Serializable{
+public class Gold implements Serializable {
+
     // class instance variables
+
     private int gold;
-    
-    public Gold(){
-        
+
+    public Gold() {
+
     }
 
     public int getGold() {
@@ -52,5 +55,5 @@ public class Gold implements Serializable{
         }
         return true;
     }
-    
+
 }

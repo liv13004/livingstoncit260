@@ -7,17 +7,20 @@ package byui.cit260.treasure.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  *
  * @author andrew
  */
-public class Map implements Serializable{
+public class Map implements Serializable {
+
     // class instance variables
+
     private int rowCount;
     private int colCount;
-    
-    public Map(){
-        
+
+    public Map() {
+
     }
 
     public int getRowCount() {
@@ -66,6 +69,5 @@ public class Map implements Serializable{
         }
         return true;
     }
-    
-    
+
 }

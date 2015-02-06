@@ -7,19 +7,21 @@ package byui.cit260.treasure.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  *
  * @author andrew
  */
-public class Player implements Serializable{
+public class Player implements Serializable {
+
     // class instance variables
+
     private String name;
     private boolean gender;
 
     public Player() {
     }
-    
-    
+
     public String getName() {
         return name;
     }
@@ -66,5 +68,5 @@ public class Player implements Serializable{
         }
         return true;
     }
-    
+
 }

@@ -12,8 +12,10 @@ import java.util.Objects;
  *
  * @author andrew
  */
-public class Boat implements Serializable{
+public class Boat implements Serializable {
+
     // class instance variables
+
     private String description;
 
     public Boat() {
@@ -53,8 +55,5 @@ public class Boat implements Serializable{
         }
         return true;
     }
-    
-    
-    
-    
+
 }
