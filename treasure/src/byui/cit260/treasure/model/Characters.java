@@ -49,6 +49,6 @@ public class Characters implements Serializable {
     private int trader;
     private int dolfin;
     private int seaturtle;
-	private int name;
+    private int name;
 
 }

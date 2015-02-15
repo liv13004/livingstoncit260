@@ -5,11 +5,18 @@
  */
 package byui.cit260.treasure.control;
 
+import java.util.Random;
+import java.util.Scanner;
+import byui.cit260.treasure.control.Mathcontrol;
+
 /**
  *
  * @author andrew
  */
 public class Checklistcontrol {
+
+    Mathcontrol math = new Mathcontrol();
+    Random random = new Random();
 
     public void SetSail() {
         // TODO - implement Checklistcontrol.SetSail
@@ -22,8 +29,12 @@ public class Checklistcontrol {
     }
 
     public void FixBridge() {
-        // TODO - implement Checklistcontrol.FixBridge
-        throw new UnsupportedOperationException();
+        System.out.println("good job! now you need to complete this equation to fix the bridge...");
+        if (math.math()) {
+            System.out.println("congradulations");
+        } else {
+            System.out.println("you fail.");
+        }
     }
 
     public void OpenChest() {
@@ -37,13 +48,17 @@ public class Checklistcontrol {
     }
 
     public void BuildBoat() {
-        // TODO - implement Checklistcontrol.BuildBoat
-        throw new UnsupportedOperationException();
+
     }
 
     public void HelpTurtle() {
-        // TODO - implement Checklistcontrol.HelpTurtle
-        throw new UnsupportedOperationException();
+        double weight = random.nextInt(50);
+        double counter = weight * (1.05);
+        if (math.turtle(weight, counter)) {
+            System.out.println("congrats");
+        } else {
+            System.out.println("you fail");
+        }
     }
 
     public void GetBearings() {

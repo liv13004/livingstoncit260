@@ -15,7 +15,6 @@ import java.util.Objects;
 public class Map implements Serializable {
 
     // class instance variables
-
     private int rowCount;
     private int colCount;
 

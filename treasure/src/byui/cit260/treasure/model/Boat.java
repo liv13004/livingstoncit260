@@ -15,7 +15,6 @@ import java.util.Objects;
 public class Boat implements Serializable {
 
     // class instance variables
-
     private String description;
 
     public Boat() {

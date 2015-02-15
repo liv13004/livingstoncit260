@@ -14,7 +14,6 @@ import java.io.Serializable;
 public class Gold implements Serializable {
 
     // class instance variables
-
     private int gold;
 
     public Gold() {

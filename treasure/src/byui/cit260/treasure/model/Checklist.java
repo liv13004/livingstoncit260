@@ -15,7 +15,6 @@ import java.util.Objects;
 public class Checklist implements Serializable {
 
     //class instance variable
-
     private int progress;
     private boolean lumber;
     private boolean sail;

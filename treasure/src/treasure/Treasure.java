@@ -6,6 +6,7 @@
 package treasure;
 
 import byui.cit260.treasure.model.Player;
+import byui.cit260.treasure.control.Checklistcontrol;
 
 /**
  *
@@ -18,12 +19,13 @@ public class Treasure {
      */
     public static void main(String[] args) {
         Player player = new Player();
+        Checklistcontrol checklist = new Checklistcontrol();
         player.setName("Fred Flinstone");
         player.setGender(true);
 
         String playerInfo = player.toString();
         System.out.println(playerInfo);
-
+        checklist.HelpTurtle();
     }
 
 }
