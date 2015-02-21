@@ -10,8 +10,8 @@ public class Treasure {
 
     public static void main(String[] args) {
         Checklistcontrol checklist = new Checklistcontrol();
-        StartProgramView banner = new StartProgramView();
-        banner.banner();
+        StartProgramView start = new StartProgramView();
+        start.startProgram();
         
     }
 

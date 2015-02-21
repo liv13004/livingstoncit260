@@ -5,13 +5,24 @@
  */
 package byui.cit260.treasure.view;
 
+import byui.cit260.treasure.control.PlayerControl;
+import byui.cit260.treasure.model.Player;
+
 /**
  *
  * @author Braden
  */
 public class StartProgramView {
     
- // startProgram(): void
+ public void startProgram(){
+     this.displayBanner();      //display banner
+     
+     Player player = PlayerControl.createPlayer(PlayerName);  //create player
+     
+     this.displayWelcomeMessage(player);
+     
+     
+ }
 ////          Begin
 //         
 //Display the banner screen
@@ -20,18 +31,25 @@ public class StartProgramView {
 //DISPLAY a customized welcome message
 //DISPLAY the main menu
 //END
-////
+//
           
-          public void banner() {
-              System.out.println("*******************************************************************");
-              System.out.println("*                                                                 *");
-              System.out.println("*                  Welcome to find the treasure                   *");
-              System.out.println("*             ___                                                 *");
-              System.out.println("*    _       /   |           \\ /                                  *");
-              System.out.println("*     \\     /    |     _______X                                   *");
-              System.out.println("*      \\___/     |    /      / \\                                  *");
-              System.out.println("*                 \\__/                                            *");
+          public void displayBanner() {
+              System.out.println("*******************************************************************"
+                               + "\n*                                                                 *"
+                               + "\n*                  Welcome to find the treasure                   *"
+                               + "\n*                        ___                                      *"
+                               + "\n*               _       /   |           \\ /                       *"
+                               + "\n*                \\     /    |     _______X                        *"
+                               + "\n*                 \\___/     |    /      / \\                       *"
+                               + "\n*                            \\__/                                 *"
+                               + "\n*                                                                 *"
+                               + "\n*                            HAVE FUN!!                           *"
+                               + "\n*******************************************************************");
               
           }
+
+    private void displayWelcomeMessage(Player player) {
+        
+    }
     
 }
