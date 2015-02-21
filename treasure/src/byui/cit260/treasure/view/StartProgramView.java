@@ -11,7 +11,7 @@ package byui.cit260.treasure.view;
  */
 public class StartProgramView {
     
-  startProgram(): void
+ // startProgram(): void
 ////          Begin
 //         
 //Display the banner screen
@@ -21,5 +21,17 @@ public class StartProgramView {
 //DISPLAY the main menu
 //END
 ////
+          
+          public void banner() {
+              System.out.println("*******************************************************************");
+              System.out.println("*                                                                 *");
+              System.out.println("*                  Welcome to find the treasure                   *");
+              System.out.println("*             ___                                                 *");
+              System.out.println("*    _       /   |           \\ /                                  *");
+              System.out.println("*     \\     /    |     _______X                                   *");
+              System.out.println("*      \\___/     |    /      / \\                                  *");
+              System.out.println("*                 \\__/                                            *");
+              
+          }
     
 }
