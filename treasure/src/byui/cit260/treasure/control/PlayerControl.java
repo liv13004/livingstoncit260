@@ -13,7 +13,7 @@ import byui.cit260.treasure.model.Player;
  */
 public class PlayerControl {
 
-    public static Player createPlayer(String PlayerName) {
+    public static Player createPlayer(String playerName) {
         System.out.println("creating player");
         return null;
     }

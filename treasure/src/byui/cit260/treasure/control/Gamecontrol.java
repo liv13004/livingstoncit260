@@ -5,10 +5,27 @@
  */
 package byui.cit260.treasure.control;
 
+import byui.cit260.treasure.model.Player;
+import treasure.Treasure;
+
 /**
  *
  * @author andrew
  */
 public class Gamecontrol {
+    
+public static Player createPlayer(String name) {
+        System.out.println("creating player");
+        if (name == null){
+            return null;
+        }
+        Player player = new Player();
+        player.setName(name);
+        
+        Treasure.setPlayer(player); //save the player
+        
+        return player;
+    }
+
 
 }
