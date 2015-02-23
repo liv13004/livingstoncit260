@@ -5,7 +5,7 @@
  */
 package byui.cit260.treasure.view;
 
-import byui.cit260.treasure.control.Gamecontrol;
+import byui.cit260.treasure.control.GameControl;
 import byui.cit260.treasure.model.Player;
 import java.util.Scanner;
 
@@ -26,10 +26,12 @@ public class StartProgramView {
  String playersName = this.getPlayersName();
  
  //Create and save the player object
- Player player = Gamecontrol.createPlayer(playersName);
+ Player player = GameControl.createPlayer(playersName);
 //DISPLAY a customized welcome message
   this.displayWelcomeMessage(player);
 //DISPLAY the main menu
+  MainMenuView mainMenu = new MainMenuView();
+  mainMenu.displayMenu();
 //END
 //
  
