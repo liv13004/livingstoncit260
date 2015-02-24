@@ -31,5 +31,9 @@ public static Player createPlayer(String name) {
         return player;
     }
 
+    public static void createHelpMenu(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 
 }
