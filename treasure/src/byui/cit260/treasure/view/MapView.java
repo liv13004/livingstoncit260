@@ -9,6 +9,6 @@ package byui.cit260.treasure.view;
  *
  * @author andrew
  */
-public class MapDialogView {
+public class MapView {
     
 }
