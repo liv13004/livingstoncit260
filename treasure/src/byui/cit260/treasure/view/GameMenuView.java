@@ -17,11 +17,13 @@ public class GameMenuView {
         char selection;
         do {
             System.out.println(
-                    "\nm = View Map"
+                    
+                      "\nm = View Map"
                     + "\nb = Open Bag"
                     + "\nc = Checklist"
                     + "\ns = Save Game"
                     + "\nq = Quit");
+            
             String input = this.getInput();
             selection = input.charAt(0);
             this.doAction(selection);

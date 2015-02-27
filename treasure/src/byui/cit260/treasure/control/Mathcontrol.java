@@ -11,16 +11,16 @@ public class Mathcontrol {
 
     Random random = new Random();
     Scanner in = new Scanner(System.in);
-    int w = random.nextInt(2);
+    int equation = random.nextInt(2);
     int x = random.nextInt(50);
     int y = random.nextInt(50);
     int z = random.nextInt(50);
 
     public boolean math() {
-        if (w == 0) {
+        if (equation == 0) {
             return (MathA());
         }
-        if (w == 1) {
+        if (equation == 1) {
             return (MathB());
         } else {
             return (false);
@@ -41,7 +41,7 @@ public class Mathcontrol {
     public boolean turtle(double turtle, double counter) {
         
         turtle = (turtle * 2.20462);
-        System.out.printf("the turtle says its weight is %s kilograms \n but the counterweight is measured in pounds\n", ((turtle* 100) / 100));
+        System.out.printf("the turtle says its weight is %s kilograms \n but the counterweight is measured in pounds\n", ((turtle * 100) / 100));
         System.out.println("How many pounds should be placed on the counter weight to make it 5% higher than the turtles weight?");
         return (in.nextDouble() == counter);
     }
