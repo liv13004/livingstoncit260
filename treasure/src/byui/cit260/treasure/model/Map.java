@@ -19,7 +19,7 @@ public class Map implements Serializable {
     private int colCount;
 
     public Map() {
-
+        
     }
 
     public int getRowCount() {
