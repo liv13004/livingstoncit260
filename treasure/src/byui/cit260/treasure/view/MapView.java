@@ -17,7 +17,7 @@ import treasure.Treasure;
 public class MapView {
     
      void displayMapMenu() {
-         if (location == null); //use for beach
+         if (GameControl.location == null); //use for beach
          
            do {
             System.out.println(

@@ -15,39 +15,39 @@ import java.util.Objects;
 public class Inventory implements Serializable {
 
     // class instance variables
-    private String item;
-    private int quantity;
+    private int lumber;
+    private int sail;
 
     public Inventory() {
-
+        
     }
 
-    public String getItem() {
-        return item;
+    public int getLumber() {
+        return lumber;
     }
 
-    public void setItem(String item) {
-        this.item = item;
+    public void setLumber(int lumber) {
+        this.lumber = lumber;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getSail() {
+        return sail;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void setSail(int sail) {
+        this.sail = sail;
     }
 
     @Override
     public String toString() {
-        return "Inventory{" + "item=" + item + ", quantity=" + quantity + '}';
+        return "Inventory{" + "lumber=" + lumber + ", sail=" + sail + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 23 * hash + Objects.hashCode(this.item);
-        hash = 23 * hash + this.quantity;
+        int hash = 5;
+        hash = 67 * hash + this.lumber;
+        hash = 67 * hash + this.sail;
         return hash;
     }
 
@@ -60,13 +60,16 @@ public class Inventory implements Serializable {
             return false;
         }
         final Inventory other = (Inventory) obj;
-        if (!Objects.equals(this.item, other.item)) {
+        if (this.lumber != other.lumber) {
             return false;
         }
-        if (this.quantity != other.quantity) {
+        if (this.sail != other.sail) {
             return false;
         }
         return true;
     }
+    
+    
+
 
 }

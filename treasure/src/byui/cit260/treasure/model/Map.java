@@ -20,7 +20,7 @@ public class Map implements Serializable {
     private String location;
 
     public Map() {
-
+        
     }
 
     public int getRowCount() {
