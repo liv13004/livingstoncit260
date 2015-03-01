@@ -17,6 +17,7 @@ public class Map implements Serializable {
     // class instance variables
     private int rowCount;
     private int colCount;
+    private String location;
 
     public Map() {
 
@@ -38,35 +39,19 @@ public class Map implements Serializable {
         this.colCount = colCount;
     }
 
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + '}';
+        return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + ", location=" + location + '}';
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + this.rowCount;
-        hash = 79 * hash + this.colCount;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (this.rowCount != other.rowCount) {
-            return false;
-        }
-        if (this.colCount != other.colCount) {
-            return false;
-        }
-        return true;
-    }
+    
 
 }

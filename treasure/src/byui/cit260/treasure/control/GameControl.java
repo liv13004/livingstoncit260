@@ -32,6 +32,10 @@ public static Player createPlayer(String name) {
     }
 
     public static void createHelpMenu(Player player) {
+        System.out.println("\n*** createHelpMenu stub function called ****");
+    }
+
+    public static void createBoatMenu(Player player) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

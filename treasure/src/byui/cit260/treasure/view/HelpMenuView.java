@@ -85,7 +85,7 @@ public class HelpMenuView {
     }
 
     private void moveHelp() {
-        System.out.println("System.out.println(\"*** moveHelp function called ***");
+        System.out.println("moveHelp function called");
     }
 
     private void lumberHelp() {

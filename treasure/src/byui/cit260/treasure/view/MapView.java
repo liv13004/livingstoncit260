@@ -5,10 +5,62 @@
  */
 package byui.cit260.treasure.view;
 
+
+import byui.cit260.treasure.model.Map;
+import byui.cit260.treasure.control.GameControl;
+import java.util.Scanner;
+import treasure.Treasure;
 /**
  *
- * @author andrew
+ * @author braden
  */
 public class MapView {
+    
+     void displayMapMenu() {
+         if (location == null); //use for beach
+         
+           do {
+            System.out.println(
+                    
+                      "\nt = Visit Trader"
+                    + "\nc = Build Boat"
+                    + "\no = Sail to Ocean"                    
+                    + "\nq = Quit");
+            
+            String input = this.getInput();
+            selection = input.charAt(0);
+            this.doAction(selection);
+            } while (selection != 'q');   
+           
+           if (location == null); //use for ocean
+            do {
+            System.out.println(
+                    
+                      "\nb = Visit Trader"
+                    + "\nl = leave boat"
+                    + "\ni = Sail Island"
+                    + "\ns = Sail Beach"
+                    + "\nq = Quit");
+            
+            String input = this.getInput();
+            selection = input.charAt(0);
+            this.doAction(selection);
+        } while (selection != 'q');   
+            
+            if (location == null); //use for island
+            do {
+            System.out.println(
+                    
+                      "\nb = Visit Trader"
+                    + "\nl = leave boat"
+                    + "\ni = Sail Island"
+                    + "\ns = Sail Beach"
+                    + "\nq = Quit");
+            
+            String input = this.getInput();
+            selection = input.charAt(0);
+            this.doAction(selection);
+        } while (selection != 'q');   
+    }
     
 }

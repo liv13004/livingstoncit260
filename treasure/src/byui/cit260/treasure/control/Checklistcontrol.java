@@ -15,40 +15,49 @@ import byui.cit260.treasure.control.Mathcontrol;
  */
 public class Checklistcontrol {
 
-    Mathcontrol math = new Mathcontrol();
+    public static Mathcontrol math = new Mathcontrol();
     Random random = new Random();
 
     public void SetSail() {
         // TODO - implement Checklistcontrol.SetSail
-        throw new UnsupportedOperationException();
+        
+        boolean valid = true;
     }
 
     public void PassWhirlpool() {
         // TODO - implement Checklistcontrol.PassWhirlpool
-        throw new UnsupportedOperationException();
+        
+        boolean valid = true;
     }
 
-    public void FixBridge() {
-        System.out.println("good job! now you need to complete this equation to fix the bridge...");
-        if (math.math()) {
-            System.out.println("congradulations");
-        } else {
-            System.out.println("you fail.");
-        }
+    public static boolean FixBridge(boolean input) {
+        System.out.println("Good Job! Now you need to complete this equation to fix the bridge...");
+        if (math.math()){ 
+            System.out.println("Congratulations");
+            boolean complete = input;
+            return true;
+            } 
+        else {
+            System.out.println("You Fail.");
+            return false;
+            }
     }
 
-    public void OpenChest() {
+    public static boolean OpenChest(boolean input) {
         // TODO - implement Checklistcontrol.OpenChest
-        throw new UnsupportedOperationException();
+        
+        boolean complete = input;
+        return complete;
     }
 
-    public void GetLumber() {
+    public boolean GetLumber(boolean input) {
         // TODO - implement Checklistcontrol.GetLumber
         throw new UnsupportedOperationException();
     }
 
-    public void BuildBoat() {
-        
+    public static boolean BuildBoat(boolean input) {
+        boolean complete = input;        
+       return complete;        
     }
 
     public void HelpTurtle() {
@@ -56,14 +65,15 @@ public class Checklistcontrol {
         double counter = weight * (1.05);
         if (math.turtle(weight, counter)) {
             System.out.println("congrats");
-        } else {
+             } 
+            else {
             System.out.println("you fail");
         }
     }
 
-    public void GetBearings() {
+    public static boolean GetBearings(boolean input){
+        boolean complete = input;
+        return complete;        
         // TODO - implement Checklistcontrol.GetBearings
-        throw new UnsupportedOperationException();
-    }
-
+        }
 }
