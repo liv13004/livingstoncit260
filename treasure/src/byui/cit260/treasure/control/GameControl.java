@@ -40,8 +40,8 @@ public static Player createPlayer(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public static boolean location(boolean input){
-boolean complete = input;        
+    public static String location(String input){
+        String complete = input;        
        return complete;    
 }
 }
