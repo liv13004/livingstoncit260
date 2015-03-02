@@ -58,7 +58,8 @@ public class GameMenuView {
                 System.out.println("display map...");
                 break;
             case 'b':
-                System.out.println("opening bag..");
+                InventoryView inventoryView = new InventoryView();
+                inventoryView.openInventory();
                 break;
             case 'c':
                 System.out.println("viewing checklist...");

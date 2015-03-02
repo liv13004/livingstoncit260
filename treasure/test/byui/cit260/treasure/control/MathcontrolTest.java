@@ -6,9 +6,11 @@
 package byui.cit260.treasure.control;
 
 import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import org.junit.BeforeClass;
 
 /**
  *
@@ -17,6 +19,14 @@ import static org.junit.Assert.*;
 public class MathcontrolTest {
 
     public MathcontrolTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() throws Exception {
+    }
+
+    @AfterClass
+    public static void tearDownClass() throws Exception {
     }
 
     @Before
@@ -37,8 +47,7 @@ public class MathcontrolTest {
         boolean expResult = false;
         boolean result = instance.math();
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
     /**
@@ -47,14 +56,13 @@ public class MathcontrolTest {
     @Test
     public void testTurtle() {
         System.out.println("turtle");
-        double turtle = 0.0;
-        int counter = 0;
+        double turtle = 50;
+        int counter = 40;
         Mathcontrol instance = new Mathcontrol();
-        boolean expResult = false;
+        boolean expResult = true;
         boolean result = instance.turtle(turtle, counter);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        
     }
 
 }

@@ -25,6 +25,7 @@ public class InventoryView {
                     + "\nYou have %s Lumber"
                     + "\nYou have %s sail", inventory.getLumber(), inventory.getSail());
             System.out.println("\nWhat would you like to do?"
+                    + "\ng = take item"
                     + "\nd = Drop item"
                     + "\nb = Back");
             selection = getinput.getChar();
@@ -35,10 +36,15 @@ public class InventoryView {
 
     private void doAction(char selection) {
         switch (selection) {
+            case 'g':
+                System.out.println("what would you like to take?");
+                System.out.printf("\n%s\n",getinput.getString());
+                break;
             case 'd':
                 System.out.println("What would you like to drop?"
-                        + "\nl = lumber"
-                        + "\ns = sail");
+                        + "\n l = lumber"
+                        + "\n s = sail");
+                System.out.printf("\n %s", getinput.getString());
                 inventorycontrol.dropItem(inventory, getinput.getChar());
                 break;
             case 'b':

@@ -31,6 +31,36 @@ public class GetInput {
             break; // out of the (exit) the repetition
 
         }
-        return selection.charAt(0); //return the name
+        return selection.charAt(0); //return the char
     }
+    
+    public String getString(){
+        String selection = null;
+        while(true){
+            System.out.println("Enter your selection Below...");
+            selection = scanner.next();
+            if (selection.isEmpty()){
+                System.out.println("you must enter a valid string...");
+                continue;
+            }
+            break;
+        }
+        return(selection);
+    }
+
+    public double getNumber() {
+double selection;
+        while(true){
+            System.out.println("Enter your selection Below...");
+            
+            if (scanner.hasNextDouble()){
+                System.out.println("you must enter a valid string...");
+                continue;
+            }
+            selection = scanner.nextDouble();
+            
+            break;
+            
+        }
+        return(selection);    }
 }

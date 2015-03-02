@@ -6,6 +6,7 @@
 package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.model.Player;
+import treasure.Treasure;
 
 /**
  *
@@ -14,8 +15,14 @@ import byui.cit260.treasure.model.Player;
 public class PlayerControl {
 
     public static Player createPlayer(String playerName) {
+        if (playerName == null){
+            return null;
+        }
         System.out.println("creating player");
-        return null;
+        Player player = new Player();
+        player.setName(playerName);
+        Treasure.setPlayer(player);
+        return player;
     }
     
 }
