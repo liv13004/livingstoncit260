@@ -13,8 +13,7 @@ import treasure.Treasure;
  * @author andrew
  */
 public class GameControl {
-    public static Object location;
-    
+        
     public static void createNewGame(Player player) {
         System.out.println("\n*** createNewGAme stub function called ****");
     }
@@ -40,8 +39,11 @@ public static Player createPlayer(String name) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
-    public static boolean location(boolean input){
-boolean complete = input;        
-       return complete;    
-}
+    public static void createMapView(Player player) {
+        System.out.println("\n*** create mapView stub function called ****");
+    }
+//    public static String location(String input){
+//        String complete = input;        
+//      return complete;    
+//}
 }
