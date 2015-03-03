@@ -14,8 +14,11 @@ import java.util.Scanner;
  * @author Braden
  */
 public class StartProgramView {
-
+    CharacterView character = new CharacterView();
     public StartProgramView() {
+        character.trader();
+        character.turtle();
+        character.dolphin();
     }
 
     public void startProgram() {
@@ -32,8 +35,6 @@ public class StartProgramView {
 //DISPLAY the main menu
         MainMenuView mainMenu = new MainMenuView();
         mainMenu.displayMenu();
-//END
-//
 
     }
 

@@ -13,10 +13,10 @@ import byui.cit260.treasure.view.GetInput;
  * @author andrew
  */
 public class InventoryControl {
-
+    Inventory inventory = new Inventory();
     GetInput getinput = new GetInput();
 
-    public void dropItem(Inventory inventory, char selection) {
+    public void dropItem(char selection) {
         
         
         switch (selection) {
@@ -33,5 +33,31 @@ public class InventoryControl {
         
 
     }
+
+    public void addItem(char selection) {
+ switch (selection) {
+            case 'l':
+                inventory.setLumber(inventory.getLumber() + 1);
+                break;
+            case 's':
+                inventory.setSail(inventory.getSail() + 1);
+                break;
+            default:
+                System.out.println("\ninvalid selection");
+                
+        }
+ 
+    }
+    public int getLumber() {
+        return inventory.getLumber();
+    }
+
+    
+
+    public int getSail() {
+        return inventory.getSail();
+    }
+
+    
 
 }

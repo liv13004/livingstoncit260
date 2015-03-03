@@ -53,14 +53,10 @@ double selection;
         while(true){
             System.out.println("Enter your selection Below...");
             
-            if (scanner.hasNextDouble()){
-                System.out.println("you must enter a valid string...");
-                continue;
-            }
             selection = scanner.nextDouble();
-            
             break;
             
         }
-        return(selection);    }
+        return(selection);
+    }
 }

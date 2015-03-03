@@ -16,29 +16,39 @@ public class Mathcontrol {
         int equation = random.nextInt(2);
         if (equation == 0) {
             boolean valid = MathA();
+            if (valid == false) {
+                System.out.println("sorry wrong...");
+            }
             return (valid);
         }
         if (equation == 1) {
             boolean valid = MathB();
+            if (valid == false) {
+                System.out.println("sorry wrong...");
+            }
             return (valid);
         } else {
             return (false);
         }
     }
 
-    int x = random.nextInt(50);
-    int y = random.nextInt(50);
-    int z = random.nextInt(50);
+    
 
     private boolean MathA() {
+        int x = random.nextInt(50);
+        int y = random.nextInt(50);
+        int z = random.nextInt(50);
         System.out.printf("What is %s * %s - %s \n", x, y, z);
-        return ((x * y - z) == (getinput.getChar()));
+        return ((x * y - z) == (getinput.getNumber()));
 
     }
 
     private boolean MathB() {
+        int x = random.nextInt(50);
+        int y = random.nextInt(50);
+        int z = random.nextInt(50);
         System.out.printf("What is %s - %s / %s \n", x, y, z);
-        return ((x - y / z) == (getinput.getChar()));
+        return ((x - y / z) == (getinput.getNumber()));
     }
 
     public boolean turtle(double turtle, double counter) {

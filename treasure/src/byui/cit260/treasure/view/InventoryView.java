@@ -15,17 +15,17 @@ import byui.cit260.treasure.control.InventoryControl;
 public class InventoryView {
 
     GetInput getinput = new GetInput();
-    InventoryControl inventorycontrol = new InventoryControl();
-    Inventory inventory = new Inventory();
+    InventoryControl inventorycontrol;
 
-    public void openInventory() {
+    public void openInventory(InventoryControl icontrol) {
         char selection;
+        inventorycontrol = icontrol;
         do {
             System.out.printf(""
                     + "\nYou have %s Lumber"
-                    + "\nYou have %s sail", inventory.getLumber(), inventory.getSail());
+                    + "\nYou have %s sail", inventorycontrol.getLumber(), inventorycontrol.getSail());
             System.out.println("\nWhat would you like to do?"
-                    + "\ng = take item"
+                    + "\nt = take item"
                     + "\nd = Drop item"
                     + "\nb = Back");
             selection = getinput.getChar();
@@ -36,16 +36,17 @@ public class InventoryView {
 
     private void doAction(char selection) {
         switch (selection) {
-            case 'g':
-                System.out.println("what would you like to take?");
-                System.out.printf("\n%s\n",getinput.getString());
+            case 't':
+                System.out.println("What do you want to take."
+                        + "\n l = Lumber"
+                        + "\n s = sail");
+                inventorycontrol.addItem(getinput.getChar());
                 break;
             case 'd':
                 System.out.println("What would you like to drop?"
                         + "\n l = lumber"
                         + "\n s = sail");
-                System.out.printf("\n %s", getinput.getString());
-                inventorycontrol.dropItem(inventory, getinput.getChar());
+                inventorycontrol.dropItem(getinput.getChar());
                 break;
             case 'b':
                 System.out.println("Back...");

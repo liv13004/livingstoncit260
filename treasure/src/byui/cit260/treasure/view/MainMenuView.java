@@ -8,6 +8,7 @@ package byui.cit260.treasure.view;
 import java.util.Scanner;
 import treasure.Treasure;
 import byui.cit260.treasure.control.GameControl;
+import byui.cit260.treasure.control.InventoryControl;
 
 
 /**
@@ -74,7 +75,7 @@ public class MainMenuView {
         GameControl.createNewGame(Treasure.getPlayer());
 
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.displayMenu(new InventoryControl());
     }
 
     private void startExistingGame() {

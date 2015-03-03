@@ -5,6 +5,8 @@
  */
 package byui.cit260.treasure.view;
 
+import byui.cit260.treasure.control.InventoryControl;
+import byui.cit260.treasure.view.HelpMenuView;
 import java.util.Scanner;
 
 /**
@@ -12,8 +14,10 @@ import java.util.Scanner;
  * @author andrew
  */
 public class GameMenuView {
-
-    void displayMenu() {
+    InventoryControl inventorycontrol;
+    HelpMenuView helpmenu = new HelpMenuView();
+    void displayMenu(InventoryControl icontrol) {
+        inventorycontrol = icontrol;
         char selection;
         do {
             System.out.println(
@@ -22,6 +26,7 @@ public class GameMenuView {
                     + "\nb = Open Bag"
                     + "\nc = Checklist"
                     + "\ns = Save Game"
+                    + "\nh = help menu"
                     + "\nq = Quit");
             
             String input = this.getInput();
@@ -59,13 +64,17 @@ public class GameMenuView {
                 break;
             case 'b':
                 InventoryView inventoryView = new InventoryView();
-                inventoryView.openInventory();
+                inventoryView.openInventory(inventorycontrol);
                 break;
             case 'c':
                 System.out.println("viewing checklist...");
                 break;
             case 's':
                 System.out.println("save game...");
+                break;
+            case 'h':
+                System.out.println("help menu...");
+                helpmenu.displayHelpMenu();
                 break;
             case 'q':
                 System.out.println("quitting");
@@ -75,5 +84,4 @@ public class GameMenuView {
                 System.out.println("\ninvalid selection");
         }
     }
-
 }
