@@ -5,18 +5,21 @@
  */
 package byui.cit260.treasure.view;
 
+import byui.cit260.treasure.control.Mapcontrol;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.util.Scanner;
+import treasure.Treasure;
 
 /**
  *
  * @author Braden
  */
-public class MapViewTest {
+public class playerLocation {
     
-    public MapViewTest() {
+    public playerLocation() {
     }
     
     @BeforeClass
@@ -29,8 +32,7 @@ public class MapViewTest {
 
     @Test
     public void testSomeMethod() {
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        Mapcontrol.playerLocation location;
+            }
     
 }

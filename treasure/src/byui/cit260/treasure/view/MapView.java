@@ -1,115 +1,51 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package byui.cit260.treasure.view;
 
+
+package byui.cit260.treasure.view;
 import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.control.GameControl;
-import byui.cit260.treasure.control.Mapcontrol;
-import byui.cit260.treasure.control.Mapcontrol;
 import java.util.Scanner;
 import treasure.Treasure;
+
 /**
  *
- * @author braden
+ * @author Braden
  */
+@SuppressWarnings("InitializerMayBeStatic")
 public class MapView {
     
-    public class MainMapView{
-            boolean valid = false;
-            String place = null;
-            String test = null;
-            
-            String test = Mapcontrol.Location;
-         if (test == "beach") {
-                 do {
-                 System.out.println(
-                         
-                         "\nt = Visit Beach"
-                                 + "\nc = Visit Ocean"
-                                 + "\no = Visit Island"
-                                 + "\nq = Quit");
-                 
-                 String input = this.getInput();
-                 selection = input.charAt(0);
-                 this.doAction();
-             }
-             while (selection != 'q');
-             }
-             }
-         
-             
-    public class BeachMapView { 
-             public String lugar;
-             Mapcontrol.Location(location)= lugar;
-             if (Mapcontrol.Location(location) == "beach") { //use for ocean
-             do {
-                 System.out.println(
-                         
-                         "\nb = Visit Trader"
-                                 + "\nl = leave boat"
-                                 + "\ni = Sail Island"
-                                 + "\ns = Sail Beach"
-                                 + "\nq = Quit");
-                 
-                 String input = this.getInput();
-                 selection = input.charAt(0);
-                 this.doAction(selection);
-             }
-             while (selection != 'q');
-             }
-             }
-     
-    public class OceanMapView{
-             if (GameControl. == null); //use for island
-             do {
-                 System.out.println(
-                         
-                         "\nb = Visit Trader"
-                                 + "\nl = leave boat"
-                                 + "\ni = Sail Island"
-                                 + "\ns = Sail Beach"
-                                 + "\nq = Quit");
-                 
-                 String input = this.getInput();
-                 selection = input.charAt(0);
-                 this.doAction(selection);
-             }
-             while (selection != 'q');
-         }
+    public static void testMapView() {
     
-   public class IslandMapView(){
-             if (GameControl. == null); //use for island
-             do {
-                 System.out.println(
-                         
-                         "\nb = Visit Trader"
-                                 + "\nl = leave boat"
-                                 + "\ni = Sail Island"
-                                 + "\ns = Sail Beach"
-                                 + "\nq = Quit");
-                 
-                 String input = this.getInput();
-                 selection = input.charAt(0);
-                 this.doAction(selection);
-             }
-             while (selection != 'q');
-         }
-          
+    setLocation location = new ", location=";
+    }
+    
+    void displayMapView() {
+        char selection;
+        do {
+            System.out.println(
+                    "\nn = Need some Help?"
+                    + "\nG = What is the goal of the game?"
+                    + "\nM = How to Move"
+                    + "\nL = Estimating the amount of lumber"
+                    + "\nC = Convert from Metric to Standard"
+                    + "\nQ = Quit");
+            String input = this.getInput(); //get the user's selection
+            selection = input.charAt(0); //get first character of string
+            this.doAction(selection); //do action based on selection
+        } while (selection != 'q');
+    }
+
      private String getInput() {
         boolean valid = false; //indicates if the name has been retrieved
         String selection = null;
         Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
-        while (!valid) {//while a valid input has not been retrieved
-            //prompt for the player's input
+        while (!valid) {//while a valid name has not been retrieved
+            //prompt for the player's name
             System.out.println("Enter your selection below;");
             //get the name from the keyboard and trim off the blanks
             selection = keyboard.nextLine();
             selection = selection.trim();
-            //if the input is invalid (less than two character in length)
+            //if the name is invalid (less thajn two character in length)
             if (selection.isEmpty()) {
                 System.out.println("selection cannot be blank");
                 continue; // and repeat again
@@ -117,22 +53,22 @@ public class MapView {
             break; // out of the (exit) the repetition
 
         }
-        return selection; //return the input
+        return selection; //return the name
     }
 
     private void doAction(char choice) {
         switch (choice) {
             case 'G':  //game information
-                this.MainMap();
+                this.gameHelp();
                 break;
             case 'M': // How to Move
-                this.beachMapView();
+                this.moveHelp();
                 break;
             case 'L': //How to Calculate Lumber
-                this.oceanMapView();
+                this.lumberHelp();
                 break;
             case 'C': //Convert from Metric to Standard
-               this.islandMapView();
+               this.convertHelp();
                break;
             case 'q': // Quit Help menu
                 System.out.println("quitting");
@@ -141,37 +77,27 @@ public class MapView {
                 System.out.println("\ninvalid selection");
         }
     }
-    
-    private void MainMap() {
-        System.out.println("mapView Called");
-        GameControl.createMapView(Treasure.getPlayer());
-//display the map
-        MainMapView mapView = new MainMapView();
-        mapView.displayMainMap();
+
+    private void gameHelp() {
+        System.out.println("gameHelp Called");
+        GameControl.createHelpMenu(Treasure.getPlayer());
+//display the help menu
+        HelpMenuView helpMenu = new HelpMenuView();
+        helpMenu.displayHelpMenu();
       
     }
-    private void beachMapView() {
-        System.out.println("beachMapView function called");
-        
-        GameControl.createBeachMapView(Treasure.getPlayer());
-//display the map
-        BeachMapView beachMap = new BeachMapView();
-        beachMap.displayBeachMap();
+
+    private void beachHelp() {
+        System.out.println("beachHelp function called");
     }
-    private void oceanMapView() {
-        System.out.println("oceanMapView function called");
-        
-        GameControl.createOceanMapView(Treasure.getPlayer());
-//display the map
-        OceanMapView oceanMap = new OceanMapView();
-        oceanMap.displayOceanMap();
+
+    private void oceanHelp() {
+        System.out.println("oceanHelp function called");
     }
-    private void islandMapView() {
-        System.out.println("islandMapView function called");
-        
-        GameControl.createIslandMapView(Treasure.getPlayer());
-//display the map
-        IslandMapView islandMap = new MapView();
-        islandMap.displayIslandMap();
+    
+     private void islandHelp() {
+        System.out.println("islandHelp function called");
     }
-}  
+
+    
+}

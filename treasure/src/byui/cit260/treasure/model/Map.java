@@ -12,6 +12,7 @@ import java.util.Objects;
  *
  * @author andrew
  */
+
 public class Map implements Serializable {
 
     // class instance variables
@@ -27,8 +28,8 @@ public class Map implements Serializable {
         return rowCount;
     }
 
-    public void setRowCount(int rowCount) {
-        this.rowCount = rowCount;
+    public void setRowCount(int IrowCount) {
+        rowCount = IrowCount;
     }
 
     public int getColCount() {
@@ -44,12 +45,19 @@ public class Map implements Serializable {
     }
 
     public void setLocation(String location) {
-        this.location = location;
+           // Map.setLocation(location);
+            this.location = location;
     }
 
     @Override
     public String toString() {
         return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + ", location=" + location + '}';
+    }
+
+    public static class setRowCount {
+
+        public setRowCount() {
+        }
     }
 
     

@@ -5,24 +5,21 @@
  */
 package byui.cit260.treasure.control;
 
+import java.util.Scanner;
+import treasure.Treasure;
 /**
  *
  * @author andrew
  */
 public class Mapcontrol {
-    public static String Location;
+   // public static String Location;
 
-    public static String Location() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    public class playerLocation{
+       playerLocation(){
+       String location = "";
+       location = "beach";
+           }
 
-    
-    /**
-     *
-     */
-    public class Location{
-    public String location;
-        
     }
     
 
