@@ -16,7 +16,8 @@ public class Boat implements Serializable {
 
     // class instance variables
     private String description;
-
+    private boolean onboard = true;
+    
     public Boat() {
     }
 
@@ -28,15 +29,27 @@ public class Boat implements Serializable {
         this.description = description;
     }
 
+    public boolean boatOccupied() {
+        return false;
+        }
+
+    public boolean isOnboard() {
+        return onboard;
+    }
+
+    public void setOnboard(boolean onboard) {
+        this.onboard = onboard;
+    }
+
     @Override
     public String toString() {
-        return "Boat{" + "description=" + description + '}';
+        return "Boat{" + "description=" + description + ", onboard=" + onboard + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 83 * hash + Objects.hashCode(this.description);
+        int hash = 7;
+        hash = 79 * hash + (this.onboard ? 1 : 0);
         return hash;
     }
 
@@ -52,7 +65,11 @@ public class Boat implements Serializable {
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (this.onboard != other.onboard) {
+            return false;
+        }
         return true;
     }
-
+   
+    
 }

@@ -6,6 +6,8 @@
 package byui.cit260.treasure.view;
 
 import byui.cit260.treasure.control.InventoryControl;
+import byui.cit260.treasure.model.Map;
+import byui.cit260.treasure.view.MapView;
 import byui.cit260.treasure.view.HelpMenuView;
 import java.util.Scanner;
 
@@ -26,7 +28,7 @@ public class GameMenuView {
                     + "\nb = Open Bag"
                     + "\nc = Checklist"
                     + "\ns = Save Game"
-                    + "\nh = help menu"
+                    + "\nh = help menu"                        
                     + "\nq = Quit");
             
             String input = this.getInput();
@@ -61,6 +63,8 @@ public class GameMenuView {
         switch (selection) {
             case 'm':
                 System.out.println("display map...");
+                MapView map = new MapView();
+                map.mainMapView();
                 break;
             case 'b':
                 InventoryView inventoryView = new InventoryView();

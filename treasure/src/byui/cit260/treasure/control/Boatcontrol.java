@@ -5,24 +5,15 @@
  */
 package byui.cit260.treasure.control;
 
+import byui.cit260.treasure.model.Boat;
 /**
  *
  * @author andrew
  */
 public class Boatcontrol {
-
-    public void BuildBoat() {
-        // TODO - implement Boatcontrol.BuildBoat
-        throw new UnsupportedOperationException();
+        Boat boat = new Boat();
+       
+    public boolean onBoat() {
+    return(boat.isOnboard());
     }
-
-    /**
-     *
-     * @param location
-     */
-    public void Sail(int location) {
-        // TODO - implement Boatcontrol.Sail
-        throw new UnsupportedOperationException();
-    }
-
 }

@@ -14,11 +14,13 @@ import java.util.Scanner;
  * @author Braden
  */
 public class StartProgramView {
-    CharacterView character = new CharacterView();
+    //CharacterView character = new CharacterView();
+    MapView map = new MapView();
     public StartProgramView() {
-        character.trader();
-        character.turtle();
-        character.dolphin();
+//        character.trader();
+//        character.turtle();
+//        character.dolphin();
+//        map.mainMapView();
     }
 
     public void startProgram() {
