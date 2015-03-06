@@ -20,9 +20,11 @@ public abstract class View implements ViewInterface {
     
     @Override
     public void display(){
-        String value = "";
+        String value;
         do{
+            
             System.out.println(this.promptMessage);
+            value = getInput();
         }while(!value.equals("q"));
     }
     
