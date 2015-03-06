@@ -18,7 +18,7 @@ public class GameMenuView extends View {
         super(
         
            "\nm = View Map"
-                    + "\nb = Open Bag"
+                    + "\ni = Open Inventory"
                     + "\nc = Checklist"
                     + "\ns = Save Game"
                     + "\nh = help menu"                        
@@ -85,9 +85,9 @@ public class GameMenuView extends View {
                 MapView map = new MapView();
                 map.display();
                 break;
-            case "b":
-                InventoryView inventoryView = new InventoryView();
-                //InventoryControl InventoryView() = new InventoryControl();
+            case "i":
+                InventoryView inventory = new InventoryView();
+                inventory.display();
                 break;
             case "c":
                 System.out.println("viewing checklist...");
