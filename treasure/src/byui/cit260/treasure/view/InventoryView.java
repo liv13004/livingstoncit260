@@ -5,7 +5,6 @@
  */
 package byui.cit260.treasure.view;
 
-import byui.cit260.treasure.model.Inventory;
 import byui.cit260.treasure.control.InventoryControl;
 
 /**

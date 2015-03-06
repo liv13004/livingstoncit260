@@ -6,7 +6,6 @@
 package byui.cit260.treasure.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
@@ -59,7 +58,4 @@ public class Map implements Serializable {
         public setRowCount() {
         }
     }
-
-    
-
 }

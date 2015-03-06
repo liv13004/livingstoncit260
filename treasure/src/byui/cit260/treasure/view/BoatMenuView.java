@@ -102,7 +102,4 @@ public class BoatMenuView {
  private void sailBeach() {
         System.out.println("sailBeach function called");
     }
- 
 }
-
- 

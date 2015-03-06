@@ -35,7 +35,7 @@ public static Player createPlayer(String name) {
     }
 
     public static void createBoatMenu(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
     public static void createMapView(Player player) {
