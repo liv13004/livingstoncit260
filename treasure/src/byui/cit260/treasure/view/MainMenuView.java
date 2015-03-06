@@ -28,18 +28,22 @@ public class MainMenuView extends View{
         
     @Override
     public boolean doAction(Object obj) {
-        char value = (char) obj;
+        //string value = (String) obj;
+        String value = (String) obj;
+        //value = value.toUpperCase();
+        
+        
         boolean valid = false;
         switch (value) {
-            case 'n':
+            case "n":
                 startNewGame();
                 valid = true;
                 break;
-            case 'l':
+            case "l":
                 startExistingGame();
                 valid = true;
                 break;
-            case 'q':
+            case "q":
                 System.out.println("quitting");
                 System.exit(0);
                 break;

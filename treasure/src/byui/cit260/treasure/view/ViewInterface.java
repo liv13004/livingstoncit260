@@ -5,12 +5,12 @@
  */
 package byui.cit260.treasure.view;
 
-/**
- *
- * @author andrew
- */
+
+
 public interface ViewInterface {
     public void display();
     public String getInput();
     public boolean doAction(Object obj);
+    
+    
 }
