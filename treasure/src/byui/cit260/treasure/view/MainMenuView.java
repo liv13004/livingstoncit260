@@ -43,6 +43,10 @@ public class MainMenuView extends View{
                 startExistingGame();
                 valid = true;
                 break;
+                case "o":
+                displayOptions();
+                valid = true;
+                break;
             case "q":
                 System.out.println("quitting");
                 System.exit(0);
@@ -56,9 +60,12 @@ public class MainMenuView extends View{
     private void startNewGame() {
         System.out.println("NewGame");
         GameControl.createNewGame(Treasure.getPlayer());
-
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu(new InventoryControl());
+        GameControl.createGameMenu(Treasure.getPlayer());
+        //DISPLAY the Game menu
+        GameMenuView GameMenu = new GameMenuView() {};
+        GameMenu.display();
+        //View.doGameMenuView();
+     //   gameMenu.displayMenu(new InventoryControl());
     }
 
     private void startExistingGame() {

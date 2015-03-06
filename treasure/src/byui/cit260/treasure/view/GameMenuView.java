@@ -5,87 +5,112 @@
  */
 package byui.cit260.treasure.view;
 
-import byui.cit260.treasure.control.InventoryControl;
-import byui.cit260.treasure.model.Map;
-import byui.cit260.treasure.view.MapView;
-import byui.cit260.treasure.view.HelpMenuView;
 import java.util.Scanner;
+import treasure.Treasure;
+import byui.cit260.treasure.control.GameControl;
+import byui.cit260.treasure.control.InventoryControl;
+
 
 /**
  *
  * @author andrew
  */
-public class GameMenuView {
-    InventoryControl inventorycontrol;
-    HelpMenuView helpmenu = new HelpMenuView();
-    void displayMenu(InventoryControl icontrol) {
-        inventorycontrol = icontrol;
-        char selection;
-        do {
-            System.out.println(
-                    
-                      "\nm = View Map"
+public abstract class GameMenuView extends View {
+
+    public GameMenuView() {
+        super(
+        
+           "\nm = View Map"
                     + "\nb = Open Bag"
                     + "\nc = Checklist"
                     + "\ns = Save Game"
                     + "\nh = help menu"                        
                     + "\nq = Quit");
+    }
+
+    //GameMenuView() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+
+    @Override
+    public boolean doAction(Object obj) {
+        
+    //String value = {String} obj;
+    //value = value.toUpperCase()'
+     // InventoryControl inventorycontrol;
+    //HelpMenuView helpmenu = new HelpMenuView();
+     
+    //displayMenu(InventoryControl icontrol) {
+       // inventorycontrol = icontrol;
+        //char selection;
+       // do {
+         //   System.out.println(
+                   
+                   
             
-            String input = this.getInput();
-            selection = input.charAt(0);
-            this.doAction(selection);
-        } while (selection != 'q');
-    }
+           // String input = this.getInput();
+           //selection = input.charAt(0);
+          //boolean doAction = this.doAction(selection);
+        //} while (selection != 'q');
+        //return false;
+        
+    //}
+    //}
+//@Override
+//public boolean 
 
-    private String getInput() {
-        boolean valid = false; //indicates if the name has been retrieved
-        String selection = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+    //private String getInput() {
+       // boolean valid = false; //indicates if the name has been retrieved
+       // String selection = null;
+       // Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
-        while (!valid) {//while a valid name has not been retrieved
+        //while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("Enter your selection below;");
+           // System.out.println("Enter your selection below;");
             //get the name from the keyboard and trim off the blanks
-            selection = keyboard.nextLine();
-            selection = selection.trim();
+            //selection = keyboard.nextLine();
+           // selection = selection.trim();
             //if the name is invalid (less thajn two character in length)
-            if (selection.isEmpty()) {
-                System.out.println("selection cannot be blank");
-                continue; // and repeat again
-            }
-            break; // out of the (exit) the repetition
+           // if (selection.isEmpty()) {
+            //    System.out.println("selection cannot be blank");
+            //    continue; // and repeat again
+           // }
+            //break; // out of the (exit) the repetition
 
-        }
-        return selection; //return the name
-    }
+        //}
+        //return selection; //return the name
+   // }
 
-    private void doAction(char selection) {
-        switch (selection) {
-            case 'm':
+  String value = (String) obj;
+       switch (value) {
+            case "m":
                 System.out.println("display map...");
                 MapView map = new MapView();
                 map.mainMapView();
                 break;
-            case 'b':
+            case "b":
                 InventoryView inventoryView = new InventoryView();
-                inventoryView.openInventory(inventorycontrol);
+                //InventoryControl InventoryView() = new InventoryControl();
                 break;
-            case 'c':
+            case "c":
                 System.out.println("viewing checklist...");
                 break;
-            case 's':
+            case "s":
                 System.out.println("save game...");
                 break;
-            case 'h':
+            case "h":
                 System.out.println("help menu...");
-                helpmenu.displayHelpMenu();
+                //View.helpmenu.displayHelpMenu();
                 break;
-            case 'q':
+            case "q":
                 System.out.println("quitting");
                 System.exit(0);
                 break;
             default:
                 System.out.println("\ninvalid selection");
-        }
-    }
+       }
+        return false;
+       
+      }
+  
 }

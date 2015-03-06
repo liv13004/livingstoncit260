@@ -6,6 +6,8 @@
 package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.model.Player;
+import byui.cit260.treasure.view.GameMenuView;
+import byui.cit260.treasure.view.MainMenuView;
 import treasure.Treasure;
 
 /**
@@ -28,6 +30,12 @@ public static Player createPlayer(String name) {
         Treasure.setPlayer(player); //save the player
         
         return player;
+    }
+
+public static void createGameMenu(Player player) {
+        //Super.GameMenuView gameMenu = new GameMenuView();
+        System.out.println("\n*** createGameMenu stub function called ****");
+        //View.this.doAction();
     }
 
     public static void createHelpMenu(Player player) {

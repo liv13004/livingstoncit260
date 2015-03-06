@@ -25,7 +25,7 @@ public abstract class View implements ViewInterface {
             
             System.out.println(this.promptMessage);
             value = getInput();
-            this.doAction(value);
+            boolean doAction = this.doAction(value);
         }while(!value.equals("q"));
     }
     
@@ -41,9 +41,9 @@ public abstract class View implements ViewInterface {
             //get the name from the keyboard and trim off the blanks
             selection = keyboard.nextLine();
             selection = selection.trim();
-            //if the name is invalid (less thajn two character in length)
-            if (selection.isEmpty()) {
-                System.out.println("selection cannot be blank");
+            //if the name is invalid (less than two character in length)
+            if (selection.length() < 1) {
+                System.out.println("\n*** Invalid selection *** Try again");
                 continue; // and repeat again
             }
             break; // out of the (exit) the repetition
