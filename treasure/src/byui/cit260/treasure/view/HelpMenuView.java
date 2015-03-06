@@ -5,39 +5,50 @@
  */
 package byui.cit260.treasure.view;
 
-import byui.cit260.treasure.control.GameControl;
-import java.util.Scanner;
-import treasure.Treasure;
 
 /**
  *
  * @author Braden
  */
-public class HelpMenuView {
+public class HelpMenuView extends View{
     
-    void displayHelpMenu() {
-        char selection;
-        do {
-            System.out.println(
-                    "\nn = Need some Help?"
-                    + "\nG = What is the goal of the game?"
-                    + "\nM = How to Move"
-                    + "\nL = Estimating the amount of lumber"
-                    + "\nC = Convert from Metric to Standard"
-                    + "\nQ = Quit");
-            String input = this.getInput(); //get the user's selection
-            selection = input.charAt(0); //get first character of string
-            this.doAction(selection); //do action based on selection
-        } while (selection != 'q');
+    public HelpMenuView(){
+        super("\ng = What is the goal of the game?"
+                    + "\nm = How to Move"
+                    + "\nl = Estimating the amount of lumber"
+                    + "\nc = Convert from Metric to Standard"
+                    + "\nb = Back");
     }
+    
 
-    private String getInput() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    @Override
+   public boolean doAction(Object obj) {
+        
+    
 
-    private void doAction(char selection) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+  String value = (String) obj;
+       switch (value) {
+            case "G":
+                System.out.println("display game goal...");
+                break;
+            case "M":
+                System.out.println("display how to move...");
+                break;
+            case "E":
+                System.out.println("display lumber help...");
+                break;
+            case "C":
+                System.out.println("display converting help...");
+                break;
+            case "B":
+                System.out.println("Back");
+                break;
+            default:
+                System.out.println("\ninvalid selection");
+       }
+        return false;
+       
+      }
 
 
     

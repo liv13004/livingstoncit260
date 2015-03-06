@@ -5,17 +5,14 @@
  */
 package byui.cit260.treasure.view;
 
-import java.util.Scanner;
-import treasure.Treasure;
-import byui.cit260.treasure.control.GameControl;
-import byui.cit260.treasure.control.InventoryControl;
+
 
 
 /**
  *
  * @author andrew
  */
-public abstract class GameMenuView extends View {
+public class GameMenuView extends View {
 
     public GameMenuView() {
         super(
@@ -25,7 +22,7 @@ public abstract class GameMenuView extends View {
                     + "\nc = Checklist"
                     + "\ns = Save Game"
                     + "\nh = help menu"                        
-                    + "\nq = Quit");
+                    + "\nq = quit");
     }
 
     //GameMenuView() {
@@ -86,7 +83,7 @@ public abstract class GameMenuView extends View {
             case "m":
                 System.out.println("display map...");
                 MapView map = new MapView();
-                map.mainMapView();
+                map.display();
                 break;
             case "b":
                 InventoryView inventoryView = new InventoryView();
@@ -100,7 +97,8 @@ public abstract class GameMenuView extends View {
                 break;
             case "h":
                 System.out.println("help menu...");
-                //View.helpmenu.displayHelpMenu();
+                HelpMenuView helpmenu = new HelpMenuView();
+                helpmenu.display();
                 break;
             case "q":
                 System.out.println("quitting");

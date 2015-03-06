@@ -14,11 +14,10 @@ import byui.cit260.treasure.control.InventoryControl;
 public class InventoryView {
 
     GetInput getinput = new GetInput();
-    InventoryControl inventorycontrol;
+    InventoryControl inventorycontrol = new InventoryControl();
 
-    public void openInventory(InventoryControl icontrol) {
+    public void openInventory() {
         char selection;
-        inventorycontrol = icontrol;
         do {
             System.out.printf(""
                     + "\nYou have %s Lumber"
