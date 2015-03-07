@@ -13,47 +13,45 @@ import byui.cit260.treasure.control.Mathcontrol;
  *
  * @author andrew
  */
-public class CharacterView {
+public class CharacterView extends View {
+    private static String trader;
+    private static String character;
+    private static String turtle;
+    private static String dolphin;
+    private static String addItem;
+       
     Mathcontrol math = new Mathcontrol();
     GetInput getinput = new GetInput();
     InventoryControl inventorycontrol = new InventoryControl();
-    GoldControl goldcontrol = new GoldControl();
-
+      GoldControl goldcontrol = new GoldControl();
+    
+    
+//String promptMessage
+    public CharacterView() {
+        super(//(promptMessage) 
+                 (CharacterView.trader));
+       
+        
+    }
+        
     public void trader() {
-        char selection;
+        char value;
         System.out.println("Hi! my name is trader. what'll it be.");
         do {
 
             
-            System.out.println("?\n"
+            System.out.println(
+                    trader = "\nn"
                     + "\nl = Lumber"
                     + "\ns = Sail"
                     + "\nb = Back");
-            selection = getinput.getChar();
-            doActionTrader(selection);
+                    value = getinput.getChar();
+            doAction(Object obj);
             System.out.println("Will there be anything else you need?");
-        } while (selection != 'b');
+        } while (value != 'b');
     }
 
-    private void doActionTrader(char selection) {
-        switch (selection) {
-            case 'l':
-                System.out.println("Great! here you go.");
-                inventorycontrol.addItem(selection);
-                break;
-            case 's':
-                System.out.println("Great! here you go.");
-                inventorycontrol.addItem(selection);
-                break;
-            case 'b':
-                System.out.println("Back...");
-                break;
-            default:
-                System.out.println("\ninvalid selection");
-
-        }
-    }
-
+    
     public void turtle() {
         char selection;
         do {
@@ -64,32 +62,11 @@ public class CharacterView {
                     + "\ns = Step away and let the turtle rot."
                     + "\nb = Back");
             selection = getinput.getChar();
-            doActionTurtle(selection);
+            doAction(selection);
         } while (selection != 'b');
     }
 
-    private void doActionTurtle(char selection) {
-        switch (selection) {
-            case 'h':
-                if(math.math()){
-                    
-                System.out.println("ahh! thank you I thought I would rot for the rest of my life."
-                        + "\nhere take this.");
-           goldcontrol.addGold(10);
-                }
-                
-                break;
-            case 's':
-                System.out.println("you are an evil person.");
-                break;
-            case 'b':
-                System.out.println("Back...");
-                break;
-            default:
-                System.out.println("\ninvalid selection");
-
-        }
-    }
+  
     public void dolphin() {
         char selection;
         do {
@@ -101,28 +78,81 @@ public class CharacterView {
                     + "\ns = Step away and let the dolphin drown in its own stupidity."
                     + "\nb = Back");
             selection = getinput.getChar();
-            doActionDolphin(selection);
+            doAction(value);
         } while (selection != 'b');
     }
 
-    private void doActionDolphin(char selection) {
-        switch (selection) {
-            case 'h':
+
+
+    @Override
+    public boolean doAction(Object obj) {
+            String value = (String) obj;
+            if character == "trader"{
+            
+          //public void doActionTrader(String value) {
+        switch (value) {
+            case "l":
+                System.out.println("Great! here you go.");
+                inventorycontrol.addItem(value);
+                break;
+            case "s":
+                System.out.println("Great! here you go.");
+                inventorycontrol.addItem(value);
+                break;
+            case "b":
+                System.out.println("Back...");
+                break;
+            default:
+                System.out.println("\ninvalid selection");
+
+                    }
+            }
+            
+            if character == "turtle"{
+                switch (value) {
+            case "h":
+                if(math.math()){
+                    
+                System.out.println("ahh! thank you I thought I would rot for the rest of my life."
+                        + "\nhere take this.");
+           goldcontrol.addGold(10);}
+                break;            
+            case "s":
+                System.out.println("you are an evil person.");
+                break;
+            case "b":
+                System.out.println("Back...");
+                break;
+            default:
+                System.out.println("\ninvalid selection");
+                }
+            }
+                
+            if character == "dolphin"{
+                switch (value) {
+            case "h":
                 if(math.math()){
                 System.out.println("ahh! thank you I thought I would rot for the rest of my life."
                         + "\nhere take this.");
            goldcontrol.addGold(10);
                 }
                 break;
-            case 's':
+            case "s":
                 System.out.println("I hate you.");
                 break;
-            case 'b':
+            case "b":
                 System.out.println("Back...");
                 break;
             default:
                 System.out.println("\ninvalid selection");
 
-        }
+                }
+            }
+                
+                
     }
-}
+        return false;
+  }
+}    
+    
+

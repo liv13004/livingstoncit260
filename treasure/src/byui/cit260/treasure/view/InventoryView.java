@@ -34,13 +34,13 @@ public class InventoryView extends View{
                 System.out.println("What do you want to take."
                         + "\n l = Lumber"
                         + "\n s = sail");
-                inventorycontrol.addItem(super.getChar());
+                inventorycontrol.addItem(super.getString());
                 break;
             case "d":
                 System.out.println("What would you like to drop?"
                         + "\n l = lumber"
                         + "\n s = sail");
-                inventorycontrol.dropItem(super.getChar());
+                inventorycontrol.dropItem(super.getString());
                 break;
             case "b":
                 System.out.println("Back...");

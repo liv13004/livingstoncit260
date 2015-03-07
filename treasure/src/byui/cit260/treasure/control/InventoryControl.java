@@ -15,15 +15,18 @@ import byui.cit260.treasure.view.GetInput;
 public class InventoryControl {
     Inventory inventory = new Inventory();
     GetInput getinput = new GetInput();
+    
+    
+    
 
-    public void dropItem(char selection) {
+    public void dropItem(String selection) {
         
         
         switch (selection) {
-            case 'l':
+            case "l":
                 inventory.setLumber(inventory.getLumber() - 1);
                 break;
-            case 's':
+            case "s":
                 inventory.setSail(inventory.getSail() - 1);
                 break;
             default:
@@ -34,12 +37,12 @@ public class InventoryControl {
 
     }
 
-    public void addItem(char selection) {
+    public void addItem(String selection) {
  switch (selection) {
-            case 'l':
+            case "l":
                 inventory.setLumber(inventory.getLumber() + 1);
                 break;
-            case 's':
+            case "s":
                 inventory.setSail(inventory.getSail() + 1);
                 break;
             default:
@@ -58,6 +61,6 @@ public class InventoryControl {
         return inventory.getSail();
     }
 
-    
-
 }
+
+
