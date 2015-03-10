@@ -46,7 +46,7 @@ public class CharacterView extends View {
                     + "\ns = Sail"
                     + "\nb = Back");
                     value = getinput.getChar();
-            doAction(Object obj);
+            doAction(value);
             System.out.println("Will there be anything else you need?");
         } while (value != 'b');
     }
@@ -78,7 +78,7 @@ public class CharacterView extends View {
                     + "\ns = Step away and let the dolphin drown in its own stupidity."
                     + "\nb = Back");
             selection = getinput.getChar();
-            doAction(value);
+            doAction(selection);
         } while (selection != 'b');
     }
 
@@ -87,7 +87,7 @@ public class CharacterView extends View {
     @Override
     public boolean doAction(Object obj) {
             String value = (String) obj;
-            if character == "trader"{
+            if (character.equals("trader")){
             
           //public void doActionTrader(String value) {
         switch (value) {
@@ -108,7 +108,7 @@ public class CharacterView extends View {
                     }
             }
             
-            if character == "turtle"{
+            if (character.equals("turtle")){
                 switch (value) {
             case "h":
                 if(math.math()){
@@ -128,7 +128,7 @@ public class CharacterView extends View {
                 }
             }
                 
-            if character == "dolphin"{
+            if (character.equals("dolphin")){
                 switch (value) {
             case "h":
                 if(math.math()){
@@ -149,10 +149,6 @@ public class CharacterView extends View {
                 }
             }
                 
-                
+           return false;
     }
-        return false;
   }
-}    
-    
-
