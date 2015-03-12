@@ -5,6 +5,7 @@
  */
 package byui.cit260.treasure.control;
 
+import byui.cit260.treasure.model.Map;
 import java.util.Scanner;
 import treasure.Treasure;
 /**
@@ -12,7 +13,15 @@ import treasure.Treasure;
  * @author andrew
  */
 public class Mapcontrol {
+
+    static Map createMap() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    // public static String Location;
+
+    static void moveCharactersToStart(Map map) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 
     public class playerLocation{
        playerLocation(){

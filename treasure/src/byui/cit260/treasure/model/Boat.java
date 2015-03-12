@@ -70,6 +70,10 @@ public class Boat implements Serializable {
         }
         return true;
     }
+
+    public void setBoat(Boat boat) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
    
     
 }
