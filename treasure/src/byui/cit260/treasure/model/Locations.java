@@ -66,7 +66,4 @@ public class Locations implements Serializable{
 
     public Locations() {
     }
-    
-    
-    
 }

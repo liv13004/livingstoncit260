@@ -5,6 +5,8 @@
  */
 package byui.cit260.treasure.model;
 
+import byui.cit260.treasure.control.GameControl;
+import byui.cit260.treasure.control.InventoryControl;
 import java.io.Serializable;
 import java.util.Objects;
 /**
@@ -12,7 +14,14 @@ import java.util.Objects;
  * @author Braden
  */
 public class Game implements Serializable {
-    
+    private Characters characters;
+        private Player player;
+        private Map map;
+        private Boat boat;
+        private Inventory inventory;
+        private Gold gold;
+        private InventoryControl inventoryControl;
+        
      // class instance variables
         private double noPeople;
 
@@ -54,15 +63,24 @@ public class Game implements Serializable {
         return true;
     }
 
-    public void setInventory(InventoryItem[] inventoryList) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     public void setMap(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        this.map = map;
     }
-        
-        
-    
-    
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
+    }
+
+    public void setBoat(Boat boat) {
+        this.boat = boat;
+    }
+
+    public void setGold(Gold gold) {
+        this.gold = gold;
+    }
 }

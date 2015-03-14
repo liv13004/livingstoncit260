@@ -7,80 +7,55 @@ package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.model.Boat;
 import byui.cit260.treasure.model.Game;
-
-import byui.cit260.treasure.model.InventoryItem;
+import byui.cit260.treasure.model.Gold;
+import byui.cit260.treasure.model.Inventory;
 import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.model.Player;
 
-
 import treasure.Treasure;
 
-/**
- *
- * @author andrew
- */
+
 public class GameControl {
-        
+    private Game game;
+
     public static void createNewGame(Player player) {
-Game game = new Game();
-Treasure.setCurrentGame(game);
+        Game game = new Game();
+        Treasure.setCurrentGame(game);
+        
+        game.setPlayer(player);
 
-game.setPlayer(player);
+        Inventory inventory = new Inventory();
+        game.setInventory(inventory);
 
-InventoryItem[] inventoryList = GameControl.createInventoryList();
+        Boat boat = new Boat();
+        game.setBoat(boat);
 
-game.setInventory(inventoryList);
-
-Boat boat = new Boat();
-boat.setBoat(boat);
-
-Map map = Mapcontrol.createMap();
-game.setMap(map);
-
-Mapcontrol.moveCharactersToStart(map);
+        Map map = new Map();
+        game.setMap(map);
+        
+        Gold gold = new Gold();
+        game.setGold(gold);
+        Mapcontrol.moveCharactersToStart(map);
 
     }
-    
-    public enum Item {
-        lumber,
-        sail;
-    }
-    
-    public static InventoryItem[] createInventoryList(){
-        System.out.println("createInventoryListcaled");
-        InventoryItem[] inventory = 
-                new InventoryItem[Constants.NUMBER_OF_INVENTORY_ITEMS];
-        
-        InventoryItem lumber = new InventoryItem();
-        lumber.setDescription("lumber");
-        lumber.setQuantityInStock(0);
-        lumber.setRequiredAmount();
-        inventory[Item.lumber.ordinal()] = lumber;
-        
-        InventoryItem sail = new InventoryItem();
-        sail.setDescription("sail");
-        sail.setQuantityInStock(0);
-        sail.setRequiredAmount();
-        inventory[Item.sail.ordinal()] = sail;
-        
-        return null;
-    }
-    
-    
-public static Player createPlayer(String name) {
+
+
+
+
+    public static Player createPlayer(String name) {
         System.out.println("creating player");
-        if (name == null){
+        if (name == null) {
             return null;
         }
         Player player = new Player();
         player.setName(name);
-        
+
         Treasure.setPlayer(player); //save the player
-        
+
         return player;
     }
 
-public static void createGameMenu(Player player) {
+    public static void createGameMenu(Player player) {
         //Super.GameMenuView gameMenu = new GameMenuView();
         System.out.println("\n*** createGameMenu stub function called ****");
         //View.this.doAction();
@@ -91,9 +66,9 @@ public static void createGameMenu(Player player) {
     }
 
     public static void createBoatMenu(Player player) {
-      //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
     public static void createMapView(Player player) {
         System.out.println("\n*** create mapView stub function called ****");
     }
@@ -101,4 +76,12 @@ public static void createGameMenu(Player player) {
 //        String complete = input;        
 //      return complete;    
 //}
+}
+
+class Constants {
+
+    public static int NUMBER_OF_INVENTORY_ITEMS;
+
+    public Constants() {
+    }
 }

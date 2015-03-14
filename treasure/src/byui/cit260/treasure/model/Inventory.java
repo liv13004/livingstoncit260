@@ -5,16 +5,16 @@
  */
 package byui.cit260.treasure.model;
 
+import byui.cit260.treasure.control.InventoryControl;
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
  * @author andrew
  */
 public class Inventory implements Serializable {
-
-    // class instance variables
+private InventoryControl inventoryControl;
+   //  class instance variables
     private int lumber;
     private int sail;
 
@@ -68,8 +68,4 @@ public class Inventory implements Serializable {
         }
         return true;
     }
-    
-    
-
-
 }
