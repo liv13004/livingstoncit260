@@ -14,9 +14,16 @@ import treasure.Treasure;
  */
 public class Mapcontrol {
 
-    static Map createMap() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    public static Map createMap() {
+//        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    //create a list of the different scenes in the game
+//        Map map = new Map(5, 5);
+//    
+//    //Scene[] scenes = createScenes(); //not used in our game
+//    //assign the different scenes to locations in the map
+//    //assignScenesToLocations(map, scenes);
+//    return map;
+//    }
    // public static String Location;
 
     static void moveCharactersToStart(Map map) {

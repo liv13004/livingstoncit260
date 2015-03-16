@@ -7,7 +7,7 @@ package byui.cit260.treasure.control;
 
 
 import byui.cit260.treasure.model.Game;
-import byui.cit260.treasure.model.Inventory;
+import byui.cit260.treasure.model.InventoryItem;
 import byui.cit260.treasure.view.GetInput;
 
 /**
@@ -24,7 +24,9 @@ public class InventoryControl {
         
         switch (selection) {
             case "l":
-                game.setLumber(game.getLumber() - 1);
+                game.setInventory(null);
+                GameControl.createPlayer(selection);
+                setLumber(game.getLumber - 1);
                 break;
             case "s":
                 game.setSail(game.getSail() - 1);
@@ -38,10 +40,10 @@ public class InventoryControl {
     public void addItem(String selection) {
  switch (selection) {
             case "l":
-                inventory.setLumber(inventory.getLumber() + 1);
+                game.setLumber(game.getLumber() + 1);
                 break;
             case "s":
-                inventory.setSail(inventory.getSail() + 1);
+                game.setSail(game.getSail() + 1);
                 break;
             default:
                 System.out.println("\ninvalid selection");
@@ -49,16 +51,5 @@ public class InventoryControl {
         }
  
     }
-    public int getLumber() {
-        return inventory.getLumber();
-    }
-
-    
-
-    public int getSail() {
-        return inventory.getSail();
-    }
 
 }
-
-

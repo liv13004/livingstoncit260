@@ -16,9 +16,12 @@ public class Boat implements Serializable {
 
     // class instance variables
     private String description;
-    private boolean onboard = true;
+    private boolean onboard;
+    
     
     public Boat() {
+        this.description = "\nThis is the boat that you will use to get to the island.";
+        this.onboard = false;
     }
 
     public String getDescription() {
@@ -29,9 +32,10 @@ public class Boat implements Serializable {
         this.description = description;
     }
 
-    public boolean boatOccupied() {
-        return false;
-        }
+       
+//    public void setBoat(Boat boat) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
 
     public boolean isOnboard() {
         return onboard;
@@ -48,8 +52,9 @@ public class Boat implements Serializable {
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 79 * hash + (this.onboard ? 1 : 0);
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.description);
+        hash = 37 * hash + (this.onboard ? 1 : 0);
         return hash;
     }
 
@@ -69,10 +74,6 @@ public class Boat implements Serializable {
             return false;
         }
         return true;
-    }
-
-    public void setBoat(Boat boat) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
     

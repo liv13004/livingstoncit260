@@ -6,12 +6,14 @@
 package byui.cit260.treasure.view;
 
 import byui.cit260.treasure.control.InventoryControl;
+import byui.cit260.treasure.model.Game;
 
 /**
  *
  * @author andrew
  */
 public class InventoryView extends View{
+private Game game;
     public InventoryView(){
         super("\nWhat would you like to do?"
                 + "\ns = show items"
@@ -20,7 +22,7 @@ public class InventoryView extends View{
                     + "\nb = Back");
     }
 
-    InventoryControl inventorycontrol = new InventoryControl();
+    
     
     @Override
     public boolean doAction(Object obj) {
@@ -28,19 +30,19 @@ public class InventoryView extends View{
         switch (value) {
             case "s":
                 System.out.printf("\nlumber = %s"
-                        + "\nsail = %s",inventorycontrol.getLumber(),inventorycontrol.getSail());
+                        + "\nsail = %s", game..getLumber(), game.getSail());
                 break;
             case "t":
                 System.out.println("What do you want to take."
                         + "\n l = Lumber"
                         + "\n s = sail");
-                inventorycontrol.addItem(super.getString());
+                game.addItem(super.getString());
                 break;
             case "d":
                 System.out.println("What would you like to drop?"
                         + "\n l = lumber"
                         + "\n s = sail");
-                inventorycontrol.dropItem(super.getString());
+                game.dropItem(super.getString());
                 break;
             case "b":
                 System.out.println("Back...");

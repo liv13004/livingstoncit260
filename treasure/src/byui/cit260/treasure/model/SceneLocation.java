@@ -5,8 +5,10 @@
  */
 package byui.cit260.treasure.model;
 
+import java.awt.image.BufferedImage;
 import java.io.Serializable;
 import java.util.Objects;
+import treasure.Treasure;
 
 /**
  *
@@ -14,99 +16,101 @@ import java.util.Objects;
  */
 public class SceneLocation implements Serializable {
     //class instance variables
-    private String description;
-    private String symbol;
-    private String type;
-    private double visited;
-    private double amountRemaining;
+    private int row;
+    private int column;
+    private boolean visited;
+    
 
     public SceneLocation() {
     }
 
-    
-    
-    public String getDescription() {
-        return description;
+    public int getRow() {
+        return row;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setRow(int row) {
+        this.row = row;
     }
 
-    public String getSymbol() {
-        return symbol;
+    public int getColumn() {
+        return column;
     }
 
-    public void setSymbol(String symbol) {
-        this.symbol = symbol;
+    public void setColumn(int column) {
+        this.column = column;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-    public double getVisited() {
+    public boolean isVisited() {
         return visited;
     }
 
-    public void setVisited(double visited) {
+    public void setVisited(boolean visited) {
         this.visited = visited;
     }
 
-    public double getAmountRemaining() {
-        return amountRemaining;
+
+    private static Map createMap(){
+        //create and initailize new map
+        Map map = new Map(20, 20);
+        //create all of the scenes for the map
+        Scene[] scenes = createScenes();
+        //assign each scene to a locationint the map
+        gameControl.assignScenesToLocations(map, scenes);
+        
+        return(map);
+    }
+    
+    private static Scene[] createScenes(){
+        BufferedImage image = null;
+        
+        Game game = Treasure.getCurrentGame();
+        
+        Scene[] scenes = new Scene[SceneType.values().length];
+        
+        Scene startingSene = new Scene();
+        startingScene.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        startingScene.setMapSymbol(" ST ");
+        startingScene.setBlocked(false);
+        startingScene.setTravelTime(240);
+        ImageIcon startingSceneImage = MapControl.getImage(startingScene,
+                "/cit260/treasure/images/startingimg.jpg");
+        startingScene.setIcon(startingSceneImage);
+        scenes[SceneType.start.ordinal()] = startingScene;
+        
+        Scene finishScene = new Scene();
+        finishScene.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        finishScene.setMapSymbol(" ST ");
+        finishScene.setBlocked(false);
+        finishScene.setTravelTime(240);
+        ImageIcon finishSceneImage = MapControl.getImage(finishScene,
+                "/cit260/treasure/images/finishimg.jpg");
+        finishScene.setIcon(startingSceneImage);
+        scenes[SceneType.start.ordinal()] = finishScene;
     }
 
-    public void setAmountRemaining(double amountRemaining) {
-        this.amountRemaining = amountRemaining;
+    public enum SceneType{
+        start,
+        beach,
+        ocean,
+        Island,
+        chest,
+        finish;
     }
-
-    @Override
-    public String toString() {
-        return "SceneLocation{" + "description=" + description + ", symbol=" + symbol + ", type=" + type + ", visited=" + visited + ", amountRemaining=" + amountRemaining + '}';
+    
+    private static void assignScenesToLocations(Map map, Scene[] scenes){
+        Location[][] locations = map.getLocations();
+        
+        //start point
+        locations[0][0].setScene([sceneType.start.ordinal()]);
+        locations[0][1].setScene([sceneType.beach.ordinal()]);
+        locations[0][2].setScene([sceneType.ocean.ordinal()]);
+        locations[0][3].setScene([sceneType.Island.ordinal()]);
+        locations[0][4].setScene([sceneType.chest.ordinal()]);
+        locations[0][5].setScene([sceneType.finish.ordinal()]);
     }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.description);
-        hash = 59 * hash + Objects.hashCode(this.symbol);
-        hash = 59 * hash + Objects.hashCode(this.type);
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.visited) ^ (Double.doubleToLongBits(this.visited) >>> 32));
-        hash = 59 * hash + (int) (Double.doubleToLongBits(this.amountRemaining) ^ (Double.doubleToLongBits(this.amountRemaining) >>> 32));
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final SceneLocation other = (SceneLocation) obj;
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.symbol, other.symbol)) {
-            return false;
-        }
-        if (!Objects.equals(this.type, other.type)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.visited) != Double.doubleToLongBits(other.visited)) {
-            return false;
-        }
-        if (Double.doubleToLongBits(this.amountRemaining) != Double.doubleToLongBits(other.amountRemaining)) {
-            return false;
-        }
-        return true;
-    }
+    
     
     
 }

@@ -22,38 +22,6 @@ public class MapView extends View{
                                  + "\ni = Visit Island"
                                  + "\nb = Back");
     }
-     //    Map map = new Map();
-
-         
-    //public void testMapView() {
-    
-    //map.setLocation("beach");
-    //System.out.println(map.getLocation());
-    
-   // String localMap = map.getLocation();
-    //}
-    //MainMapView(String test).public String getLocation;
-//        public void mainMapView(){
-//            
-//          
-//            map.setLocation("beach");
-//            //System.out.println(map.getLocation());
-//    
-//        //String localMap = map.getLocation();
-//         if ("beach" == (map.getLocation())){
-//                char selection; 
-//                do {
-//
-//                 
-//                 selection = getinput.getChar();
-//                 this.doAction(selection);
-//             }
-//             while (selection != 'q');
-//             }
-//         else System.out.println(
-//                         
-//                                  "Invalid Selection!");
-//             }
         
         @Override
     public boolean doAction(Object obj) {

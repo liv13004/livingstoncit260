@@ -5,10 +5,11 @@
  */
 package byui.cit260.treasure.control;
 
+import byui.cit260.treasure.control.GameControl.Item;
 import byui.cit260.treasure.model.Boat;
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Gold;
-import byui.cit260.treasure.model.Inventory;
+import byui.cit260.treasure.model.InventoryItem;
 import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.model.Player;
 
@@ -16,29 +17,164 @@ import treasure.Treasure;
 
 
 public class GameControl {
-    private Game game;
+    //private Game game;
+    
+    
 
     public static void createNewGame(Player player) {
-        Game game = new Game();
-        Treasure.setCurrentGame(game);
         
-        game.setPlayer(player);
+        Game game = new Game(); //create new game
+        
+        Treasure.setCurrentGame(game); //save in treasure
+        
+        game.setPlayer(player); //save player in game
 
-        Inventory inventory = new Inventory();
-        game.setInventory(inventory);
-
+        
+        //Inventory[] inventoryList = GameControl.createInventoryList();
+        //game.setInventory(inventoryList);
+        
+        //Inventory inventory = new Inventory();
+        
+        //game.setInventory(inventory);
+        InventoryItem[] inventoryList = GameControl.createInventoryList();
+        game.setInventory(inventoryList);
+        
         Boat boat = new Boat();
         game.setBoat(boat);
-
-        Map map = new Map();
+        
+        Map map = new Map(5,5);
         game.setMap(map);
+        
+//        Map map = new Map();
+//        game.setMap(map);
         
         Gold gold = new Gold();
         game.setGold(gold);
         Mapcontrol.moveCharactersToStart(map);
-
+        
+//        public static InventoryItem[] createInventoryList(){
+//    System.out.println("*** called createInventoryList() in GameControl ***");
+//    return null;
+        
+        //create the inventory list and save in the game
+        
     }
 
+    private static class Constants {
+        private static int NUMBER_OF_INVENTORY_ITEMS;
+
+        public Constants() {
+        }
+    }
+
+  public enum Item {
+        lumber,
+        sail,
+        seashell,
+        rope,
+        calculator,
+        batteries,
+        phone,
+        matches,
+        flashlight,
+        knife;
+    }
+    
+
+   
+    
+public static InventoryItem[] createInventoryList() {
+    
+     
+    System.out.println("*** called createInventoryList in GameControl ***" );
+    
+    InventoryItem[] inventory = //Inventory[];
+                new InventoryItem[Constants.NUMBER_OF_INVENTORY_ITEMS];
+    
+    InventoryItem lumber = new InventoryItem();
+    lumber.setInventoryType("Lumber");
+    lumber.setQuantityInStock(0);
+    lumber.setRequiredAmount(0);
+    inventory[Item.lumber.ordinal()] = lumber;
+    
+    InventoryItem sail = new InventoryItem();
+    sail.setInventoryType("Sail");
+    sail.setQuantityInStock(0);
+    sail.setRequiredAmount(0);
+    inventory[Item.sail.ordinal()] = sail;
+    
+    InventoryItem seashell = new InventoryItem();
+    seashell.setInventoryType("Seashell");
+    seashell.setQuantityInStock(0);
+    seashell.setRequiredAmount(0);
+    inventory[Item.seashell.ordinal()] = seashell;
+    
+    InventoryItem rope = new InventoryItem();
+    rope.setInventoryType("Rope");
+    rope.setQuantityInStock(0);
+    rope.setRequiredAmount(0);
+    inventory[Item.rope.ordinal()] = rope;
+    
+    InventoryItem calculator = new InventoryItem();
+    calculator.setInventoryType("Calculator");
+    calculator.setQuantityInStock(0);
+    calculator.setRequiredAmount(0);
+    inventory[Item.calculator.ordinal()] = calculator;
+    
+    InventoryItem batteries = new InventoryItem();
+    batteries.setInventoryType("Batteries");
+    batteries.setQuantityInStock(0);
+    batteries.setRequiredAmount(0);
+    inventory[Item.batteries.ordinal()] = batteries;
+    
+    InventoryItem phone = new InventoryItem();
+    phone.setInventoryType("Phone");
+    phone.setQuantityInStock(0);
+    phone.setRequiredAmount(0);
+    inventory[Item.phone.ordinal()] = phone;
+    
+    InventoryItem matches = new InventoryItem();
+    matches.setInventoryType("Matches");
+    matches.setQuantityInStock(0);
+    matches.setRequiredAmount(0);
+    inventory[Item.matches.ordinal()] = matches;
+    
+    InventoryItem flashlight = new InventoryItem();
+    flashlight.setInventoryType("Flashlight");
+    flashlight.setQuantityInStock(0);
+    flashlight.setRequiredAmount(0);
+    inventory[Item.flashlight.ordinal()] = flashlight;
+    
+    InventoryItem knife = new InventoryItem();
+    knife.setInventoryType("Knife");
+    knife.setQuantityInStock(0);
+    knife.setRequiredAmount(0);
+    inventory[Item.knife.ordinal()] = knife;
+    
+    return inventory;
+}
+
+public static InventoryItem[] getSortedInventoryList(){
+    // getinventory list for the current game
+    InventoryItem[] originalInventoryList = 
+            Treasure.getCurrentGame().getInventory();
+    
+    //clone InventoryList
+    InventoryItem[] inventoryList = originalInventoryList.clone();
+
+    InventoryItem tempInventoryItem;
+    for(int i = 0; i < inventoryList.length - 1; i++){
+        for (int j = 0; j < inventoryList.length - 1 - i; j++){
+            if (inventoryList[j].getDescription().
+                    compareToIgnoreCase(inventoryList[j + 1].getDescription()) > 0){
+                tempInventoryItem = inventoryList[j];
+                inventoryList[j] = inventoryList[i];
+                inventoryList[j + 1] = tempInventoryItem;
+            }
+        }
+    }
+    return inventoryList;
+}
 
 
 
@@ -72,16 +208,21 @@ public class GameControl {
     public static void createMapView(Player player) {
         System.out.println("\n*** create mapView stub function called ****");
     }
+    
+//    public static void createInventoryList(Inventory inventoryList) {
+//        
+//        System.out.println("\n*** create InventoryList stub function called ****");
+//    }
 //    public static String location(String input){
 //        String complete = input;        
 //      return complete;    
 //}
-}
+//class Constants {
+//
+//    public int NUMBER_OF_INVENTORY_ITEMS;
+//
+//        public void Constants() {
+//        }
+//    }
 
-class Constants {
-
-    public static int NUMBER_OF_INVENTORY_ITEMS;
-
-    public Constants() {
-    }
 }
