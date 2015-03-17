@@ -63,14 +63,14 @@ public class CharacterView extends View {
                 System.out.println("Great! here you go.");
                 //System.out.CharacterView trader;
                 inventorycontrol.addItem(value);
-                super.display();
+               // super.display();
                 //MapView trader = new MapView();
                 //trader.display();
                 break;
             case "s":
                 System.out.println("Great! here you go.");
                 inventorycontrol.addItem(value);
-                super.display();
+              //  super.display();
                 //MapView trader = new MapView();
                 //MapView trader = new MapView();
                 //trader.display();
@@ -79,8 +79,8 @@ public class CharacterView extends View {
             case "b":
                System.out.println("Back...");
                MapView.defaultMenu = MapView.beachMapMenu;
-               MapView beach = new MapView();
-               beach.display();
+//               MapView beach = new MapView();
+//               beach.display();
                 break;
             default:
                 System.out.println("\ninvalid selection");
@@ -108,8 +108,8 @@ public class CharacterView extends View {
                 System.out.println("Back...");
                 System.out.println("Back...");
                MapView.defaultMenu = MapView.oceanMapMenu;
-               MapView ocean = new MapView();
-               ocean.display();
+//               MapView ocean = new MapView();
+//               ocean.display();
                 break;
             default:
                 System.out.println("\ninvalid selection");

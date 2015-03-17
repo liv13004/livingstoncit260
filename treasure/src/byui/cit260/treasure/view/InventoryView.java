@@ -38,7 +38,7 @@ public static String defaultMenu = "";
     public InventoryView(){
         super(defaultMenu);
         
-        InventoryControl inventorycontrol = new InventoryControl();
+
     }
 InventoryControl inventorycontrol = new InventoryControl();
     
@@ -52,15 +52,16 @@ InventoryControl inventorycontrol = new InventoryControl();
             case "s":
                 System.out.println("here is your current inventroy\n");
                 inventorycontrol.displayInventory();
-                InventoryView.defaultMenu = InventoryView.inventoryViewMenu;
-                System.out.println(defaultMenu);
+//                InventoryView.defaultMenu = InventoryView.inventoryViewMenu;
+//                System.out.println(defaultMenu);
                 break;
             case "t":
                 System.out.println(takeItem);
-                InventoryView.defaultMenu = InventoryView.takeItem;
+//                InventoryView.defaultMenu = InventoryView.takeItem;
+//                super.display();
                 inventorycontrol.addItem(super.getString());
                 
-                super.display();
+                
                 
                 break;
             case "d":

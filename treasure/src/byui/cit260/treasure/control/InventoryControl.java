@@ -66,7 +66,7 @@ public class InventoryControl {
 
             displayColDiv();
             if (i == 0){
-                System.out.print("item name");
+                System.out.print("item name ");
                 }
                 else if(i == 1){
                     System.out.print("item quantity");
@@ -75,20 +75,25 @@ public class InventoryControl {
                     System.out.print("required amount");
                 }
         }
-        displayColDiv();
+        
         for (int i = 0;!(inventory.length == i); i++) {//loop through rows
 
             displayRowDiv();
             for (int j = 1; j <= colCount; j++) {//loop through columns
                 displayColDiv();
                 if (j == 1){
-                System.out.print(inventory[i].getDescription().toString().concat(null));
+                    String buff = inventory[i].getDescription().toString();
+                    int length = buff.length();
+                    while((buff.length() < 10)){
+                        buff += " ";
+                    }
+                System.out.print(buff);
                 }
                 else if(j == 2){
-                    System.out.print(inventory[i].getAmount());
+                    System.out.print("      " + inventory[i].getAmount() + "      ");
                 }
                 else if(j == 3){
-                    System.out.print(inventory[i].getRequiredAmount());
+                    System.out.print("       " + inventory[i].getRequiredAmount() + "       ");
                 }
             }
             displayColDiv();
@@ -99,9 +104,9 @@ public class InventoryControl {
     private void displayRowDiv() {
         String string = ("\n  ");
         for (int i = 1; i <= colCount; i++) {
-            string = string.concat("----------");
+            string = string.concat("------------------");
         }
-        System.out.println(string + "-");
+        System.out.println(string + "");
     }
 
     private void displayColDiv() {

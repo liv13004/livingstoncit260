@@ -116,7 +116,7 @@ public class MapView extends View{
                case "b": // Quit Help menu
                         mapLocation = "Main";
                         System.out.println("Back...");
-                        this.mainMapView();
+
             default:
                 System.out.println("\ninvalid selection");      
                 
@@ -146,7 +146,6 @@ public class MapView extends View{
             case "b": // Quit Help menu
                 mapLocation = "Main";
                 System.out.println("Back...");
-                this.mainMapView();
             default:
                 System.out.println("\ninvalid selection");
                }
@@ -169,7 +168,6 @@ public class MapView extends View{
             case "b": // Quit Beach menu
                 mapLocation = "Beach";
                 System.out.println("Back...");
-                this.beachMenuView();
             default:
                 System.out.println("\ninvalid selection");
                }
@@ -206,7 +204,6 @@ public class MapView extends View{
             case "b": // Quit Ocean menu
                 mapLocation = "Main";
                 System.out.println("Back...");
-                this.mainMapView();
             default:
                 System.out.println("\ninvalid selection");
         }
@@ -258,7 +255,6 @@ public class MapView extends View{
             case "b": // Quit Island menu
                 mapLocation = "Main";
                 System.out.println("Back...");
-                this.mainMapView();
             default:
                 System.out.println("\ninvalid selection");
                    
