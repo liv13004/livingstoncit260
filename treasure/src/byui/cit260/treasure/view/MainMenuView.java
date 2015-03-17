@@ -10,32 +10,28 @@ import treasure.Treasure;
 import byui.cit260.treasure.control.GameControl;
 import byui.cit260.treasure.control.InventoryControl;
 
-
 /**
  *
  * @author andrew
  */
-public class MainMenuView extends View{
+public class MainMenuView extends View {
+
     public static String mainMenu = ("\nn = New Game"
-                    + "\nl = Load Game"
-                    + "\no = Options"
-                    + "\nq = Quit");
-                       
-    
-    public MainMenuView(){
+            + "\nl = Load Game"
+            + "\no = Options"
+            + "\nq = Quit");
+
+    public MainMenuView() {
         super(mainMenu);
-         //System.out.print(mainMenu);
+        //System.out.print(mainMenu);
     }
 
-
-        
     @Override
     public boolean doAction(Object obj) {
         //string value = (String) obj;
         String value = (String) obj;
         //value = value.toUpperCase();
-        
-        
+
         boolean valid = false;
         switch (value) {
             case "n":
@@ -46,7 +42,7 @@ public class MainMenuView extends View{
                 startExistingGame();
                 valid = true;
                 break;
-                case "o":
+            case "o":
                 displayOptions();
                 valid = true;
                 break;
@@ -57,7 +53,7 @@ public class MainMenuView extends View{
             default:
                 System.out.println("\ninvalid selection");
         }
-        return(valid);
+        return (valid);
     }
 
     private void startNewGame() {
@@ -65,10 +61,11 @@ public class MainMenuView extends View{
         GameControl.createNewGame(Treasure.getPlayer());
         GameControl.createGameMenu(Treasure.getPlayer());
         //DISPLAY the Game menu
-        GameMenuView GameMenu = new GameMenuView() {};
+        GameMenuView GameMenu = new GameMenuView() {
+        };
         GameMenu.display();
         //View.doGameMenuView();
-     //   gameMenu.displayMenu(new InventoryControl());
+        //   gameMenu.displayMenu(new InventoryControl());
     }
 
     private void startExistingGame() {
@@ -78,12 +75,12 @@ public class MainMenuView extends View{
     private void displayOptions() {
         System.out.println("Options");
     }
-    private void mainMenu(){
+
+    private void mainMenu() {
         mainMenu = ("\nn = New Game"
-                    + "\nl = Load Game"
-                    + "\no = Options"
-                    + "\nq = Quit"
-                );
+                + "\nl = Load Game"
+                + "\no = Options"
+                + "\nq = Quit");
         System.out.print(mainMenu);
     }
 

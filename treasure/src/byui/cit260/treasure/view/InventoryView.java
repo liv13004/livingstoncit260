@@ -14,40 +14,37 @@ import treasure.Treasure;
  *
  * @author andrew
  */
-public class InventoryView extends View{
-private Game game;
+public class InventoryView extends View {
 
-public static String defaultMenu = "";
-    private static final String takeItem = ("What do you want to take.\"\n" 
-                                        +    "\nl = Lumber" 
-                                        +    "\ns = sail"
-                                        + "\nb = Back\" " );
+    private Game game;
 
-    
-  private static final String dropItem =( "What do you want to drop."
-                                     +   "\nl = Lumber" 
-                                     +   "\ns = sail"
-                                     + "\nb = Back\" ");
-  public static final String inventoryViewMenu = ("What would you like to do?"
-                + "\ns = show items"
-                    + "\nt = take item"
-                    + "\nd = Drop item"
-                    + "\nb = Back");
-  
+    public static String defaultMenu = "";
+    private static final String takeItem = ("What do you want to take.\"\n"
+            + "\nl = Lumber"
+            + "\ns = sail"
+            + "\nb = Back\" ");
 
-    public InventoryView(){
+    private static final String dropItem = ("What do you want to drop."
+            + "\nl = Lumber"
+            + "\ns = sail"
+            + "\nb = Back\" ");
+    public static final String inventoryViewMenu = ("What would you like to do?"
+            + "\ns = show items"
+            + "\nt = take item"
+            + "\nd = Drop item"
+            + "\nb = Back");
+
+    public InventoryView() {
         super(defaultMenu);
-        
 
     }
-InventoryControl inventorycontrol = new InventoryControl();
-    
-    
+    InventoryControl inventorycontrol = new InventoryControl();
+
     @Override
     public boolean doAction(Object obj) {
         GameMenuView GameMenu = new GameMenuView();
         String value = (String) obj;
-        
+
         switch (value) {
             case "s":
                 System.out.println("here is your current inventroy\n");
@@ -60,18 +57,16 @@ InventoryControl inventorycontrol = new InventoryControl();
 //                InventoryView.defaultMenu = InventoryView.takeItem;
 //                super.display();
                 inventorycontrol.addItem(super.getString());
-                
-                
-                
+
                 break;
             case "d":
                 System.out.println(dropItem);
                 InventoryView.defaultMenu = InventoryView.dropItem;
-                
+
                 inventorycontrol.dropItem(super.getString());
-                
+
                 super.display();
-                
+
                 break;
             case "b":
                 System.out.println("Back...");
@@ -84,5 +79,4 @@ InventoryControl inventorycontrol = new InventoryControl();
         return false;
     }
 
-    
 }

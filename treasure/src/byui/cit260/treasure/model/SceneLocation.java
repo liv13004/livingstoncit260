@@ -15,11 +15,11 @@ import treasure.Treasure;
  * @author Braden
  */
 public class SceneLocation implements Serializable {
+
     //class instance variables
     private int row;
     private int column;
     private boolean visited;
-    
 
     public SceneLocation() {
     }
@@ -48,18 +48,17 @@ public class SceneLocation implements Serializable {
         this.visited = visited;
     }
 
-
-    private static Map createMap(){
+    private static Map createMap() {
         //create and initailize new map
         Map map = new Map(20, 20);
         //create all of the scenes for the map
         //Scene[] scenes = createScenes();
         //assign each scene to a locationint the map
         //gameControl.assignScenesToLocations(map, scenes);
-        
-        return(map);
+
+        return (map);
     }
-    
+
 //    private static Scene[] createScenes(){
 //        BufferedImage image = null;
 //        
@@ -110,7 +109,4 @@ public class SceneLocation implements Serializable {
 //        location[0][4].setScene([sceneType.chest.ordinal()]);
 //        location[0][5].setScene([sceneType.finish.ordinal()]);
 //    }
-    
-    
-    
 }

@@ -5,29 +5,25 @@
  */
 package byui.cit260.treasure.view;
 
-
 /**
  *
  * @author Braden
  */
-public class HelpMenuView extends View{
-    
-    public HelpMenuView(){
+public class HelpMenuView extends View {
+
+    public HelpMenuView() {
         super("\ng = What is the goal of the game?"
-                    + "\nm = How to Move"
-                    + "\nl = Estimating the amount of lumber"
-                    + "\nc = Convert from Metric to Standard"
-                    + "\nb = Back");
+                + "\nm = How to Move"
+                + "\nl = Estimating the amount of lumber"
+                + "\nc = Convert from Metric to Standard"
+                + "\nb = Back");
     }
-    
 
     @Override
-   public boolean doAction(Object obj) {
-        
-    
+    public boolean doAction(Object obj) {
 
-  String value = (String) obj;
-       switch (value) {
+        String value = (String) obj;
+        switch (value) {
             case "G":
                 System.out.println("display game goal...");
                 break;
@@ -45,11 +41,9 @@ public class HelpMenuView extends View{
                 break;
             default:
                 System.out.println("\ninvalid selection");
-       }
+        }
         return false;
-       
-      }
 
+    }
 
-    
 }

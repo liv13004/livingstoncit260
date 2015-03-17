@@ -15,7 +15,7 @@ import treasure.Treasure;
 public class PlayerControl {
 
     public static Player createPlayer(String playerName) {
-        if (playerName == null){
+        if (playerName == null) {
             return null;
         }
         System.out.println("creating player");
@@ -24,5 +24,5 @@ public class PlayerControl {
         Treasure.setPlayer(player);
         return player;
     }
-    
+
 }

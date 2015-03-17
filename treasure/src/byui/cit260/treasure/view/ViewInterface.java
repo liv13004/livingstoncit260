@@ -5,14 +5,18 @@
  */
 package byui.cit260.treasure.view;
 
-
-
 public interface ViewInterface {
+
     public void display();
+
     public String getInput();
+
     public boolean doAction(Object obj);
+
     public char getChar();
+
     public String getString();
+
     public double getNumber();
-    
+
 }

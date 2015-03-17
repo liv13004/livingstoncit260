@@ -11,7 +11,6 @@ import java.io.Serializable;
  *
  * @author andrew
  */
-
 public class Map implements Serializable {
 
     // class instance variables
@@ -20,32 +19,33 @@ public class Map implements Serializable {
     private Location[][] locations;
 
     public Map() {
-        
+
     }
+
     public Map(int rowCount, int colCount) {
-        
-        if (rowCount < 1 || colCount < 1){
+
+        if (rowCount < 1 || colCount < 1) {
             System.out.println("The number of row and columns must be > zero.");
             return;
         }
         this.rowCount = rowCount;
         this.colCount = colCount;
-        
+
         //create 2-D array for Location objects
         this.locations = new Location[rowCount][colCount];
-        
-        for (int row = 0; row < rowCount; row ++){
-            for(int column = 0; column < colCount; column++){
+
+        for (int row = 0; row < rowCount; row++) {
+            for (int column = 0; column < colCount; column++) {
                 //create and initialize new Location object instance
                 Location location = new Location();
-                
+
                 location.setColumn(column);
                 location.setRow(row);
                 location.setVisited(false);
-                
+
                 //assign the location object to the current position in array
                 locations[row][column] = location;
-                
+
             }
         }
     }
@@ -55,7 +55,7 @@ public class Map implements Serializable {
     }
 
     public void setRowCount(int rowCount) {
-       this.rowCount = rowCount;
+        this.rowCount = rowCount;
     }
 
     public int getColCount() {
@@ -66,6 +66,13 @@ public class Map implements Serializable {
         this.colCount = colCount;
     }
 
+    public Location[][] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[][] locations) {
+        this.locations = locations;
+    }
 
     @Override
     public String toString() {

@@ -7,7 +7,7 @@ package byui.cit260.treasure.control;
 import byui.cit260.treasure.view.GetInput;
 import java.util.Random;
 
-public class Mathcontrol {
+public class MathControl {
 
     Random random = new Random();
     GetInput getinput = new GetInput();
@@ -31,8 +31,6 @@ public class Mathcontrol {
             return (false);
         }
     }
-
-    
 
     private boolean MathA() {
         int x = random.nextInt(50);

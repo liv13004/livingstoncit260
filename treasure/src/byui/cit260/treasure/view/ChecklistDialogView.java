@@ -7,13 +7,14 @@ package byui.cit260.treasure.view;
 
 import java.util.Scanner;
 import treasure.Treasure;
-import byui.cit260.treasure.control.Checklistcontrol;
+import byui.cit260.treasure.control.ChecklistControl;
+
 /**
  *
  * @author braden
  */
 public class ChecklistDialogView {
-    
+
     private String getInput() {
         boolean valid = false; //indicates if the name has been retrieved
         String selection = null;
@@ -33,29 +34,31 @@ public class ChecklistDialogView {
             break; // out of the (exit) the repetition
 
         }
-        return null;        
+        return null;
     }
-    
-    
-    
+
     private void buildBoatDialog() {
         System.out.println("Congratulations! You have built a boat, now lets go some places!");
-        boolean done = Checklistcontrol.BuildBoat(true);
-     }    
+        boolean done = ChecklistControl.BuildBoat(true);
+    }
+
     private void climbTreeDialog() {
         System.out.println("Congratulations! You have climbed the tree, now you know where to go!");
-        boolean done = Checklistcontrol.GetBearings(true);
+        boolean done = ChecklistControl.GetBearings(true);
     }
+
     private void buildBridgeDialog() {
         System.out.println("Congratulations! You have built the bridge, hurry up, you're almost to the treasure!");
-        boolean done = Checklistcontrol.FixBridge(true);
-    }    
+        boolean done = ChecklistControl.FixBridge(true);
+    }
+
     private void openChestDialog() {
         System.out.println("Congratulations! You have opened the chest and found the treasure!");
-        boolean done = Checklistcontrol.OpenChest(true);
+        boolean done = ChecklistControl.OpenChest(true);
     }
+
     private void completeGameDialog() {
         System.out.println("Congratulations! You have Completed the Game");
-         }
-    
+    }
+
 }

@@ -8,11 +8,12 @@ package byui.cit260.treasure.control;
 import byui.cit260.treasure.model.Map;
 import java.util.Scanner;
 import treasure.Treasure;
+
 /**
  *
  * @author andrew
  */
-public class Mapcontrol {
+public class MapControl {
 
 //    public static Map createMap() {
 //        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -24,20 +25,19 @@ public class Mapcontrol {
 //    //assignScenesToLocations(map, scenes);
 //    return map;
 //    }
-   // public static String Location;
-
+    // public static String Location;
     static void moveCharactersToStart(Map map) {
         System.out.println("move CharactersToStart has been called");
     }
 
-    public class playerLocation{
-       playerLocation(){
-       String location = "";
-       location = "beach";
-           }
+    public class playerLocation {
+
+        playerLocation() {
+            String location = "";
+            location = "beach";
+        }
 
     }
-    
 
     /**
      *

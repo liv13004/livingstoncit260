@@ -7,21 +7,21 @@ package byui.cit260.treasure.model;
 
 import java.io.Serializable;
 import java.util.Objects;
+
 /**
  *
  * @author Braden
  */
-public class Location implements Serializable{
-  
+public class Location implements Serializable {
+
     //class instance variables
     private int row;
     private int column;
     private boolean visited;
+    private String description;
 
     public Location() {
     }
-    
-    
 
     public Location(int row, int column, boolean visited) {
         this.row = row;
@@ -53,17 +53,26 @@ public class Location implements Serializable{
         this.visited = visited;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     @Override
     public String toString() {
-        return "Locations{" + "row=" + row + ", column=" + column + ", visited=" + visited + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", description=" + description + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 67 * hash + this.row;
-        hash = 67 * hash + this.column;
-        hash = 67 * hash + (this.visited ? 1 : 0);
+        int hash = 7;
+        hash = 53 * hash + this.row;
+        hash = 53 * hash + this.column;
+        hash = 53 * hash + (this.visited ? 1 : 0);
+        hash = 53 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -85,9 +94,10 @@ public class Location implements Serializable{
         if (this.visited != other.visited) {
             return false;
         }
+        if (!Objects.equals(this.description, other.description)) {
+            return false;
+        }
         return true;
     }
-    
-    
-    
+
 }

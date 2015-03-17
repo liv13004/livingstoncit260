@@ -15,34 +15,29 @@ import treasure.Treasure;
  */
 public class GameMenuView extends View {
 
-
-
-    private static final String gameMenu = ( "\nm = View Map"
-                    + "\ni = Open Inventory"
-                    + "\nc = Checklist"
-                    + "\ns = Save Game"
-                    + "\nh = help menu"                        
-                    + "\nq = quit");
+    private static final String gameMenu = ("\nm = View Map"
+            + "\ni = Open Inventory"
+            + "\nc = Checklist"
+            + "\ns = Save Game"
+            + "\nh = help menu"
+            + "\nq = quit");
 
     public GameMenuView() {
         super(gameMenu);
-                
-               // System.out.print(gameMenu);
-       
+
+        // System.out.print(gameMenu);
     }
-    
 
     //GameMenuView() {
     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     @Override
     public boolean doAction(Object obj) {
 
-        
         String value = (String) obj;
         switch (value) {
             case "m":
                 System.out.println("display Main map...");
-                MapView.mapLocation="Main";
+                MapView.mapLocation = "Main";
                 MapView.defaultMenu = MapView.mainMapMenu;
                 MapView map = new MapView();
                 map.display();
@@ -74,6 +69,4 @@ public class GameMenuView extends View {
 
     }
 
-
-    
 }

@@ -10,24 +10,25 @@ import byui.cit260.treasure.control.InventoryControl;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Objects;
+
 /**
  *
  * @author Braden
  */
 public class Game implements Serializable {
-     // class instance variables
-        private double noPeople;
-        private Characters characters;
-        private Player player;
-        private Map map;
-        private Boat boat;
-        private InventoryItem[] inventoryItem;
-        private Gold gold;
-        private InventoryControl inventoryControl;
-        
-    
+
+    // class instance variables
+    private double noPeople;
+    private Characters characters;
+    private Player player;
+    private Map map;
+    private Boat boat;
+    private InventoryItem[] inventoryItem;
+    private Gold gold;
+    private InventoryControl inventoryControl;
+
     public Game() {
-        
+
     }
 
     public double getNoPeople() {
@@ -148,13 +149,5 @@ public class Game implements Serializable {
         }
         return true;
     }
-    
 
-   
-
-    
-    
-
-
-    
 }

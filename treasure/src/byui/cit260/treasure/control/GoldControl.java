@@ -6,12 +6,15 @@
 package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.model.Gold;
+
 /**
  *
  * @author andrew
- */ 
+ */
 public class GoldControl {
-   Gold gold = new Gold();
+
+    Gold gold = new Gold();
+
     public void addGold(int payment) {
         gold.setGold(gold.getGold() + payment);
     }
@@ -21,6 +24,4 @@ public class GoldControl {
      * @param amount
      * @param character
      */
-    
-
 }

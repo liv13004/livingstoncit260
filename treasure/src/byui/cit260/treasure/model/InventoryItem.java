@@ -14,19 +14,17 @@ import java.util.Objects;
  * @author andrew
  */
 public class InventoryItem implements Serializable {
+
     private InventoryControl inventoryControl;
-   //  class instance variables
+    //  class instance variables
     private int amount;
     private int requiredAmount;
     private String description;
-    
+
     public InventoryItem() {
-        
+
     }
 
-    
-    
-    
     public void setDescription(String description) {
         this.description = description;
     }
@@ -47,14 +45,8 @@ public class InventoryItem implements Serializable {
         this.requiredAmount = requiredAmount;
     }
 
-    
     public Object getDescription() {
         return description;
     }
 
-    
-
-    
-    
-  
 }

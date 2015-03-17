@@ -7,45 +7,44 @@ package byui.cit260.treasure.control;
 
 import java.util.Random;
 import java.util.Scanner;
-import byui.cit260.treasure.control.Mathcontrol;
+import byui.cit260.treasure.control.MathControl;
 
 /**
  *
  * @author andrew
  */
-public class Checklistcontrol {
+public class ChecklistControl {
 
-    public static Mathcontrol math = new Mathcontrol();
+    public static MathControl math = new MathControl();
     Random random = new Random();
 
     public void SetSail() {
         // TODO - implement Checklistcontrol.SetSail
-        
+
         boolean valid = true;
     }
 
     public void PassWhirlpool() {
         // TODO - implement Checklistcontrol.PassWhirlpool
-        
+
         boolean valid = true;
     }
 
     public static boolean FixBridge(boolean input) {
         System.out.println("Good Job! Now you need to complete this equation to fix the bridge...");
-        if (math.math()){ 
+        if (math.math()) {
             System.out.println("Congratulations");
             boolean complete = input;
             return true;
-            } 
-        else {
+        } else {
             System.out.println("You Fail.");
             return false;
-            }
+        }
     }
 
     public static boolean OpenChest(boolean input) {
         // TODO - implement Checklistcontrol.OpenChest
-        
+
         boolean complete = input;
         return complete;
     }
@@ -56,8 +55,8 @@ public class Checklistcontrol {
     }
 
     public static boolean BuildBoat(boolean input) {
-        boolean complete = input;        
-       return complete;        
+        boolean complete = input;
+        return complete;
     }
 
     public void HelpTurtle() {
@@ -65,15 +64,14 @@ public class Checklistcontrol {
         double counter = weight * (1.05);
         if (math.turtle(weight, counter)) {
             System.out.println("congrats");
-             } 
-            else {
+        } else {
             System.out.println("you fail");
         }
     }
 
-    public static boolean GetBearings(boolean input){
+    public static boolean GetBearings(boolean input) {
         boolean complete = input;
-        return complete;        
+        return complete;
         // TODO - implement Checklistcontrol.GetBearings
-        }
+    }
 }

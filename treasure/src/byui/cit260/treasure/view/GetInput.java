@@ -12,17 +12,18 @@ import java.util.Scanner;
  * @author andrew
  */
 public class GetInput {
+
     Scanner scanner = new Scanner(System.in); //keyboard input stream
+
     public char getChar() {
         String selection = null;
-        
 
         while (true) {//while a valid name has not been retrieved
             //prompt for the player's name
             System.out.println("Enter your selection below...");
             //get the name from the keyboard and trim off the blanks
             selection = scanner.next();
-            
+
             //if the name is invalid (less than two character in length)
             if (selection.length() != 1) {
                 System.out.println("selection must be 1 character long...");
@@ -33,30 +34,30 @@ public class GetInput {
         }
         return selection.charAt(0); //return the char
     }
-    
-    public String getString(){
+
+    public String getString() {
         String selection = null;
-        while(true){
+        while (true) {
             System.out.println("Enter your selection Below...");
             selection = scanner.next();
-            if (selection.isEmpty()){
+            if (selection.isEmpty()) {
                 System.out.println("you must enter a valid string...");
                 continue;
             }
             break;
         }
-        return(selection);
+        return (selection);
     }
 
     public double getNumber() {
-double selection;
-        while(true){
+        double selection;
+        while (true) {
             System.out.println("Enter your selection Below...");
-            
+
             selection = scanner.nextDouble();
             break;
-            
+
         }
-        return(selection);
+        return (selection);
     }
 }
