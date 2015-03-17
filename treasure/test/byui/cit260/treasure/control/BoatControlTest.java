@@ -12,9 +12,9 @@ import static org.junit.Assert.*;
  *
  * @author Braden
  */
-public class BoatcontrolTest {
-    
-    public BoatcontrolTest() {
+public class BoatControlTest {
+
+    public BoatControlTest() {
     }
 
     /**
@@ -23,12 +23,12 @@ public class BoatcontrolTest {
     @Test
     public void testOnBoat() {
         System.out.println("onBoat");
-       //  boolean expResult = true;
-       // boolean result = instance.onBoat();
-       // assertEquals(expResult, result);
+        //  boolean expResult = true;
+        // boolean result = instance.onBoat();
+        // assertEquals(expResult, result);
         // TODO review the generated test code and 
         //remove the default call to fail.
-        
+
     }
-    
+
 }

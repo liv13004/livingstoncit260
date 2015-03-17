@@ -18,22 +18,22 @@ import static org.junit.Assert.*;
  * @author andrew
  */
 public class PlayerControlTest {
-    
+
     public PlayerControlTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
-    
+
     @Before
     public void setUp() {
     }
-    
+
     @After
     public void tearDown() {
     }
@@ -43,17 +43,16 @@ public class PlayerControlTest {
      */
     @Test
     public void testCreatePlayer() {
-        for(long i = 0; i > 10; i++){
+        for (long i = 0; i > 10; i++) {
             System.out.println("createPlayer");
-        String playerName = "fred" + i;
-        Player player = new Player();
-        player.setName(playerName);
-        Player expResult = player;
-        Player result = PlayerControl.createPlayer(playerName);
-        assertEquals(expResult, result);
+            String playerName = "fred" + i;
+            Player player = new Player();
+            player.setName(playerName);
+            Player expResult = player;
+            Player result = PlayerControl.createPlayer(playerName);
+            assertEquals(expResult, result);
         }
-        
 
     }
-    
+
 }

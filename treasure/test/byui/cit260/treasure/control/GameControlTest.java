@@ -19,14 +19,14 @@ import treasure.Treasure;
  * @author Braden
  */
 public class GameControlTest {
-    
+
     public GameControlTest() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
@@ -50,7 +50,6 @@ public class GameControlTest {
 //        // TODO review the generated test code and remove the default call to fail.
 //        fail("The test case is a prototype.");
 //    }
-
     /**
      * Test of createPlayer method, of class GameControl.
      */
@@ -102,5 +101,5 @@ public class GameControlTest {
         // TODO review the generated test code and remove the default call to fail.
 
     }
-    
+
 }

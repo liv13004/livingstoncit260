@@ -16,9 +16,9 @@ import org.junit.BeforeClass;
  *
  * @author andrew
  */
-public class MathcontrolTest {
+public class MathControlTest {
 
-    public MathcontrolTest() {
+    public MathControlTest() {
     }
 
     @BeforeClass
@@ -43,11 +43,11 @@ public class MathcontrolTest {
     @Test
     public void testMath() {
         System.out.println("math");
-        Mathcontrol instance = new Mathcontrol();
+        MathControl instance = new MathControl();
         boolean expResult = false;
         boolean result = instance.math();
         assertEquals(expResult, result);
-        
+
     }
 
     /**
@@ -58,11 +58,11 @@ public class MathcontrolTest {
         System.out.println("turtle");
         double turtle = 50;
         int counter = 40;
-        Mathcontrol instance = new Mathcontrol();
+        MathControl instance = new MathControl();
         boolean expResult = true;
         boolean result = instance.turtle(turtle, counter);
         assertEquals(expResult, result);
-        
+
     }
 
 }

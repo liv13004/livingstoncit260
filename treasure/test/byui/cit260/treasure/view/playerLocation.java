@@ -5,7 +5,7 @@
  */
 package byui.cit260.treasure.view;
 
-import byui.cit260.treasure.control.Mapcontrol;
+import byui.cit260.treasure.control.MapControl;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,21 +18,21 @@ import treasure.Treasure;
  * @author Braden
  */
 public class playerLocation {
-    
+
     public playerLocation() {
     }
-    
+
     @BeforeClass
     public static void setUpClass() {
     }
-    
+
     @AfterClass
     public static void tearDownClass() {
     }
 
     @Test
     public void testSomeMethod() {
-        Mapcontrol.playerLocation location;
-            }
-    
+        MapControl.playerLocation location;
+    }
+
 }
