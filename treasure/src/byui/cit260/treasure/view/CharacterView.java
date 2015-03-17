@@ -14,11 +14,14 @@ import byui.cit260.treasure.control.Mathcontrol;
  * @author andrew
  */
 public class CharacterView extends View {
-    private static String trader;
+     private static final String trader = MapView.traderMenu;
     private static String character;
-    private static String turtle;
-    private static String dolphin;
+    private static final String turtle = MapView.turtleMenu;
+    private static final String dolphin = MapView.dolphinMenu;
     private static String addItem;
+    private static String userInput;
+    private static String charOutput;
+    public static String defaultMenu = "";
        
     Mathcontrol math = new Mathcontrol();
     GetInput getinput = new GetInput();
@@ -28,93 +31,74 @@ public class CharacterView extends View {
     
 //String promptMessage
     public CharacterView() {
-        super(//(promptMessage) 
-                 (CharacterView.trader));
+        super(defaultMenu);
+     if ("Trader".equals(MapView.mapCharacter)){
+            //System.out.print(MapView.traderMenu);
+              defaultMenu = trader;
+            
+     
+    }else if ("Turtle".equals(MapView.mapCharacter)){
+            System.out.print(MapView.turtleMenu);
+            defaultMenu = turtle;
+           
+    }else if ("Dolphin".equals(MapView.mapCharacter)){
+             System.out.print(MapView.dolphinMenu);
+             defaultMenu = dolphin;
+            }else;
        
         
     }
-        
-    public void trader() {
-        char value;
-        System.out.println("Hi! my name is trader. what'll it be.");
-        do {
-
-            
-            System.out.println(
-                    trader = "\nn"
-                    + "\nl = Lumber"
-                    + "\ns = Sail"
-                    + "\nb = Back");
-                    value = getinput.getChar();
-            doAction(value);
-            System.out.println("Will there be anything else you need?");
-        } while (value != 'b');
-    }
-
     
-    public void turtle() {
-        char selection;
-        do {
-
-            System.out.println("Hey! Help! I got myself locked in this cage!");
-            System.out.println("?\n"
-                    + "\nh = Help"
-                    + "\ns = Step away and let the turtle rot."
-                    + "\nb = Back");
-            selection = getinput.getChar();
-            doAction(selection);
-        } while (selection != 'b');
-    }
-
-  
-    public void dolphin() {
-        char selection;
-        do {
-
-            System.out.println("Hey! Help! I need to know how fast I can get to my family. they are 5 miles east"
-                    + "\n I can swim about 2 kilometers per hour");
-            System.out.println("?\n"
-                    + "\nh = Help"
-                    + "\ns = Step away and let the dolphin drown in its own stupidity."
-                    + "\nb = Back");
-            selection = getinput.getChar();
-            doAction(selection);
-        } while (selection != 'b');
-    }
-
-
-
+    
     @Override
     public boolean doAction(Object obj) {
-            String value = (String) obj;
-            if (character.equals("trader")){
-            
-          //public void doActionTrader(String value) {
+        String value = (String) obj;
+                        
+        
+            if("Trader".equals(MapView.mapCharacter)){//.equals(character)){ // & charOutput.isEmpty()){
+          
+                        
         switch (value) {
             case "l":
                 System.out.println("Great! here you go.");
+                //System.out.CharacterView trader;
                 inventorycontrol.addItem(value);
+                super.display();
+                //MapView trader = new MapView();
+                //trader.display();
                 break;
             case "s":
                 System.out.println("Great! here you go.");
                 inventorycontrol.addItem(value);
+                super.display();
+                //MapView trader = new MapView();
+                //MapView trader = new MapView();
+                //trader.display();
+                //View.toString()
                 break;
             case "b":
-                System.out.println("Back...");
+               System.out.println("Back...");
+               MapView.defaultMenu = MapView.beachMapMenu;
+               MapView beach = new MapView();
+               beach.display();
                 break;
             default:
                 System.out.println("\ninvalid selection");
 
                     }
-            }
+               return false;
+               
+    }
+         
             
-            if (character.equals("turtle")){
+            if ("Turtle".equals(MapView.mapCharacter)){
                 switch (value) {
             case "h":
                 if(math.math()){
                     
                 System.out.println("ahh! thank you I thought I would rot for the rest of my life."
                         + "\nhere take this.");
+                
            goldcontrol.addGold(10);}
                 break;            
             case "s":
@@ -122,13 +106,19 @@ public class CharacterView extends View {
                 break;
             case "b":
                 System.out.println("Back...");
+                System.out.println("Back...");
+               MapView.defaultMenu = MapView.oceanMapMenu;
+               MapView ocean = new MapView();
+               ocean.display();
                 break;
             default:
                 System.out.println("\ninvalid selection");
                 }
+                
+                userInput = value;
             }
                 
-            if (character.equals("dolphin")){
+            if ("Dolphin".equals(MapView.mapCharacter)){
                 switch (value) {
             case "h":
                 if(math.math()){
@@ -147,8 +137,13 @@ public class CharacterView extends View {
                 System.out.println("\ninvalid selection");
 
                 }
+                userInput = value;
             }
+        return false;
                 
-           return false;
+                
     }
+
+
+    
   }

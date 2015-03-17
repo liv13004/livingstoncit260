@@ -14,21 +14,53 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
     Scanner scanner = new Scanner(System.in); //keyboard input stream
     private String promptMessage;
+   
+    //private Object objString;
     
     public View(String promptMessage){
+        //if (promptMessage.contentEquals(""))
+            //this.objString = objString; 
+        //else 
+            //this.promptMessage = promptMessage;
+        //this.objString = objString;
+        
+        //if System.out.print(MainMenuView.mainMenu);
         this.promptMessage = promptMessage;
     }
     
+        
     @Override
     public void display(){
-        String value;
+         int displayPromptMessage = 0;
+        String value = "";
+        //if (promptMessage.contentEquals(""))
+                //System.out.print(this.objString);
+       // else 
+            //System.out.println(this.promptMessage);
         do{
+           if (displayPromptMessage == 0)
+           {
+
+               
+               
+               
+               System.out.print(promptMessage);
+                displayPromptMessage ++;
+        
+            }
+           else
+           {
             
-            System.out.println(this.promptMessage);
             value = getInput();
             this.doAction(value);
+            displayPromptMessage = 0;
+           }
+                
         }while(!value.equals("b"));
+       // while(!value.equals("b"));
     }
+        
+    
     
     @Override
     public String getInput() {
@@ -37,14 +69,18 @@ public abstract class View implements ViewInterface {
 
         while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("Enter your selection below;");
+            System.out.println(" \n \n Enter your selection below;");
             //get the name from the keyboard and trim off the blanks
+           
             selection = scanner.nextLine();
-            selection = selection.trim();
+                       selection = selection.trim();
+                       
             //if the name is invalid (less than two character in length)
             if (selection.length() < 1) {
+                System.out.println(selection);
                 System.out.println("\n*** Invalid selection *** Try again");
                 continue; // and repeat again
+               // System.out.print(this.promptMessage);
             }
             break; // out of the (exit) the repetition
 

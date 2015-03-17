@@ -54,8 +54,8 @@ public class Map implements Serializable {
         return rowCount;
     }
 
-    public void setRowCount(int IrowCount) {
-        rowCount = IrowCount;
+    public void setRowCount(int rowCount) {
+       this.rowCount = rowCount;
     }
 
     public int getColCount() {
@@ -69,7 +69,7 @@ public class Map implements Serializable {
 
     @Override
     public String toString() {
-        return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + ", location=" + location + '}';
+        return "Map{" + "rowCount=" + rowCount + ", colCount=" + colCount + ", location=" + locations + '}';
     }
 
     public static class setRowCount {

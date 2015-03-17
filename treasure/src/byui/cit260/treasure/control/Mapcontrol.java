@@ -27,7 +27,7 @@ public class Mapcontrol {
    // public static String Location;
 
     static void moveCharactersToStart(Map map) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("move CharactersToStart has been called");
     }
 
     public class playerLocation{
@@ -44,9 +44,9 @@ public class Mapcontrol {
      * @param character
      * @param location
      */
-    public void move(int character, String location) {
+    public void move(String character, String location) {
         // TODO - implement Mapcontrol.move
-        throw new UnsupportedOperationException();
+//        throw new UnsupportedOperationException();
     }
 
     /**

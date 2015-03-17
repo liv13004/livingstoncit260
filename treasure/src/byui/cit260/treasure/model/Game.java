@@ -21,7 +21,7 @@ public class Game implements Serializable {
         private Player player;
         private Map map;
         private Boat boat;
-        private InventoryItem[] inventoryList;
+        private InventoryItem[] inventoryItem;
         private Gold gold;
         private InventoryControl inventoryControl;
         
@@ -70,12 +70,12 @@ public class Game implements Serializable {
         this.boat = boat;
     }
 
-    public InventoryItem[] getInventory() {
-        return inventoryList;
+    public InventoryItem[] getInventoryItem() {
+        return inventoryItem;
     }
 
-    public void setInventory(InventoryItem[] inventory) {
-        this.inventoryList = inventory;
+    public void setInventoryItem(InventoryItem[] inventory) {
+        this.inventoryItem = inventory;
     }
 
     public Gold getGold() {
@@ -96,7 +96,7 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "noPeople=" + noPeople + ", characters=" + characters + ", player=" + player + ", map=" + map + ", boat=" + boat + ", inventory=" + inventoryList + ", gold=" + gold + ", inventoryControl=" + inventoryControl + '}';
+        return "Game{" + "noPeople=" + noPeople + ", characters=" + characters + ", player=" + player + ", map=" + map + ", boat=" + boat + ", inventory=" + inventoryItem + ", gold=" + gold + ", inventoryControl=" + inventoryControl + '}';
     }
 
     @Override
@@ -107,7 +107,7 @@ public class Game implements Serializable {
         hash = 71 * hash + Objects.hashCode(this.player);
         hash = 71 * hash + Objects.hashCode(this.map);
         hash = 71 * hash + Objects.hashCode(this.boat);
-        hash = 71 * hash + Arrays.deepHashCode(this.inventoryList);
+        hash = 71 * hash + Arrays.deepHashCode(this.inventoryItem);
         hash = 71 * hash + Objects.hashCode(this.gold);
         hash = 71 * hash + Objects.hashCode(this.inventoryControl);
         return hash;
@@ -137,7 +137,7 @@ public class Game implements Serializable {
         if (!Objects.equals(this.boat, other.boat)) {
             return false;
         }
-        if (!Arrays.deepEquals(this.inventoryList, other.inventoryList)) {
+        if (!Arrays.deepEquals(this.inventoryItem, other.inventoryItem)) {
             return false;
         }
         if (!Objects.equals(this.gold, other.gold)) {
@@ -148,7 +148,6 @@ public class Game implements Serializable {
         }
         return true;
     }
-    
     
 
    

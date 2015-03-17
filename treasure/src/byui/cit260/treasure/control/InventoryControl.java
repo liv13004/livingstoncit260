@@ -9,6 +9,7 @@ package byui.cit260.treasure.control;
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.InventoryItem;
 import byui.cit260.treasure.view.GetInput;
+import treasure.Treasure;
 
 /**
  *
@@ -16,6 +17,11 @@ import byui.cit260.treasure.view.GetInput;
  */
 public class InventoryControl {
     private Game game;
+    private InventoryItem[] inventory;
+    
+    public InventoryControl(){
+        inventory = Treasure.getCurrentGame().getInventoryItem();
+}
     GetInput getinput = new GetInput();
 
     
@@ -24,12 +30,10 @@ public class InventoryControl {
         
         switch (selection) {
             case "l":
-                game.setInventory(null);
-                GameControl.createPlayer(selection);
-                setLumber(game.getLumber - 1);
+                inventory[0].setAmount(inventory[0].getAmount() - 1);
                 break;
             case "s":
-                game.setSail(game.getSail() - 1);
+                inventory[1].setAmount(inventory[1].getAmount() - 1);
                 break;
             default:
                 System.out.println("\ninvalid selection");
@@ -40,16 +44,70 @@ public class InventoryControl {
     public void addItem(String selection) {
  switch (selection) {
             case "l":
-                game.setLumber(game.getLumber() + 1);
+                inventory[0].setAmount(inventory[0].getAmount() + 1);
                 break;
             case "s":
-                game.setSail(game.getSail() + 1);
+                inventory[1].setAmount(inventory[1].getAmount() + 1);
                 break;
             default:
                 System.out.println("\ninvalid selection");
                 
         }
  
+    }
+    int colCount = 3;
+   // int rowCount = i;
+    
+    public void displayInventory() {
+
+//
+        //
+        for (int i = 0; i <= colCount; i++) {//print header line
+
+            displayColDiv();
+            if (i == 0){
+                System.out.print("item name");
+                }
+                else if(i == 1){
+                    System.out.print("item quantity");
+                }
+                else if(i == 2){
+                    System.out.print("required amount");
+                }
+        }
+        displayColDiv();
+        for (int i = 0;!(inventory.length == i); i++) {//loop through rows
+
+            displayRowDiv();
+            for (int j = 1; j <= colCount; j++) {//loop through columns
+                displayColDiv();
+                if (j == 1){
+                System.out.print(inventory[i].getDescription().toString().concat(null));
+                }
+                else if(j == 2){
+                    System.out.print(inventory[i].getAmount());
+                }
+                else if(j == 3){
+                    System.out.print(inventory[i].getRequiredAmount());
+                }
+            }
+            displayColDiv();
+        }
+
+    }
+
+    private void displayRowDiv() {
+        String string = ("\n  ");
+        for (int i = 1; i <= colCount; i++) {
+            string = string.concat("----------");
+        }
+        System.out.println(string + "-");
+    }
+
+    private void displayColDiv() {
+
+        System.out.print("  |  ");
+
     }
 
 }

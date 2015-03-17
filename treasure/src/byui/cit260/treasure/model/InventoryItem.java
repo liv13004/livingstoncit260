@@ -16,10 +16,7 @@ import java.util.Objects;
 public class InventoryItem implements Serializable {
     private InventoryControl inventoryControl;
    //  class instance variables
-    private int lumber;
-    private int sail;
-    private String inventoryType;
-    private int quantityInStock;
+    private int amount;
     private int requiredAmount;
     private String description;
     
@@ -29,20 +26,17 @@ public class InventoryItem implements Serializable {
 
     
     
-    public String getInventoryType() {
-        return inventoryType;
+    
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public void setInventoryType(String inventoryType) {
-        this.inventoryType = inventoryType;
+    public int getAmount() {
+        return amount;
     }
 
-    public int getQuantityInStock() {
-        return quantityInStock;
-    }
-
-    public void setQuantityInStock(int quantityInStock) {
-        this.quantityInStock = quantityInStock;
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public int getRequiredAmount() {
@@ -52,74 +46,10 @@ public class InventoryItem implements Serializable {
     public void setRequiredAmount(int requiredAmount) {
         this.requiredAmount = requiredAmount;
     }
+
     
-    
-    
-
-    public int getLumber() {
-        return lumber;
-    }
-
-    public void setLumber(int lumber) {
-        this.lumber = lumber;
-    }
-
-    public int getSail() {
-        return sail;
-    }
-
-    public void setSail(int sail) {
-        this.sail = sail;
-    }
-
-    @Override
-    public String toString() {
-        return "Inventory{" + "inventoryControl=" + inventoryControl + ", lumber=" + lumber + ", sail=" + sail + ", inventoryType=" + inventoryType + ", quantityInStock=" + quantityInStock + ", requiredAmount=" + requiredAmount + '}';
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 23 * hash + Objects.hashCode(this.inventoryControl);
-        hash = 23 * hash + this.lumber;
-        hash = 23 * hash + this.sail;
-        hash = 23 * hash + Objects.hashCode(this.inventoryType);
-        hash = 23 * hash + this.quantityInStock;
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final InventoryItem other = (InventoryItem) obj;
-        if (!Objects.equals(this.inventoryControl, other.inventoryControl)) {
-            return false;
-        }
-        if (this.lumber != other.lumber) {
-            return false;
-        }
-        if (this.sail != other.sail) {
-            return false;
-        }
-        if (!Objects.equals(this.inventoryType, other.inventoryType)) {
-            return false;
-        }
-        if (this.quantityInStock != other.quantityInStock) {
-            return false;
-        }
-        if (this.requiredAmount != other.requiredAmount) {
-            return false;
-        }
-        return true;
-    }
-
     public Object getDescription() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return description;
     }
 
     

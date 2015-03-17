@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class StartProgramView {
     //CharacterView character = new CharacterView();
-    MapView map = new MapView();
+   // MapView map = new MapView();
     public StartProgramView() {
 //        character.trader();
 //        character.turtle();

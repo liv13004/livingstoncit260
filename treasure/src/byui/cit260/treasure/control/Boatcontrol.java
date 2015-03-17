@@ -13,7 +13,15 @@ import byui.cit260.treasure.model.Boat;
 public class Boatcontrol {
         Boat boat = new Boat();
        
-    public boolean onBoat() {
+    public boolean OnBoat() {
     return(boat.isOnboard());
+    }
+
+    public void getOnBoat() {
+    boat.setOnboard(true);
+    }
+
+    public void getOffBoat(boolean b) {
+        boat.setOnboard(false);
     }
 }

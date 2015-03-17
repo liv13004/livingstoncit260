@@ -16,12 +16,15 @@ import byui.cit260.treasure.control.InventoryControl;
  * @author andrew
  */
 public class MainMenuView extends View{
-    
-    public MainMenuView(){
-        super("\nn = New Game"
+    public static String mainMenu = ("\nn = New Game"
                     + "\nl = Load Game"
                     + "\no = Options"
                     + "\nq = Quit");
+                       
+    
+    public MainMenuView(){
+        super(mainMenu);
+         //System.out.print(mainMenu);
     }
 
 
@@ -74,6 +77,14 @@ public class MainMenuView extends View{
 
     private void displayOptions() {
         System.out.println("Options");
+    }
+    private void mainMenu(){
+        mainMenu = ("\nn = New Game"
+                    + "\nl = Load Game"
+                    + "\no = Options"
+                    + "\nq = Quit"
+                );
+        System.out.print(mainMenu);
     }
 
 }
