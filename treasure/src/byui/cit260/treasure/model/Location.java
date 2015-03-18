@@ -27,6 +27,7 @@ public class Location implements Serializable {
         this.row = row;
         this.column = column;
         this.visited = visited;
+        this.description = " ";
     }
 
     public int getRow() {

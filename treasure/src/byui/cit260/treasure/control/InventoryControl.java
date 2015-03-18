@@ -79,7 +79,6 @@ public class InventoryControl {
                 displayColDiv();
                 if (j == 1) {
                     String buff = inventory[i].getDescription().toString();
-                    int length = buff.length();
                     while ((buff.length() < 10)) {
                         buff += " ";
                     }
@@ -91,9 +90,10 @@ public class InventoryControl {
                 }
             }
             displayColDiv();
-            System.out.print("\n\n");
+            
         }
-        
+        displayRowDiv();
+        System.out.print("\n\n");
     }
     
     private void displayRowDiv() {

@@ -37,11 +37,7 @@ public class Map implements Serializable {
         for (int row = 0; row < rowCount; row++) {
             for (int column = 0; column < colCount; column++) {
                 //create and initialize new Location object instance
-                Location location = new Location();
-
-                location.setColumn(column);
-                location.setRow(row);
-                location.setVisited(false);
+                Location location = new Location(row,column,false);
 
                 //assign the location object to the current position in array
                 locations[row][column] = location;
