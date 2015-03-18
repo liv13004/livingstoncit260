@@ -17,6 +17,7 @@ public class Location implements Serializable {
     //class instance variables
     private int row;
     private int column;
+    private Scene scene;
     private boolean visited;
     private String description;
 
@@ -46,6 +47,16 @@ public class Location implements Serializable {
         this.column = column;
     }
 
+    public Scene getScene() {
+        return scene;
+    }
+
+    public void setScene(Scene scene) {
+        this.scene = scene;
+    }
+    
+    
+
     public boolean isVisited() {
         return visited;
     }
@@ -64,16 +75,17 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "row=" + row + ", column=" + column + ", visited=" + visited + ", description=" + description + '}';
+        return "Location{" + "row=" + row + ", column=" + column + ", scene=" + scene + ", visited=" + visited + ", description=" + description + '}';
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 53 * hash + this.row;
-        hash = 53 * hash + this.column;
-        hash = 53 * hash + (this.visited ? 1 : 0);
-        hash = 53 * hash + Objects.hashCode(this.description);
+        int hash = 5;
+        hash = 71 * hash + this.row;
+        hash = 71 * hash + this.column;
+        hash = 71 * hash + Objects.hashCode(this.scene);
+        hash = 71 * hash + (this.visited ? 1 : 0);
+        hash = 71 * hash + Objects.hashCode(this.description);
         return hash;
     }
 
@@ -92,6 +104,9 @@ public class Location implements Serializable {
         if (this.column != other.column) {
             return false;
         }
+        if (!Objects.equals(this.scene, other.scene)) {
+            return false;
+        }
         if (this.visited != other.visited) {
             return false;
         }
@@ -100,5 +115,10 @@ public class Location implements Serializable {
         }
         return true;
     }
+
+    
+
+    
+    
 
 }

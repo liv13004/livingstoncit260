@@ -10,8 +10,10 @@ import byui.cit260.treasure.model.Boat;
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Gold;
 import byui.cit260.treasure.model.InventoryItem;
+import byui.cit260.treasure.model.Location;
 import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.model.Player;
+import byui.cit260.treasure.model.Scene;
 
 import treasure.Treasure;
 
@@ -32,13 +34,21 @@ public class GameControl {
         Boat boat = new Boat();
         game.setBoat(boat);
 
-        Map map = new Map(5, 5);
+        Map map = createMap();
         game.setMap(map);
 
         Gold gold = new Gold();
         game.setGold(gold);
         MapControl.moveCharactersToStart(map);
 
+    }
+
+    public static void createGameMenu(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void createBoatMenu(Player player) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private static class Constants {
@@ -164,37 +174,92 @@ public class GameControl {
         return player;
     }
 
-    public static void createGameMenu(Player player) {
-        //Super.GameMenuView gameMenu = new GameMenuView();
-        System.out.println("\n*** createGameMenu stub function called ****");
-        //View.this.doAction();
+    private static Map createMap(){
+    Map map = new Map(5,5);
+    
+    Scene[] scenes = createScenes();
+    
+    GameControl.assignScenesToLocations(map, scenes);
+    return map;
+}
+    
+    private static Scene[] createScenes(){
+        
+        Game game = Treasure.getCurrentGame();
+        
+        Scene[] scenes = new Scene[sceneType.values().length];
+        
+        Scene startingScene = new Scene();
+        startingScene.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        startingScene.setSymbol(" ST ");
+        startingScene.setBlocked(false);
+        
+        scenes[sceneType.start.ordinal()] = startingScene;
+        
+        Scene beach = new Scene();
+        beach.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        beach.setSymbol(" ST ");
+        beach.setBlocked(false);
+        
+        scenes[sceneType.beach.ordinal()] = beach;
+        
+        
+        Scene ocean = new Scene();
+        ocean.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        ocean.setSymbol(" ST ");
+        ocean.setBlocked(false);
+        
+        scenes[sceneType.ocean.ordinal()] = ocean;
+        
+        Scene Island = new Scene();
+        Island.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        Island.setSymbol(" ST ");
+        Island.setBlocked(false);
+        
+        scenes[sceneType.Island.ordinal()] = Island;
+        
+        
+        Scene chest = new Scene();
+        chest.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        chest.setSymbol(" ST ");
+        chest.setBlocked(false);
+        
+        scenes[sceneType.chest.ordinal()] = chest;
+        
+        Scene finish = new Scene();
+        finish.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        finish.setSymbol(" ST ");
+        finish.setBlocked(false);
+        
+        scenes[sceneType.finish.ordinal()] = finish;
+        
+        return scenes;
     }
-
-    public static void createHelpMenu(Player player) {
-        System.out.println("\n*** createHelpMenu stub function called ****");
+    
+    public enum sceneType{
+        start,
+        beach,
+        ocean,
+        Island,
+        chest,
+        finish;
     }
-
-    public static void createBoatMenu(Player player) {
-        //  throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    private static void assignScenesToLocations(Map map, Scene[] scenes){
+        Location[][] location = map.getLocations();
+        
+        //start point
+        location[0][0].setScene(scenes[sceneType.start.ordinal()]);
+        location[0][1].setScene(scenes[sceneType.beach.ordinal()]);
+        location[0][2].setScene(scenes[sceneType.ocean.ordinal()]);
+        location[0][3].setScene(scenes[sceneType.Island.ordinal()]);
+        location[0][4].setScene(scenes[sceneType.chest.ordinal()]);
+        location[0][5].setScene(scenes[sceneType.finish.ordinal()]);
     }
-
-    public static void createMapView(Player player) {
-        System.out.println("\n*** create mapView stub function called ****");
-    }
-
-//    public static void createInventoryList(Inventory inventoryList) {
-//        
-//        System.out.println("\n*** create InventoryList stub function called ****");
-//    }
-//    public static String location(String input){
-//        String complete = input;        
-//      return complete;    
-//}
-//class Constants {
-//
-//    public int NUMBER_OF_INVENTORY_ITEMS;
-//
-//        public void Constants() {
-//        }
-//    }
 }
