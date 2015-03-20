@@ -41,7 +41,7 @@ public class InventoryView extends View {
     InventoryControl inventorycontrol = new InventoryControl();
 
     @Override
-    public boolean doAction(Object obj) {
+    public void doAction(Object obj) {
         GameMenuView GameMenu = new GameMenuView();
         String value = (String) obj;
 
@@ -53,7 +53,10 @@ public class InventoryView extends View {
 //                System.out.println(defaultMenu);
                 break;
             case "t":
-                System.out.println(takeItem);
+                //System.out.println(takeItem);
+                for (int i = 0;i > inventorycontrol.getLength(); i++){
+           // System.out.printf("enter %s for %s", i, );
+        }
 //                InventoryView.defaultMenu = InventoryView.takeItem;
 //                super.display();
                 inventorycontrol.addItem(super.getString());
@@ -76,7 +79,6 @@ public class InventoryView extends View {
                 System.out.println("\ninvalid selection");
 
         }
-        return false;
     }
 
 }

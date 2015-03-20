@@ -27,7 +27,7 @@ public class MainMenuView extends View {
     }
 
     @Override
-    public boolean doAction(Object obj) {
+    public void doAction(Object obj) {
         //string value = (String) obj;
         String value = (String) obj;
         //value = value.toUpperCase();
@@ -53,7 +53,6 @@ public class MainMenuView extends View {
             default:
                 System.out.println("\ninvalid selection");
         }
-        return (valid);
     }
 
     private void startNewGame() {

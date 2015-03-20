@@ -20,7 +20,7 @@ public class HelpMenuView extends View {
     }
 
     @Override
-    public boolean doAction(Object obj) {
+    public void doAction(Object obj) {
 
         String value = (String) obj;
         switch (value) {
@@ -42,7 +42,6 @@ public class HelpMenuView extends View {
             default:
                 System.out.println("\ninvalid selection");
         }
-        return false;
 
     }
 

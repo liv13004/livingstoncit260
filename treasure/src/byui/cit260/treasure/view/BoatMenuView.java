@@ -29,7 +29,7 @@ public class BoatMenuView extends View {
     }
 
     @Override
-    public boolean doAction(Object obj) {
+    public void doAction(Object obj) {
 //string value = (String) obj;
 
 //value = value.toUpperCase();
@@ -108,7 +108,7 @@ public class BoatMenuView extends View {
                     System.out.println("\ninvalid selection");
             }
         }
-        return false;
+
 
         //return(valid);
         //return false;

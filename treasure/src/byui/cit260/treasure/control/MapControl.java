@@ -5,6 +5,8 @@
  */
 package byui.cit260.treasure.control;
 
+import byui.cit260.treasure.exceptions.MapControlException;
+import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Map;
 import java.util.Scanner;
 import treasure.Treasure;
@@ -14,9 +16,9 @@ import treasure.Treasure;
  * @author andrew
  */
 public class MapControl {
+private Game game;
 
-
-    static void moveCharactersToStart(Map map) {
+    static void moveCharactersToStart(Map map) throws MapControlException{
         System.out.println("move CharactersToStart has been called");
     }
 
@@ -35,8 +37,10 @@ public class MapControl {
      * @param location
      */
     public void move(String character, String location) {
-        // TODO - implement Mapcontrol.move
-//        throw new UnsupportedOperationException();
+        
+    }
+    public void moveToLocation(){
+        
     }
 
     /**
@@ -45,7 +49,9 @@ public class MapControl {
      */
     public void Visit(int Area) {
         // TODO - implement Mapcontrol.Visit
-        throw new UnsupportedOperationException();
+      
     }
 
 }
+
+

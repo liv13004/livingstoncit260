@@ -44,11 +44,11 @@ public class GameControl {
     }
 
     public static void createGameMenu(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public static void createBoatMenu(Player player) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     //   throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private static class Constants {
@@ -192,7 +192,7 @@ public class GameControl {
         Scene startingScene = new Scene();
         startingScene.setDescription("You see a beach "
                 + "you notice a trader with some wood...");
-        startingScene.setSymbol(" ST ");
+        startingScene.setSymbol("Start");
         startingScene.setBlocked(false);
         
         scenes[sceneType.start.ordinal()] = startingScene;
@@ -200,7 +200,7 @@ public class GameControl {
         Scene beach = new Scene();
         beach.setDescription("You see a beach "
                 + "you notice a trader with some wood...");
-        beach.setSymbol(" ST ");
+        beach.setSymbol("Beach");
         beach.setBlocked(false);
         
         scenes[sceneType.beach.ordinal()] = beach;
@@ -209,7 +209,7 @@ public class GameControl {
         Scene ocean = new Scene();
         ocean.setDescription("You see a beach "
                 + "you notice a trader with some wood...");
-        ocean.setSymbol(" ST ");
+        ocean.setSymbol("Ocean");
         ocean.setBlocked(false);
         
         scenes[sceneType.ocean.ordinal()] = ocean;
@@ -217,7 +217,7 @@ public class GameControl {
         Scene Island = new Scene();
         Island.setDescription("You see a beach "
                 + "you notice a trader with some wood...");
-        Island.setSymbol(" ST ");
+        Island.setSymbol("Island");
         Island.setBlocked(false);
         
         scenes[sceneType.Island.ordinal()] = Island;
@@ -226,7 +226,7 @@ public class GameControl {
         Scene chest = new Scene();
         chest.setDescription("You see a beach "
                 + "you notice a trader with some wood...");
-        chest.setSymbol(" ST ");
+        chest.setSymbol("Chest");
         chest.setBlocked(false);
         
         scenes[sceneType.chest.ordinal()] = chest;
@@ -234,10 +234,18 @@ public class GameControl {
         Scene finish = new Scene();
         finish.setDescription("You see a beach "
                 + "you notice a trader with some wood...");
-        finish.setSymbol(" ST ");
+        finish.setSymbol("Finish");
         finish.setBlocked(false);
         
         scenes[sceneType.finish.ordinal()] = finish;
+        
+        Scene notUsed = new Scene();
+        notUsed.setDescription("You see a beach "
+                + "you notice a trader with some wood...");
+        notUsed.setSymbol("    ");
+        notUsed.setBlocked(false);
+        
+        scenes[sceneType.notUsed.ordinal()] = notUsed;
         
         return scenes;
     }
@@ -248,18 +256,27 @@ public class GameControl {
         ocean,
         Island,
         chest,
-        finish;
+        finish,
+        notUsed;
     }
     
     private static void assignScenesToLocations(Map map, Scene[] scenes){
         Location[][] location = map.getLocations();
+        int colCount = map.getColCount();
+        int rowCount = map.getRowCount();
+        for(int i = 0; i < rowCount; i++){
+            for(int j = 0; j < colCount; j++){
+                 location[i][j].setScene(scenes[sceneType.notUsed.ordinal()]);
+            }
+        }
         
         //start point
+       
         location[0][0].setScene(scenes[sceneType.start.ordinal()]);
         location[0][1].setScene(scenes[sceneType.beach.ordinal()]);
         location[0][2].setScene(scenes[sceneType.ocean.ordinal()]);
         location[0][3].setScene(scenes[sceneType.Island.ordinal()]);
-        location[0][4].setScene(scenes[sceneType.chest.ordinal()]);
-        location[0][5].setScene(scenes[sceneType.finish.ordinal()]);
+        location[0][4].setScene(scenes[sceneType.chest.ordinal()]); 
+  
     }
 }

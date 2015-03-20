@@ -26,17 +26,19 @@ public class InventoryControl {
     
     public void dropItem(String selection) {
         
-        switch (selection) {
-            case "l":
-                inventory[0].setAmount(inventory[0].getAmount() - 1);
-                break;
-            case "s":
-                inventory[1].setAmount(inventory[1].getAmount() - 1);
-                break;
-            default:
-                System.out.println("\ninvalid selection");
-            
-        }
+        
+        
+//        switch (selection) {
+//            case "l":
+//                inventory[0].setAmount(inventory[0].getAmount() - 1);
+//                break;
+//            case "s":
+//                inventory[1].setAmount(inventory[1].getAmount() - 1);
+//                break;
+//            default:
+//                System.out.println("\ninvalid selection");
+//            
+//        }
     }
     
     public void addItem(String selection) {
@@ -108,6 +110,10 @@ public class InventoryControl {
         
         System.out.print("  |  ");
         
+    }
+
+    public int getLength() {
+        return(inventory.length);
     }
     
 }

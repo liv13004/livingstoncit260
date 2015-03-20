@@ -48,7 +48,7 @@ public class CharacterView extends View {
     }
 
     @Override
-    public boolean doAction(Object obj) {
+    public void doAction(Object obj) {
         String value = (String) obj;
 
         if ("Trader".equals(MapView.mapCharacter)) {//.equals(character)){ // & charOutput.isEmpty()){
@@ -81,7 +81,6 @@ public class CharacterView extends View {
                     System.out.println("\ninvalid selection");
 
             }
-            return false;
 
         }
 
@@ -134,7 +133,7 @@ public class CharacterView extends View {
             }
             userInput = value;
         }
-        return false;
+
 
     }
 

@@ -31,7 +31,7 @@ public class GameMenuView extends View {
     //GameMenuView() {
     //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     @Override
-    public boolean doAction(Object obj) {
+    public void doAction(Object obj) {
 
         String value = (String) obj;
         switch (value) {
@@ -65,7 +65,6 @@ public class GameMenuView extends View {
             default:
                 System.out.println("\ninvalid selection");
         }
-        return false;
 
     }
 

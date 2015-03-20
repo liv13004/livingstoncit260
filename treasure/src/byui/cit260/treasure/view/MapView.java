@@ -65,14 +65,15 @@ public class MapView extends View {
             + "\nb = Back\" ");
 
     public MapView() {
-
+        
         super(defaultMenu);
-
         map = Treasure.getCurrentGame().getMap();
+        displayMap();
+        
     }
 
     @Override
-    public boolean doAction(Object obj) {
+    public void doAction(Object obj) {
         MapControl location = new MapControl();
         location.move(mapCharacter, mapLocation);
         if ("Main".equals(mapLocation)) {
@@ -116,7 +117,6 @@ public class MapView extends View {
                     System.out.println("\ninvalid selection");
 
             }
-            return false;
         }
 
         if ("Beach".equals(mapLocation)) {
@@ -143,7 +143,7 @@ public class MapView extends View {
                 default:
                     System.out.println("\ninvalid selection");
             }
-            return false;
+
         }
 
         if ("Beach Shore".equals(mapLocation)) {
@@ -164,7 +164,6 @@ public class MapView extends View {
                 default:
                     System.out.println("\ninvalid selection");
             }
-            return false;
         }
 
         if ("Ocean".equals(mapLocation)) {
@@ -199,7 +198,6 @@ public class MapView extends View {
                 default:
                     System.out.println("\ninvalid selection");
             }
-            return false;
         }
 
         if ("Island".equals(mapLocation)) {
@@ -251,7 +249,7 @@ public class MapView extends View {
                     System.out.println("\ninvalid selection");
 
             }
-            return false;
+
         }
 
         // if ("Island Shore".equals(mapLocation)){
@@ -273,15 +271,15 @@ public class MapView extends View {
         // }
         //return false;
         // }
-        return false;
+
     }
 
     private void mainMapView() {
         //System.out.println("mapView Called"); 
         //GameControl.createMapView(Treasure.getPlayer());
-
+        displayMap();
         System.out.println("display Main map...");
-
+        
         MapView.defaultMenu = MapView.mainMapMenu;
 
         this.display();
@@ -350,7 +348,6 @@ public class MapView extends View {
     }
 
     private void visitDolphin() {
-        displayMap();
         System.out.println(" Go to Dolphin");
         MapView.mapCharacter = "Dolphin";
         CharacterView dolphin = new CharacterView();
@@ -381,9 +378,10 @@ public class MapView extends View {
             displayRowDiv();
             for (int j = 0; j < colCount; j++) {//loop through the columns in the rows
                 displayColDiv();
-                locations[i][j].setDescription(j + "/" + i);
+                
+                
 
-                String buff = locations[i][j].getDescription();
+                String buff = locations[i][j].getScene().getSymbol();
                 boolean first = true;
                 while ((buff.length() < 7)) {
 
@@ -396,7 +394,7 @@ public class MapView extends View {
                     }
 
                 }
-                System.out.printf(buff);
+                System.out.print(buff);
 
             }
             displayColDiv();
