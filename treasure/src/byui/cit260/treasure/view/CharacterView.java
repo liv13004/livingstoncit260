@@ -87,7 +87,7 @@ public class CharacterView extends View {
         if ("Turtle".equals(MapView.mapCharacter)) {
             switch (value) {
                 case "h":
-                    if (math.math()) {
+                    if (math.turtle(50, 50)) {
 
                         System.out.println("ahh! thank you I thought I would rot for the rest of my life."
                                 + "\nhere take this.");
@@ -115,7 +115,7 @@ public class CharacterView extends View {
         if ("Dolphin".equals(MapView.mapCharacter)) {
             switch (value) {
                 case "h":
-                    if (math.math()) {
+                    if (math.dolphin()) {
                         System.out.println("ahh! thank you I thought I would rot for the rest of my life."
                                 + "\nhere take this.");
                         goldcontrol.addGold(10);

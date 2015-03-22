@@ -14,14 +14,21 @@ import java.util.Scanner;
  * @author Braden
  */
 public class StartProgramView {
+
+//    public static void Display() {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
     //CharacterView character = new CharacterView();
     // MapView map = new MapView();
+    
 
     public StartProgramView() {
+        super();
 //        character.trader();
 //        character.turtle();
 //        character.dolphin();
 //        map.mainMapView();
+        
     }
 
     public void startProgram() {

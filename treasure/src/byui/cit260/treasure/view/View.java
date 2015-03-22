@@ -118,11 +118,16 @@ public abstract class View implements ViewInterface {
 
     @Override
     public double getNumber() {
-        double selection;
+        double selection = 0;
         while (true) {
             System.out.println("Enter your selection Below...");
-
-            selection = scanner.nextDouble();
+            try{
+                selection = scanner.nextDouble();
+            }catch(NumberFormatException nf){
+                System.out.println("\nYou need to enter a valid number");
+                nf.printStackTrace(System.out);
+            }
+            
             break;
 
         }

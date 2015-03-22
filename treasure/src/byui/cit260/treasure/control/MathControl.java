@@ -56,4 +56,8 @@ public class MathControl {
         System.out.println("How many pounds should be placed on the counter weight to make it 5% higher than the turtles weight?");
         return (getinput.getNumber() == counter);
     }
+
+    public boolean dolphin() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
