@@ -8,6 +8,8 @@ package byui.cit260.treasure.control;
 import byui.cit260.treasure.exceptions.MapControlException;
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Map;
+import byui.cit260.treasure.model.Player;
+import java.awt.Point;
 import java.util.Scanner;
 import treasure.Treasure;
 
@@ -17,19 +19,16 @@ import treasure.Treasure;
  */
 public class MapControl {
 private Game game;
+private Map map;
 
-    static void moveCharactersToStart(Map map) throws MapControlException{
-        System.out.println("move CharactersToStart has been called");
-    }
+    public MapControl() {
+    game = Treasure.getCurrentGame();
+    map = game.getMap();
+}
 
-    public class playerLocation {
+    
 
-        playerLocation() {
-            String location = "";
-            location = "beach";
-        }
 
-    }
 
     /**
      *
@@ -39,8 +38,15 @@ private Game game;
     public void move(String character, String location) {
         
     }
-    public void moveToLocation(){
-        
+    public void moveToLocation(Player player, Point coordinates) throws MapControlException{
+        int newRow = coordinates.x-1;
+        int newColumn = coordinates.y-1;
+        if(newRow < 0 || newRow >= map.getRowCount() ||
+           newColumn < 0 || newColumn >= map.getColCount()){
+            throw new MapControlException("can not move player to "
+                    + coordinates.x + ", " + coordinates.y
+                    + " it is outside the map");
+        }
     }
 
     /**

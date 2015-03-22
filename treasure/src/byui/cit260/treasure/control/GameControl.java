@@ -6,6 +6,7 @@
 package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.control.GameControl.Item;
+import byui.cit260.treasure.exceptions.MapControlException;
 import byui.cit260.treasure.model.Boat;
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Gold;
@@ -14,15 +15,16 @@ import byui.cit260.treasure.model.Location;
 import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.model.Player;
 import byui.cit260.treasure.model.Scene;
+import java.awt.Point;
 
 import treasure.Treasure;
 
 public class GameControl {
-    //private Game game;
+    private Game game;
 
-    public static void createNewGame(Player player) {
+    public void createNewGame(Player player) throws MapControlException {
 
-        Game game = new Game(); //create new game
+        game = new Game(); //create new game
 
         Treasure.setCurrentGame(game); //save in treasure
 
@@ -39,7 +41,7 @@ public class GameControl {
 
         Gold gold = new Gold();
         game.setGold(gold);
-        MapControl.moveCharactersToStart(map);
+        moveCharactersToStart(map);
 
     }
 
@@ -278,5 +280,13 @@ public class GameControl {
         location[0][3].setScene(scenes[sceneType.Island.ordinal()]);
         location[0][4].setScene(scenes[sceneType.chest.ordinal()]); 
   
+    }
+    private void moveCharactersToStart(Map map) throws MapControlException{
+        MapControl mapControl = new MapControl();
+        Point coordinates = new Point();
+        coordinates.x = 1;
+        coordinates.y = 1;
+                
+        mapControl.moveToLocation(game.getPlayer(), coordinates);
     }
 }

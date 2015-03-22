@@ -10,6 +10,9 @@ import treasure.Treasure;
 import byui.cit260.treasure.control.GameControl;
 import byui.cit260.treasure.control.BoatControl;
 import byui.cit260.treasure.control.InventoryControl;
+import byui.cit260.treasure.exceptions.BoatControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -30,46 +33,47 @@ public class BoatMenuView extends View {
 
     @Override
     public void doAction(Object obj) {
-//string value = (String) obj;
-
+        try {
+            //string value = (String) obj;
+            
 //value = value.toUpperCase();
-        //if ((boat.onBoat(true))){//&&(( value.equals(("o"))))){//||(value.equals("i"))||(value.equals("b"))))){        
-        //boolean valid = false;
-        if (!boat.onBoat(false)) {
-            String value = (String) obj;
-            switch (value) {//{
-                case "i":
-                    System.out.println("Leaving for the island...");
-                    this.sailIsland();
-                    break;
-                case "o":
-                    System.out.println("Leaving for the ocean...");
-                    this.sailOcean();
-                    break;
-                case "p":
-                    System.out.println("Leaving for the beach...");
-                    this.sailBeach();
-                    break;
-                //}
-                //return false;
-                //}
-                //else {
-                //boolean valid = false;
-                //String value = (String) obj;
-                //switch (value) {
-
-                case "g":
-                    System.out.println("Getting on the boat...");
-                    this.boardBoat();
-                    break;
-                case "l":
-                    System.out.println("Leaving the boat..");
-                    this.leaveBoat();
-                    break;
-            }
-        } else {
-            String value = (String) obj;
-            switch (value) {//{    case "i":
+            //if ((boat.onBoat(true))){//&&(( value.equals(("o"))))){//||(value.equals("i"))||(value.equals("b"))))){
+            //boolean valid = false;
+            if (!boat.onBoat(false)) {
+                String value = (String) obj;
+                switch (value) {//{
+                    case "i":
+                        System.out.println("Leaving for the island...");
+                        this.sailIsland();
+                        break;
+                    case "o":
+                        System.out.println("Leaving for the ocean...");
+                        this.sailOcean();
+                        break;
+                    case "p":
+                        System.out.println("Leaving for the beach...");
+                        this.sailBeach();
+                        break;
+                        //}
+                        //return false;
+                        //}
+                        //else {
+                        //boolean valid = false;
+                        //String value = (String) obj;
+                        //switch (value) {
+                        
+                    case "g":
+                        System.out.println("Getting on the boat...");
+                        this.boardBoat();
+                        break;
+                    case "l":
+                        System.out.println("Leaving the boat..");
+                        this.leaveBoat();
+                        break;
+                }
+            } else {
+                String value = (String) obj;
+                switch (value) {//{    case "i":
 //                System.out.println("Leaving for the island...");
 //                this.sailIsland();
 //                break;
@@ -81,38 +85,41 @@ public class BoatMenuView extends View {
 //                System.out.println("Leaving for the beach...");
 //                this.sailBeach();
 //                break;
-                case "b":
-                    System.out.println("back to previous menu");
-                    if ("Main".equals(MapView.mapLocation));
-                     {
-                        MapView.defaultMenu = MapView.mainMapMenu;
-                        MapView main = new MapView();
-                        main.display();
-                    }
-                    if ("Beach Shore".equals(MapView.mapLocation));
-                     {
-                        MapView.defaultMenu = MapView.beachMapMenu;
-                        MapView beach = new MapView();
-                        beach.display();
-                    }
-                    if ("Island Shore".equals(MapView.mapLocation));
-                     {
-                        MapView.defaultMenu = MapView.islandMapMenu;
-                        MapView island = new MapView();
-                        island.display();
-                    }
-
-                //System.exit(0);
-                //break;
-                default:
-                    System.out.println("\ninvalid selection");
+                    case "b":
+                        System.out.println("back to previous menu");
+                        if ("Main".equals(MapView.mapLocation));
+                        {
+                            MapView.defaultMenu = MapView.mainMapMenu;
+                            MapView main = new MapView();
+                            main.display();
+                        }
+                        if ("Beach Shore".equals(MapView.mapLocation));
+                        {
+                            MapView.defaultMenu = MapView.beachMapMenu;
+                            MapView beach = new MapView();
+                            beach.display();
+                        }
+                        if ("Island Shore".equals(MapView.mapLocation));
+                        {
+                            MapView.defaultMenu = MapView.islandMapMenu;
+                            MapView island = new MapView();
+                            island.display();
+                        }
+                    
+                    //System.exit(0);
+                    //break;
+                    default:
+                        System.out.println("\ninvalid selection");
+                }
             }
+            
+            
+            //return(valid);
+            //return false;
+            //return false;
+        } catch (BoatControlException ex) {
+            Logger.getLogger(BoatMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
-
-
-        //return(valid);
-        //return false;
-        //return false;
     }
 
     private void boatMenuView() {
@@ -124,7 +131,7 @@ public class BoatMenuView extends View {
 
     }
 
-    private void boardBoat() {
+    private void boardBoat() throws BoatControlException {
         System.out.println("boardBoat function called");
         System.out.println("Mind the Gap! You are now getting on the Boat!");
         //onBoat.onBoat();
@@ -133,7 +140,7 @@ public class BoatMenuView extends View {
         super.display();
     }
 
-    private void leaveBoat() {
+    private void leaveBoat() throws BoatControlException {
         System.out.println("leaveBoat function called");
         System.out.println("Step Lightly! You are now getting off the boat!");
         //onBoat.onBoat(false);
