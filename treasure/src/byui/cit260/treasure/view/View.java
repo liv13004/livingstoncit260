@@ -5,16 +5,26 @@
  */
 package byui.cit260.treasure.view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import treasure.Treasure;
 
 /**
  *
  * @author andrew
  */
 public abstract class View implements ViewInterface {
-
-    Scanner scanner = new Scanner(System.in); //keyboard input stream
+    
+    //Scanner scanner = new Scanner(System.in); //keyboard input stream
     private String promptMessage;
+    
+    protected final BufferedReader keyboard = Treasure.getInFile();
+    protected BufferedReader numero = Treasure.getInFile();
+    protected final PrintWriter console = Treasure.getOutFile();
 
     //private Object objString;
     public View(String promptMessage) {
@@ -55,15 +65,16 @@ public abstract class View implements ViewInterface {
 
     @Override
     public String getInput() {
+        
         boolean valid = false; //indicates if the name has been retrieved
         String selection = null;
-
+        try{
         while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
             System.out.println(" \n \n Enter your selection below;");
             //get the name from the keyboard and trim off the blanks
 
-            selection = scanner.nextLine();
+            selection = this.keyboard.readLine();
             selection = selection.trim();
 
             //if the name is invalid (less than two character in length)
@@ -76,7 +87,9 @@ public abstract class View implements ViewInterface {
             break; // out of the (exit) the repetition
 
         }
-
+        }catch (Exception e) {
+            System.out.println("Error reading input: " + e.getMessage());
+        }
         return selection; //return the name
     }
 
@@ -87,8 +100,14 @@ public abstract class View implements ViewInterface {
         while (true) {//while a valid name has not been retrieved
             //prompt for the player's name
             System.out.println("Enter your selection below...");
-            //get the name from the keyboard and trim off the blanks
-            selection = scanner.next();
+            try {
+                //get the name from the keyboard and trim off the blanks
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+           // selection = scanner.next();
 
             //if the name is invalid (less than two character in length)
             if (selection.length() != 1) {
@@ -106,7 +125,12 @@ public abstract class View implements ViewInterface {
         String selection = null;
         while (true) {
             System.out.println("Enter your selection Below...");
-            selection = scanner.next();
+            try {
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            //scanner.next();
             if (selection.isEmpty()) {
                 System.out.println("you must enter a valid string...");
                 continue;
@@ -122,7 +146,7 @@ public abstract class View implements ViewInterface {
         while (true) {
             System.out.println("Enter your selection Below...");
             try{
-                selection = scanner.nextDouble();
+                selection = this.keyboard.readLine();
             }catch(NumberFormatException nf){
                 System.out.println("\nYou need to enter a valid number");
                 nf.printStackTrace(System.out);

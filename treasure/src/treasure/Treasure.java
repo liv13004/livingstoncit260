@@ -15,7 +15,7 @@ public class Treasure {
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-    
+    //private static BufferedNum inNum = null;
     private static PrintWriter logFile = null;
     
     public static void main(String[] args) {
@@ -42,8 +42,7 @@ public class Treasure {
                     "\nCause: " + e.getCause() +
                     "\nMessage: " + e.getMessage()); 
             e.printStackTrace();;
-        
-        }
+          }
         finally {
             try{
                 if (Treasure.inFile != null)
@@ -51,7 +50,10 @@ public class Treasure {
                 
                 if (Treasure.outFile != null)
                     Treasure.outFile.close();
-                                    
+                
+                if (Treasure.logFile != null)
+                    Treasure.logFile.close();
+                
             } catch (IOException ex) {
               System.out.println("Error closing files");
               return;

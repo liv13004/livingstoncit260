@@ -8,23 +8,39 @@ package byui.cit260.treasure.view;
 import java.util.Scanner;
 import treasure.Treasure;
 import byui.cit260.treasure.control.ChecklistControl;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author braden
  */
-public class ChecklistDialogView {
+public class ChecklistDialogView extends View {
 
-    private String getInput() {
+    public ChecklistDialogView(String promptMessage) {
+        super(promptMessage);
+    }
+
+    @Override
+    public String getInput() {
         boolean valid = false; //indicates if the name has been retrieved
         String selection = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        try {
+            String option = this.keyboard.readLine(); //keyboard input stream
+        } catch (IOException ex) {
+            Logger.getLogger(ChecklistDialogView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
             System.out.println("Enter the answer below;");
-            //get the name from the keyboard and trim off the blanks
-            selection = keyboard.nextLine();
+            try {
+                //get the name from the keyboard and trim off the blanks
+                selection = keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(ChecklistDialogView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             selection = selection.trim();
             //if the name is invalid (less than two character in length)
             if (selection.isEmpty()) {
@@ -59,6 +75,11 @@ public class ChecklistDialogView {
 
     private void completeGameDialog() {
         System.out.println("Congratulations! You have Completed the Game");
+    }
+
+    @Override
+    public void doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

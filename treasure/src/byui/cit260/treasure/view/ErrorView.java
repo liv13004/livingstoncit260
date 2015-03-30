@@ -14,6 +14,7 @@ import treasure.Treasure;
  */
 public class ErrorView {
     private static final PrintWriter errorFile = Treasure.getOutFile();
+    private static final PrintWriter logFile = Treasure.getLogFile();
     
     public static void display(String className, String errorMessage) {
         
@@ -21,6 +22,10 @@ public class ErrorView {
         "--------------------------------------------------------------"
         + "\n- ERROR - " + errorMessage
         + "\n-----------------------------------------------------------");
+        //log error
+        logFile.println(className + "-" + errorMessage);
+        
+        
     }
     
 }

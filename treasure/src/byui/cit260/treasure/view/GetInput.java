@@ -11,10 +11,15 @@ import java.util.Scanner;
  *
  * @author andrew
  */
-public class GetInput {
+public class GetInput extends View {
 
-    Scanner scanner = new Scanner(System.in); //keyboard input stream
+    //Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
+    public GetInput(String promptMessage) {
+        super(promptMessage);
+    }
+
+    @Override
     public char getChar() {
         String selection = null;
 
@@ -22,7 +27,8 @@ public class GetInput {
             //prompt for the player's name
             System.out.println("Enter your selection below...");
             //get the name from the keyboard and trim off the blanks
-            selection = scanner.next();
+            //selection = scanner.nextLine();
+             selection = keyboard.nextLine();
 
             //if the name is invalid (less than two character in length)
             if (selection.length() != 1) {
@@ -39,7 +45,7 @@ public class GetInput {
         String selection = null;
         while (true) {
             System.out.println("Enter your selection Below...");
-            selection = scanner.next();
+            selection = keyboard.nextLine();
             if (selection.isEmpty()) {
                 System.out.println("you must enter a valid string...");
                 continue;
@@ -54,10 +60,27 @@ public class GetInput {
         while (true) {
             System.out.println("Enter your selection Below...");
 
-            selection = scanner.nextDouble();
+            selection = keyboard.nextDouble();
+            
             break;
 
         }
         return (selection);
+    }
+
+//    @Override
+//    public void doAction(Object obj) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+//
+//    private static class scanner {
+//
+//        public scanner() {
+//        }
+//    }
+
+    @Override
+    public void doAction(Object obj) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

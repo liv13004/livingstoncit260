@@ -7,14 +7,16 @@ package byui.cit260.treasure.view;
 
 import byui.cit260.treasure.control.GameControl;
 import byui.cit260.treasure.model.Player;
+import java.io.IOException;
 import java.util.Scanner;
 
 /**
  *
  * @author Braden
  */
-public class StartProgramView {
+public class StartProgramView extends View {
 
+    
 //    public static void Display() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 //    }
@@ -23,7 +25,7 @@ public class StartProgramView {
     
 
     public StartProgramView() {
-        super();
+        super("");
 //        character.trader();
 //        character.turtle();
 //        character.dolphin();
@@ -31,7 +33,7 @@ public class StartProgramView {
         
     }
 
-    public void startProgram() {
+    public void startProgram() throws IOException {
 //Display the banner screen
         this.displayBanner();
 
@@ -63,16 +65,17 @@ public class StartProgramView {
 
     }
 
-    public String getPlayersName() {
+    public String getPlayersName() throws IOException {
         boolean valid = false; //indicates if the name has been retrieved
         String playersName = null;
-        Scanner keyboard = new Scanner(System.in); //keyboard input stream
+        String name = this.keyboard.readLine();
+        //(System.in); //keyboard input stream
 
         while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
             System.out.println("Enter the player's name below;");
             //get the name from the keyboard and trim off the blanks
-            playersName = keyboard.nextLine();
+            playersName = this.keyboard.readLine();
             playersName = playersName.trim();
 
             //if the name is invalid (less than two character in length)
@@ -88,6 +91,11 @@ public class StartProgramView {
 
     private void displayWelcomeMessage(Player player) {
         System.out.println("\tWelcome to the game " + player.getName() + "!");
+    }
+
+    @Override
+    public void doAction(Object obj) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
