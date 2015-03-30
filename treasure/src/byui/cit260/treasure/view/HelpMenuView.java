@@ -44,7 +44,8 @@ public class HelpMenuView extends View {
                 this.console.println("Back");
                 break;
             default:
-                this.console.println("\ninvalid selection");
+                System.out.println("\ninvalid selection");
+
                  ErrorView.display(this.getClass().getName(), "\ninvalid selection");
         }
 
