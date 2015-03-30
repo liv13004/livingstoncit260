@@ -2,6 +2,7 @@ package treasure;
 
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Player;
+import byui.cit260.treasure.view.ErrorView;
 import byui.cit260.treasure.view.StartProgramView;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,9 +16,10 @@ public class Treasure {
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
-    //private static BufferedNum inNum = null;
+    
     private static PrintWriter logFile = null;
     
+    @SuppressWarnings({"CallToPrintStackTrace", "empty-statement"})
     public static void main(String[] args) {
        
         try{
@@ -25,17 +27,18 @@ public class Treasure {
          //open character stream files for end user input and output
         Treasure.inFile = new BufferedReader(new InputStreamReader(System.in));
         
+        //BufferedReader dubReader = new BufferedReader(new InputStreamReader(System.in));
+       // String inputNum = dubReader.readLine();
+        //double number = Double.parseDouble(inputNum);
+        //Treasure.number = new BufferedReader(new InputStreamReader(System.in));
         Treasure.outFile = new PrintWriter(System.out, true);
         
         String filePath = "log.txt";
         Treasure.logFile = new PrintWriter(filePath);
-                
-                
-               
+                         
         //create StartProgramView and start the program
         StartProgramView startProgramView = new StartProgramView();    
-        startProgramView.startProgram();
-        return;
+        startProgramView.display();
         
         }catch (Throwable e) {
             System.out.println("Exception:  " + e.toString() +
@@ -58,7 +61,6 @@ public class Treasure {
               System.out.println("Error closing files");
               return;
               }
-             
             }
             
         }
@@ -105,5 +107,8 @@ public class Treasure {
     public static void setLogFile(PrintWriter logFile) {
         Treasure.logFile = logFile;
     }
+
+       
+    
     
 }

@@ -67,8 +67,7 @@ public class MapView extends View {
     public MapView() {
         
         super(defaultMenu);
-        map = Treasure.getCurrentGame().getMap();
-        displayMap();
+        // displayMap();
         
     }
 
@@ -83,38 +82,41 @@ public class MapView extends View {
 
                 case "m":  //Visit Main Map
                     mapLocation = "Main Map";
+                    this.displayMap();
                     this.mainMapView();
                     MapView main = new MapView();
                     main.display();
+                    map = Treasure.getCurrentGame().getMap();
                     MapView.defaultMenu = MapView.mainMapMenu;
                     break;
 
                 case "p":  //Visit Beach Map
                     mapLocation = "Beach";
-                    System.out.println("display Beach menu");
+                    this.console.println("display Beach menu");
                     this.beachMenuView();
 
                     break;
 
                 case "o": //Visit Ocean
                     mapLocation = "Ocean";
-                    System.out.println("display Ocean map... ");
+                    this.console.println("display Ocean map... ");
                     this.visitOcean();
 
                     break;
 
                 case "i": //Visit Island
                     mapLocation = "Island";
-                    System.out.println("display Island map...");
+                    this.console.println("display Island map...");
                     this.visitIsland();
 
                     break;
                 case "b": // Quit Help menu
                     mapLocation = "Main";
-                    System.out.println("Back...");
+                    this.console.println("Back...");
 
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
 
             }
         }
@@ -122,6 +124,13 @@ public class MapView extends View {
         if ("Beach".equals(mapLocation)) {
             String value = (String) obj;
             switch (value) {
+                
+                case "m":  //Visit Main Map
+                    mapLocation = "Main Map";
+                    this.displayMap();
+                    this.mainMapView();
+                    this.displayMap();
+                    break;
 
                 case "t":  //Visit Trader
                     mapCharacter = "Beach Trader";
@@ -132,16 +141,17 @@ public class MapView extends View {
                 case "s": // Visit Shore
                     mapLocation = "Beach Shore";
                     this.visitShore();
-                    System.out.println("display Shore menu");
+                    this.console.println("display Shore menu");
                     MapView shore = new MapView();
                     shore.display();
                     MapView.defaultMenu = MapView.shoreMenu;
                     break;
                 case "b": // Quit Help menu
                     mapLocation = "Main";
-                    System.out.println("Back...");
+                    this.console.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
 
         }
@@ -153,7 +163,7 @@ public class MapView extends View {
                 case "s": // Visit Boat
                     mapLocation = "Beach Shore";
                     this.visitShore();
-                    System.out.println("display Shore menu");
+                    this.console.println("display Shore menu");
                     MapView shore = new MapView();
                     shore.display();
                     MapView.defaultMenu = MapView.shoreMenu;
@@ -163,6 +173,7 @@ public class MapView extends View {
                     System.out.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
         }
 
@@ -194,9 +205,10 @@ public class MapView extends View {
                     break;
                 case "b": // Quit Ocean menu
                     mapLocation = "Main";
-                    System.out.println("Back...");
+                    this.console.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
         }
 
@@ -244,9 +256,10 @@ public class MapView extends View {
 
                 case "b": // Quit Island menu
                     mapLocation = "Main";
-                    System.out.println("Back...");
+                    this.console.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
 
             }
 
@@ -278,7 +291,7 @@ public class MapView extends View {
         //System.out.println("mapView Called"); 
         //GameControl.createMapView(Treasure.getPlayer());
         displayMap();
-        System.out.println("display Main map...");
+        this.console.println("display Main map...");
         
         MapView.defaultMenu = MapView.mainMapMenu;
 
@@ -295,7 +308,7 @@ public class MapView extends View {
     }
 
     private void Trader() {
-        System.out.println(" Go to Trader ");
+        this.console.println(" Go to Trader ");
         MapView.mapCharacter = "Trader";
         CharacterView.defaultMenu = traderMenu;
         CharacterView trader = new CharacterView();
@@ -304,7 +317,7 @@ public class MapView extends View {
     }
 
     private void visitShore() {
-        System.out.println(" Go to Shore ");
+        this.console.println(" Go to Shore ");
         MapView.mapLocation = "On boat";
         //System.out.print(shoreMenu);
 
@@ -335,7 +348,7 @@ public class MapView extends View {
     }
 
     private void visitTurtle() {
-        System.out.println(" Go to Turtle ");
+        this.console.println(" Go to Turtle ");
         MapView.mapCharacter = "Turtle";
         CharacterView turtle = new CharacterView();
         turtle.display();
@@ -348,7 +361,7 @@ public class MapView extends View {
     }
 
     private void visitDolphin() {
-        System.out.println(" Go to Dolphin");
+        this.console.println(" Go to Dolphin");
         MapView.mapCharacter = "Dolphin";
         CharacterView dolphin = new CharacterView();
         dolphin.display();
@@ -394,14 +407,14 @@ public class MapView extends View {
                     }
 
                 }
-                System.out.print(buff);
+               this.console.println(buff);
 
             }
             displayColDiv();
 
         }
         displayRowDiv();
-        System.out.print("\n\n");
+        this.console.println("\n\n");
     }
 
     private void displayRowDiv() {
@@ -409,12 +422,12 @@ public class MapView extends View {
         for (int i = 1; i <= colCount; i++) {
             string = string.concat("------------");
         }
-        System.out.println(string + "-");
+        this.console.println(string + "-");
     }
 
     private void displayColDiv() {
 
-        System.out.print("  |  ");
+        this.console.println("  |  ");
 
     }
 }

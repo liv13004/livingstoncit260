@@ -45,6 +45,7 @@ public class ChecklistDialogView extends View {
             //if the name is invalid (less than two character in length)
             if (selection.isEmpty()) {
                 System.out.println("Selection cannot be blank");
+                ErrorView.display(this.getClass().getName(), "Selection cannot be blank");
                 continue; // and repeat again
             }
             break; // out of the (exit) the repetition

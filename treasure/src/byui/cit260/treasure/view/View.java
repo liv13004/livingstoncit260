@@ -20,10 +20,10 @@ import treasure.Treasure;
 public abstract class View implements ViewInterface {
     
     //Scanner scanner = new Scanner(System.in); //keyboard input stream
-    private String promptMessage;
+    String promptMessage;
     
     protected final BufferedReader keyboard = Treasure.getInFile();
-    protected BufferedReader numero = Treasure.getInFile();
+    protected final BufferedReader keyboardInt = Treasure.getInFile();
     protected final PrintWriter console = Treasure.getOutFile();
 
     //private Object objString;
@@ -49,7 +49,8 @@ public abstract class View implements ViewInterface {
         do {
             if (displayPromptMessage == 0) {
 
-                System.out.print(promptMessage);
+
+                this.console.println(promptMessage);
                 displayPromptMessage++;
 
             } else {
@@ -71,7 +72,7 @@ public abstract class View implements ViewInterface {
         try{
         while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println(" \n \n Enter your selection below;");
+             this.console.println(" \n \n Enter your selection below;");
             //get the name from the keyboard and trim off the blanks
 
             selection = this.keyboard.readLine();
@@ -79,8 +80,9 @@ public abstract class View implements ViewInterface {
 
             //if the name is invalid (less than two character in length)
             if (selection.length() < 1) {
-                System.out.println(selection);
+                 this.console.println(selection);
                 System.out.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "\n*** Invalid selection *** Try again");
                 continue; // and repeat again
                 // System.out.print(this.promptMessage);
             }
@@ -89,17 +91,19 @@ public abstract class View implements ViewInterface {
         }
         }catch (Exception e) {
             System.out.println("Error reading input: " + e.getMessage());
-        }
-        return selection; //return the name
+             ErrorView.display(this.getClass().getName(), "Error reading input: " + e.getMessage());
+            
+        
     }
-
+       return selection; //return the name
+    }
     @Override
     public char getChar() {
         String selection = null;
 
         while (true) {//while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("Enter your selection below...");
+             this.console.println("Enter your selection below...");
             try {
                 //get the name from the keyboard and trim off the blanks
                 selection = this.keyboard.readLine();
@@ -112,6 +116,7 @@ public abstract class View implements ViewInterface {
             //if the name is invalid (less than two character in length)
             if (selection.length() != 1) {
                 System.out.println("selection must be 1 character long...");
+                 ErrorView.display(this.getClass().getName(), "selection must be 1 character long...");
                 continue; // and repeat again
             }
             break; // out of the (exit) the repetition
@@ -124,7 +129,7 @@ public abstract class View implements ViewInterface {
     public String getString() {
         String selection = null;
         while (true) {
-            System.out.println("Enter your selection Below...");
+             this.console.println("Enter your selection Below...");
             try {
                 selection = this.keyboard.readLine();
             } catch (IOException ex) {
@@ -133,6 +138,7 @@ public abstract class View implements ViewInterface {
             //scanner.next();
             if (selection.isEmpty()) {
                 System.out.println("you must enter a valid string...");
+                 ErrorView.display(this.getClass().getName(), "you must enter a valid string...");
                 continue;
             }
             break;
@@ -141,15 +147,18 @@ public abstract class View implements ViewInterface {
     }
 
     @Override
-    public double getNumber() {
-        double selection = 0;
+    public String getNumber() {
+        String selection = null;
         while (true) {
-            System.out.println("Enter your selection Below...");
+             this.console.println("Enter your selection Below...");
             try{
-                selection = this.keyboard.readLine();
+                selection = this.keyboardInt.readLine();
             }catch(NumberFormatException nf){
                 System.out.println("\nYou need to enter a valid number");
+                 ErrorView.display(this.getClass().getName(), "\nYou need to enter a valid number");
                 nf.printStackTrace(System.out);
+            } catch (IOException ex) {
+                Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
             }
             
             break;

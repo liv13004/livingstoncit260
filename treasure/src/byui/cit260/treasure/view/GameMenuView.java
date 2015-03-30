@@ -7,6 +7,7 @@ package byui.cit260.treasure.view;
 
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Map;
+import byui.cit260.treasure.view.MapView;
 import treasure.Treasure;
 
 /**
@@ -24,7 +25,7 @@ public class GameMenuView extends View {
 
     public GameMenuView() {
         super(gameMenu);
-
+        
         // System.out.print(gameMenu);
     }
 
@@ -36,11 +37,17 @@ public class GameMenuView extends View {
         String value = (String) obj;
         switch (value) {
             case "m":
-                System.out.println("display Main map...");
+                this.console.println("display Main map...");
                 MapView.mapLocation = "Main";
                 MapView.defaultMenu = MapView.mainMapMenu;
                 MapView map = new MapView();
-                map.display();
+                Treasure.getCurrentGame().getMap();
+                MapView displayMap;
+                map.display(); 
+                
+                //MapView test() = MapView displayMap(); 
+             
+                //map.displayMap();
                 break;
             case "i":
                 InventoryView.defaultMenu = InventoryView.inventoryViewMenu;
@@ -48,22 +55,23 @@ public class GameMenuView extends View {
                 inventory.display();
                 break;
             case "c":
-                System.out.println("viewing checklist...");
+                 this.console.println("viewing checklist...");
                 break;
             case "s":
-                System.out.println("save game...");
+                 this.console.println("save game...");
                 break;
             case "h":
-                System.out.println("help menu...");
+                 this.console.println("help menu...");
                 HelpMenuView helpmenu = new HelpMenuView();
                 helpmenu.display();
                 break;
             case "q":
-                System.out.println("quitting");
+                 this.console.println("quitting");
                 System.exit(0);
                 break;
             default:
                 System.out.println("\ninvalid selection");
+                ErrorView.display(this.getClass().getName(), "\ninvalid selection");
         }
 
     }

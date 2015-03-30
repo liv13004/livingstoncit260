@@ -57,16 +57,17 @@ private GameControl gameControl;
                 valid = true;
                 break;
             case "q":
-                System.out.println("quitting");
+                 this.console.println("quitting");
                 System.exit(0);
                 break;
             default:
                 System.out.println("\ninvalid selection");
+                ErrorView.display(this.getClass().getName(), "\ninvalid selection");
         }
     }
 
     private void startNewGame() throws MapControlException {
-        System.out.println("NewGame");
+        this.console.println("NewGame");
         gameControl.createNewGame(Treasure.getPlayer());
         gameControl.createGameMenu(Treasure.getPlayer());
         //DISPLAY the Game menu
@@ -78,11 +79,11 @@ private GameControl gameControl;
     }
 
     private void startExistingGame() {
-        System.out.println("LoadGame");
+         this.console.println("LoadGame");
     }
 
     private void displayOptions() {
-        System.out.println("Options");
+         this.console.println("Options");
     }
 
     private void mainMenu() {
@@ -90,7 +91,7 @@ private GameControl gameControl;
                 + "\nl = Load Game"
                 + "\no = Options"
                 + "\nq = Quit");
-        System.out.print(mainMenu);
+         this.console.println(mainMenu);
     }
 
 }

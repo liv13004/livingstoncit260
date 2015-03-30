@@ -17,6 +17,6 @@ public interface ViewInterface {
 
     public String getString();
 
-    public double getNumber();
+    public String getNumber();
 
 }

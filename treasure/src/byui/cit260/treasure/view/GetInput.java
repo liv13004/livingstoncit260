@@ -5,19 +5,25 @@
  */
 package byui.cit260.treasure.view;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author andrew
  */
 public class GetInput extends View {
+    
 
+    public GetInput() {
+        super(" ");
+    }
+    
     //Scanner keyboard = new Scanner(System.in); //keyboard input stream
 
-    public GetInput(String promptMessage) {
-        super(promptMessage);
-    }
+    
 
     @Override
     public char getChar() {
@@ -26,13 +32,18 @@ public class GetInput extends View {
         while (true) {//while a valid name has not been retrieved
             //prompt for the player's name
             System.out.println("Enter your selection below...");
-            //get the name from the keyboard and trim off the blanks
-            //selection = scanner.nextLine();
-             selection = keyboard.nextLine();
+            try {
+                //get the name from the keyboard and trim off the blanks
+                //selection = scanner.nextLine();
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(GetInput.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             //if the name is invalid (less than two character in length)
             if (selection.length() != 1) {
                 System.out.println("selection must be 1 character long...");
+                ErrorView.display(this.getClass().getName(), "selection must be 1 character long...");
                 continue; // and repeat again
             }
             break; // out of the (exit) the repetition
@@ -41,13 +52,19 @@ public class GetInput extends View {
         return selection.charAt(0); //return the char
     }
 
+    @Override
     public String getString() {
         String selection = null;
         while (true) {
             System.out.println("Enter your selection Below...");
-            selection = keyboard.nextLine();
+            try {
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(GetInput.class.getName()).log(Level.SEVERE, null, ex);
+            }
             if (selection.isEmpty()) {
                 System.out.println("you must enter a valid string...");
+                 ErrorView.display(this.getClass().getName(), "you must enter a valid string...");
                 continue;
             }
             break;
@@ -55,13 +72,20 @@ public class GetInput extends View {
         return (selection);
     }
 
-    public double getNumber() {
-        double selection;
+    
+    @Override
+    public String getNumber() {
+        String selection = null;
         while (true) {
             System.out.println("Enter your selection Below...");
 
-            selection = keyboard.nextDouble();
-            
+            try {
+                selection = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(GetInput.class.getName()).log(Level.SEVERE, null, ex);
+            }
+           // double number = Double.parseDouble(selection);
+           // Double.toString(number);
             break;
 
         }
