@@ -25,7 +25,7 @@ public class CharacterView extends View {
     public static String defaultMenu = "";
 
     MathControl math = new MathControl();
-    GetInput getinput = new GetInput();
+    //GetInput getinput = new GetInput(String);
     InventoryControl inventorycontrol = new InventoryControl();
     GoldControl goldcontrol = new GoldControl();
 
@@ -79,6 +79,7 @@ public class CharacterView extends View {
                     break;
                 default:
                     System.out.println("\ninvalid selection");
+                     ErrorView.display(this.getClass().getName(), "\ninvalid selection");
 
             }
 
@@ -107,6 +108,7 @@ public class CharacterView extends View {
                     break;
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
 
             userInput = value;
@@ -115,7 +117,7 @@ public class CharacterView extends View {
         if ("Dolphin".equals(MapView.mapCharacter)) {
             switch (value) {
                 case "h":
-                    if (math.dolphin()) {
+                    if (math.dolphin(50, 50)) {
                         System.out.println("ahh! thank you I thought I would rot for the rest of my life."
                                 + "\nhere take this.");
                         goldcontrol.addGold(10);
@@ -129,6 +131,7 @@ public class CharacterView extends View {
                     break;
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
 
             }
             userInput = value;

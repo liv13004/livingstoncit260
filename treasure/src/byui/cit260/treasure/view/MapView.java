@@ -67,8 +67,7 @@ public class MapView extends View {
     public MapView() {
         
         super(defaultMenu);
-        map = Treasure.getCurrentGame().getMap();
-        displayMap();
+        // displayMap();
         
     }
 
@@ -83,9 +82,11 @@ public class MapView extends View {
 
                 case "m":  //Visit Main Map
                     mapLocation = "Main Map";
+                    this.displayMap();
                     this.mainMapView();
                     MapView main = new MapView();
                     main.display();
+                    map = Treasure.getCurrentGame().getMap();
                     MapView.defaultMenu = MapView.mainMapMenu;
                     break;
 
@@ -115,6 +116,7 @@ public class MapView extends View {
 
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
 
             }
         }
@@ -122,6 +124,13 @@ public class MapView extends View {
         if ("Beach".equals(mapLocation)) {
             String value = (String) obj;
             switch (value) {
+                
+                case "m":  //Visit Main Map
+                    mapLocation = "Main Map";
+                    this.displayMap();
+                    this.mainMapView();
+                    this.displayMap();
+                    break;
 
                 case "t":  //Visit Trader
                     mapCharacter = "Beach Trader";
@@ -142,6 +151,7 @@ public class MapView extends View {
                     System.out.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
 
         }
@@ -163,6 +173,7 @@ public class MapView extends View {
                     System.out.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
         }
 
@@ -197,6 +208,7 @@ public class MapView extends View {
                     System.out.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
         }
 
@@ -247,6 +259,7 @@ public class MapView extends View {
                     System.out.println("Back...");
                 default:
                     System.out.println("\ninvalid selection");
+                    ErrorView.display(this.getClass().getName(), "\ninvalid selection");
 
             }
 

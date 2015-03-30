@@ -110,6 +110,7 @@ public class BoatMenuView extends View {
                     //break;
                     default:
                         System.out.println("\ninvalid selection");
+                        ErrorView.display(this.getClass().getName(), "\ninvalid selection");
                 }
             }
             

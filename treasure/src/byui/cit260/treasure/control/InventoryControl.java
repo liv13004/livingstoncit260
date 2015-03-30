@@ -7,7 +7,8 @@ package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.InventoryItem;
-import byui.cit260.treasure.view.GetInput;
+import byui.cit260.treasure.view.ErrorView;
+import byui.cit260.treasure.view.View;
 import treasure.Treasure;
 
 /**
@@ -18,11 +19,12 @@ public class InventoryControl {
     
     private Game game;
     private InventoryItem[] inventory;
+    private View console;
     
     public InventoryControl() {
         inventory = Treasure.getCurrentGame().getInventoryItem();
     }
-    GetInput getinput = new GetInput();
+    //GetInput getinput = new GetInput();
     
     public void dropItem(String selection) {
         
@@ -51,6 +53,8 @@ public class InventoryControl {
                 break;
             default:
                 System.out.println("\ninvalid selection");
+                ErrorView.display(this.getClass().getName(), "\nInvalid Selection");
+                
             
         }
         
@@ -84,6 +88,7 @@ public class InventoryControl {
                     while ((buff.length() < 10)) {
                         buff += " ";
                     }
+                    
                     System.out.print(buff);
                 } else if (j == 2) {
                     System.out.print("      " + inventory[i].getAmount() + "      ");
