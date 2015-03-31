@@ -43,15 +43,15 @@ public class BoatMenuView extends View {
                 String value = (String) obj;
                 switch (value) {//{
                     case "i":
-                        System.out.println("Leaving for the island...");
+                        this.console.println("Leaving for the island...");
                         this.sailIsland();
                         break;
                     case "o":
-                        System.out.println("Leaving for the ocean...");
+                        this.console.println("Leaving for the ocean...");
                         this.sailOcean();
                         break;
                     case "p":
-                        System.out.println("Leaving for the beach...");
+                        this.console.println("Leaving for the beach...");
                         this.sailBeach();
                         break;
                         //}
@@ -63,11 +63,11 @@ public class BoatMenuView extends View {
                         //switch (value) {
                         
                     case "g":
-                        System.out.println("Getting on the boat...");
+                        this.console.println("Getting on the boat...");
                         this.boardBoat();
                         break;
                     case "l":
-                        System.out.println("Leaving the boat..");
+                        this.console.println("Leaving the boat..");
                         this.leaveBoat();
                         break;
                 }
@@ -86,7 +86,7 @@ public class BoatMenuView extends View {
 //                this.sailBeach();
 //                break;
                     case "b":
-                        System.out.println("back to previous menu");
+                       this.console.println("back to previous menu");
                         if ("Main".equals(MapView.mapLocation));
                         {
                             MapView.defaultMenu = MapView.mainMapMenu;
@@ -124,7 +124,7 @@ public class BoatMenuView extends View {
     }
 
     private void boatMenuView() {
-        System.out.println("Boat Menu Called");
+       this.console.println("Boat Menu Called");
         GameControl.createBoatMenu(Treasure.getPlayer());
 //display the boat menu
         BoatMenuView boatMenu = new BoatMenuView();
@@ -133,8 +133,8 @@ public class BoatMenuView extends View {
     }
 
     private void boardBoat() throws BoatControlException {
-        System.out.println("boardBoat function called");
-        System.out.println("Mind the Gap! You are now getting on the Boat!");
+        this.console.println("boardBoat function called");
+        this.console.println("Mind the Gap! You are now getting on the Boat!");
         //onBoat.onBoat();
         boat.onBoat(true);
 
@@ -142,8 +142,8 @@ public class BoatMenuView extends View {
     }
 
     private void leaveBoat() throws BoatControlException {
-        System.out.println("leaveBoat function called");
-        System.out.println("Step Lightly! You are now getting off the boat!");
+       this.console.println("leaveBoat function called");
+        this.console.println("Step Lightly! You are now getting off the boat!");
         //onBoat.onBoat(false);
         //boat.offBoat(true);
         boat.onBoat(false);
@@ -152,7 +152,7 @@ public class BoatMenuView extends View {
     }
 
     private void sailOcean() {
-        System.out.println("sailOcean function called");
+       this.console.println("sailOcean function called");
         MapView.mapLocation = "Ocean";
         MapView.defaultMenu = MapView.oceanMapMenu;
         MapView ocean = new MapView();
@@ -160,9 +160,9 @@ public class BoatMenuView extends View {
     }
 
     private void sailIsland() {
-        System.out.println("sailIsland function called");
+        this.console.println("sailIsland function called");
         MapView.mapLocation = "Island";
-        System.out.println("You Have Arrived at the Island."
+        this.console.println("You Have Arrived at the Island."
                 + "\n"
                 + "Since you're feeling pretty seasick, \n"
                 + "\n you should probably get off the boat");
@@ -177,8 +177,8 @@ public class BoatMenuView extends View {
     }
 
     private void sailBeach() {
-        System.out.println("sailBeach function called");
-        System.out.println("You Have Arrived at the Beach."
+       this.console.println("sailBeach function called");
+        this.console.println("You Have Arrived at the Beach."
                 + "\n"
                 + "Since youre feeling pretty seasick,\n"
                 + "you should probably get off the boat");

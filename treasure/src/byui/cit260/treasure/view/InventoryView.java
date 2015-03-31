@@ -47,7 +47,7 @@ public class InventoryView extends View {
 
         switch (value) {
             case "s":
-                System.out.println("here is your current inventroy\n");
+               this.console.println("here is your current inventroy\n");
                 inventorycontrol.displayInventory();
 //                InventoryView.defaultMenu = InventoryView.inventoryViewMenu;
 //                System.out.println(defaultMenu);
@@ -63,7 +63,7 @@ public class InventoryView extends View {
 
                 break;
             case "d":
-                System.out.println(dropItem);
+                this.console.println(dropItem);
                 InventoryView.defaultMenu = InventoryView.dropItem;
 
                 inventorycontrol.dropItem(super.getString());
@@ -72,7 +72,7 @@ public class InventoryView extends View {
 
                 break;
             case "b":
-                System.out.println("Back...");
+                this.console.println("Back...");
                 GameMenu.display();
                 break;
             default:

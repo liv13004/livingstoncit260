@@ -37,11 +37,11 @@ public class CharacterView extends View {
             defaultMenu = trader;
 
         } else if ("Turtle".equals(MapView.mapCharacter)) {
-            System.out.print(MapView.turtleMenu);
+            this.console.print(MapView.turtleMenu);
             defaultMenu = turtle;
 
         } else if ("Dolphin".equals(MapView.mapCharacter)) {
-            System.out.print(MapView.dolphinMenu);
+            this.console.print(MapView.dolphinMenu);
             defaultMenu = dolphin;
         } else;
 
@@ -55,7 +55,7 @@ public class CharacterView extends View {
 
             switch (value) {
                 case "l":
-                    System.out.println("Great! here you go.");
+                    this.console.println("Great! here you go.");
                     //System.out.CharacterView trader;
                     inventorycontrol.addItem(value);
                     // super.display();
@@ -63,7 +63,7 @@ public class CharacterView extends View {
                     //trader.display();
                     break;
                 case "s":
-                    System.out.println("Great! here you go.");
+                    this.console.println("Great! here you go.");
                     inventorycontrol.addItem(value);
                     //  super.display();
                     //MapView trader = new MapView();
@@ -72,7 +72,7 @@ public class CharacterView extends View {
                     //View.toString()
                     break;
                 case "b":
-                    System.out.println("Back...");
+                    this.console.println("Back...");
                     MapView.defaultMenu = MapView.beachMapMenu;
 //               MapView beach = new MapView();
 //               beach.display();
@@ -90,24 +90,24 @@ public class CharacterView extends View {
                 case "h":
                     if (math.turtle(50, 50)) {
 
-                        System.out.println("ahh! thank you I thought I would rot for the rest of my life."
+                        this.console.println("ahh! thank you I thought I would rot for the rest of my life."
                                 + "\nhere take this.");
 
                         goldcontrol.addGold(10);
                     }
                     break;
                 case "s":
-                    System.out.println("you are an evil person.");
+                    this.console.println("you are an evil person.");
                     break;
                 case "b":
-                    System.out.println("Back...");
-                    System.out.println("Back...");
+                    this.console.println("Back...");
+                    this.console.println("Back...");
                     MapView.defaultMenu = MapView.oceanMapMenu;
 //               MapView ocean = new MapView();
 //               ocean.display();
                     break;
                 default:
-                    System.out.println("\ninvalid selection");
+                   this.console.println("\ninvalid selection");
                     ErrorView.display(this.getClass().getName(), "\ninvalid selection");
             }
 
@@ -118,16 +118,16 @@ public class CharacterView extends View {
             switch (value) {
                 case "h":
                     if (math.dolphin(50, 50)) {
-                        System.out.println("ahh! thank you I thought I would rot for the rest of my life."
+                        this.console.println("ahh! thank you I thought I would rot for the rest of my life."
                                 + "\nhere take this.");
                         goldcontrol.addGold(10);
                     }
                     break;
                 case "s":
-                    System.out.println("I hate you.");
+                    this.console.println("I hate you.");
                     break;
                 case "b":
-                    System.out.println("Back...");
+                    this.console.println("Back...");
                     break;
                 default:
                     System.out.println("\ninvalid selection");
