@@ -42,8 +42,6 @@ public class GameMenuView extends View {
                 MapView.mapLocation = "Main";
                 MapView.defaultMenu = MapView.mainMapMenu;
                 MapView map = new MapView();
-                Treasure.getCurrentGame().getMap();
-                MapView displayMap;
                 map.display(); 
                 
                 //MapView test() = MapView displayMap(); 

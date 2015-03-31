@@ -30,11 +30,7 @@ public class StartProgramView extends View{
     public StartProgramView() {
         
         super(Introduction);
-//        character.trader();
-//        character.turtle();
-//        character.dolphin();
-//        map.mainMapView();
-        MapView map = new MapView();
+
     }
     @Override
     //public void doAction(Object obj){

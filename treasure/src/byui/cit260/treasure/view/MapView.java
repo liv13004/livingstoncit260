@@ -13,7 +13,7 @@ import treasure.Treasure;
 @SuppressWarnings("InitializerMayBeStatic")
 public class MapView extends View {
 
-    private Map map;
+    MapControl mapcontrol;
     public static int displayPromptMessage = 0;
     public static String defaultMenu = "";
 
@@ -67,14 +67,16 @@ public class MapView extends View {
     public MapView() {
         
         super(defaultMenu);
-        // displayMap();
+mapcontrol = new MapControl();
+        displayMap();
+        
         
     }
 
     @Override
     public void doAction(Object obj) {
-        MapControl location = new MapControl();
-        location.move(mapCharacter, mapLocation);
+        
+        mapcontrol.move(mapCharacter, mapLocation);
         if ("Main".equals(mapLocation)) {
             String value = (String) obj;
 
@@ -86,7 +88,7 @@ public class MapView extends View {
                     this.mainMapView();
                     MapView main = new MapView();
                     main.display();
-                    map = Treasure.getCurrentGame().getMap();
+                    
                     MapView.defaultMenu = MapView.mainMapMenu;
                     break;
 
@@ -128,8 +130,7 @@ public class MapView extends View {
                 case "m":  //Visit Main Map
                     mapLocation = "Main Map";
                     this.displayMap();
-                    this.mainMapView();
-                    //this.displayMap();
+                   // this.mainMapView();
                     break;
 
                 case "t":  //Visit Trader
@@ -376,9 +377,9 @@ public class MapView extends View {
     int rowCount;
 
     private void displayMap() {
-        colCount = map.getColCount();
-        rowCount = map.getRowCount();
-        Location locations[][] = map.getLocations();
+        colCount = mapcontrol.getColCount();
+        rowCount = mapcontrol.getRowCount();
+        Location locations[][] = mapcontrol.getLocations();
         //
         for (int i = 0; i < colCount; i++) {//display the top row
 
@@ -407,14 +408,14 @@ public class MapView extends View {
                     }
 
                 }
-               this.console.println(buff);
+               System.out.print(buff);
 
             }
             displayColDiv();
 
         }
         displayRowDiv();
-        this.console.println("\n\n");
+        System.out.print("\n\n");
     }
 
     private void displayRowDiv() {
@@ -422,12 +423,12 @@ public class MapView extends View {
         for (int i = 1; i <= colCount; i++) {
             string = string.concat("------------");
         }
-        this.console.println(string + "-");
+        System.out.println(string + "-");
     }
 
     private void displayColDiv() {
 
-        this.console.println("  |  ");
+        System.out.print("  |  ");
 
     }
 }

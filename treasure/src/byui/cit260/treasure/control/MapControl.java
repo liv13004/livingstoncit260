@@ -7,10 +7,10 @@ package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.exceptions.MapControlException;
 import byui.cit260.treasure.model.Game;
+import byui.cit260.treasure.model.Location;
 import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.model.Player;
 import java.awt.Point;
-import java.util.Scanner;
 import treasure.Treasure;
 
 /**
@@ -37,7 +37,7 @@ private Map map;
      * @param location
      */
     public void move(String character, String location) {
-        
+
     }
     public void moveToLocation(Player player, Point coordinates) throws MapControlException{
         int newRow = coordinates.x-1;
@@ -57,6 +57,18 @@ private Map map;
     public void Visit(int Area) {
         // TODO - implement Mapcontrol.Visit
       
+    }
+
+    public int getColCount() {
+        return(map.getColCount());
+    }
+
+    public int getRowCount() {
+        return(map.getRowCount());
+    }
+
+    public Location[][] getLocations() {
+        return(map.getLocations());
     }
 
 }
