@@ -31,17 +31,21 @@ public class GameControl {
     private Game game;
 
     public static void saveGame(Game game, String filePath) throws GameControlException {
+        File theFile = new File(filePath);
         File theDir = new File("saves");
 
 // if the directory does not exist, create it
-        if (!theDir.exists()) {
+        if (!theFile.exists()) {
             System.out.println("creating directory: " + filePath);
 
             try {
                 theDir.mkdir();
+                theFile.createNewFile();
 
             } catch (SecurityException se) {
                 throw new GameControlException(se.getMessage());
+            }catch (Exception e){
+                throw new GameControlException(e.getMessage());
             }
             try (FileOutputStream fops = new FileOutputStream(filePath)) {
                 ObjectOutputStream output = new ObjectOutputStream(fops);
