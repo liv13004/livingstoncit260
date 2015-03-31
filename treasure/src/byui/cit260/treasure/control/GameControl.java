@@ -6,6 +6,7 @@
 package byui.cit260.treasure.control;
 
 import byui.cit260.treasure.control.GameControl.Item;
+import byui.cit260.treasure.exceptions.GameControlException;
 import byui.cit260.treasure.exceptions.MapControlException;
 import byui.cit260.treasure.model.Boat;
 import byui.cit260.treasure.model.Game;
@@ -16,10 +17,55 @@ import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.model.Player;
 import byui.cit260.treasure.model.Scene;
 import java.awt.Point;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import treasure.Treasure;
 
 public class GameControl {
+
+    public static void saveGame(Game game, String filePath) throws GameControlException{
+        File theDir = new File("saves");
+
+// if the directory does not exist, create it
+if (!theDir.exists()) {
+    System.out.println("creating directory: " + filePath);
+
+
+    try{
+        theDir.mkdir();
+
+    } 
+    catch(SecurityException se){
+        throw new GameControlException(se.getMessage());
+    }        
+        try (FileOutputStream fops = new FileOutputStream(filePath)){
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+            output.writeObject(game);
+        }catch (IOException e){
+            throw new GameControlException(e.getMessage());
+        }
+    }
+    }
+
+    public static void getSavedGame(String filePath) throws GameControlException{
+        Game game = null;
+        
+        try(FileInputStream fips = new FileInputStream(filePath)){
+            ObjectInputStream output = new ObjectInputStream(fips);
+            game = (Game) output.readObject();
+        }catch(FileNotFoundException fnfe){
+            throw new GameControlException(fnfe.getMessage());
+        }catch(Exception e){
+            throw new GameControlException(e.getMessage());
+        }
+        Treasure.setCurrentGame(game);
+    }
     private Game game;
 
     public void createNewGame(Player player) throws MapControlException {

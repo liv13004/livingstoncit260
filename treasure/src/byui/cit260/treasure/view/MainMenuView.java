@@ -19,6 +19,7 @@ import java.util.logging.Logger;
  */
 public class MainMenuView extends View {
 private GameControl gameControl;
+GameMenuView GameMenu;
     public static String mainMenu = ("\nn = New Game"
             + "\nl = Load Game"
             + "\no = Options"
@@ -28,6 +29,7 @@ private GameControl gameControl;
         super(mainMenu);
         //System.out.print(mainMenu);
         gameControl = new GameControl();
+        GameMenu = new GameMenuView();
     }
 
     @Override
@@ -49,7 +51,7 @@ private GameControl gameControl;
                 valid = true;
                 break;
             case "l":
-                startExistingGame();
+                this.startExistingGame();
                 valid = true;
                 break;
             case "o":
@@ -71,7 +73,7 @@ private GameControl gameControl;
         gameControl.createNewGame(Treasure.getPlayer());
         gameControl.createGameMenu(Treasure.getPlayer());
         //DISPLAY the Game menu
-        GameMenuView GameMenu = new GameMenuView() {
+         {
         };
         GameMenu.display();
         //View.doGameMenuView();
@@ -79,7 +81,16 @@ private GameControl gameControl;
     }
 
     private void startExistingGame() {
-         this.console.println("LoadGame");
+ System.out.println("enter the name of your saved game");
+    
+    String filePath = "saves/" + getString();
+    
+    try{
+        GameControl.getSavedGame(filePath);
+    } catch(Exception ex){
+        ErrorView.display("MainMenuView", ex.getMessage());
+    }
+     GameMenu.display();    
     }
 
     private void displayOptions() {
@@ -93,5 +104,4 @@ private GameControl gameControl;
                 + "\nq = Quit");
          this.console.println(mainMenu);
     }
-
 }

@@ -5,6 +5,7 @@
  */
 package byui.cit260.treasure.view;
 
+import byui.cit260.treasure.control.GameControl;
 import byui.cit260.treasure.model.Game;
 import byui.cit260.treasure.model.Map;
 import byui.cit260.treasure.view.MapView;
@@ -58,7 +59,15 @@ public class GameMenuView extends View {
                  this.console.println("viewing checklist...");
                 break;
             case "s":
-                 this.console.println("save game...");
+                 this.console.println("\n enter the name for your game.");
+                 String filePath = "saves/" + getString();
+                 
+                 try {
+                     GameControl.saveGame(Treasure.getCurrentGame(), filePath);
+                 } catch (Exception ex){
+                     ErrorView.display("gameMenuView", ex.getMessage());
+                 }
+                 
                 break;
             case "h":
                  this.console.println("help menu...");
