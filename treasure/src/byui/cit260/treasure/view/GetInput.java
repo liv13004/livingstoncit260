@@ -31,7 +31,7 @@ public class GetInput extends View {
 
         while (true) {//while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("Enter your selection below...");
+            this.console.println("Enter your selection below...");
             try {
                 //get the name from the keyboard and trim off the blanks
                 //selection = scanner.nextLine();
@@ -56,7 +56,7 @@ public class GetInput extends View {
     public String getString() {
         String selection = null;
         while (true) {
-            System.out.println("Enter your selection Below...");
+            this.console.println("Enter your selection Below...");
             try {
                 selection = this.keyboard.readLine();
             } catch (IOException ex) {
@@ -77,7 +77,7 @@ public class GetInput extends View {
     public String getNumber() {
         String selection = null;
         while (true) {
-            System.out.println("Enter your selection Below...");
+            this.console.println("Enter your selection Below...");
 
             try {
                 selection = this.keyboard.readLine();

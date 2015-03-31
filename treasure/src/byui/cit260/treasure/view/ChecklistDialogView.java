@@ -34,7 +34,7 @@ public class ChecklistDialogView extends View {
 
         while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
-            System.out.println("Enter the answer below;");
+            this.console.println("Enter the answer below;");
             try {
                 //get the name from the keyboard and trim off the blanks
                 selection = keyboard.readLine();
@@ -44,7 +44,7 @@ public class ChecklistDialogView extends View {
             selection = selection.trim();
             //if the name is invalid (less than two character in length)
             if (selection.isEmpty()) {
-                System.out.println("Selection cannot be blank");
+                this.console.println("Selection cannot be blank");
                 ErrorView.display(this.getClass().getName(), "Selection cannot be blank");
                 continue; // and repeat again
             }
@@ -55,27 +55,27 @@ public class ChecklistDialogView extends View {
     }
 
     private void buildBoatDialog() {
-        System.out.println("Congratulations! You have built a boat, now lets go some places!");
+        this.console.println("Congratulations! You have built a boat, now lets go some places!");
         boolean done = ChecklistControl.BuildBoat(true);
     }
 
     private void climbTreeDialog() {
-        System.out.println("Congratulations! You have climbed the tree, now you know where to go!");
+        this.console.println("Congratulations! You have climbed the tree, now you know where to go!");
         boolean done = ChecklistControl.GetBearings(true);
     }
 
     private void buildBridgeDialog() {
-        System.out.println("Congratulations! You have built the bridge, hurry up, you're almost to the treasure!");
+        this.console.println("Congratulations! You have built the bridge, hurry up, you're almost to the treasure!");
         boolean done = ChecklistControl.FixBridge(true);
     }
 
     private void openChestDialog() {
-        System.out.println("Congratulations! You have opened the chest and found the treasure!");
+        this.console.println("Congratulations! You have opened the chest and found the treasure!");
         boolean done = ChecklistControl.OpenChest(true);
     }
 
     private void completeGameDialog() {
-        System.out.println("Congratulations! You have Completed the Game");
+        this.console.println("Congratulations! You have Completed the Game");
     }
 
     @Override

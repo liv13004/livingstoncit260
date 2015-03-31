@@ -129,7 +129,7 @@ public class MapView extends View {
                     mapLocation = "Main Map";
                     this.displayMap();
                     this.mainMapView();
-                    this.displayMap();
+                    //this.displayMap();
                     break;
 
                 case "t":  //Visit Trader
