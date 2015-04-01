@@ -23,7 +23,8 @@ public class BoatMenuView extends View {
     BoatControl boat = new BoatControl();
 
     public BoatMenuView() {
-        super("\ng = Board Boat"
+        super(" \n Boat Menu \n \n "
+                + "\ng = Board Boat"
                 + "\nl = Leave Boat"
                 + "\no = Sail Ocean"
                 + "\ni = Sail Island"

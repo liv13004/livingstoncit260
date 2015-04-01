@@ -19,7 +19,8 @@ public class InventoryView extends View {
     private Game game;
 
     public static String defaultMenu = "";
-    private static final String takeItem = ("What do you want to take.\"\n"
+    private static final String takeItem = ("\n Inventory Menu \n\n"
+            + "What do you want to take.\"\n"
             + "\nl = Lumber"
             + "\ns = sail"
             + "\nb = Back\" ");

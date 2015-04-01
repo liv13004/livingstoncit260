@@ -17,7 +17,8 @@ import treasure.Treasure;
  */
 public class GameMenuView extends View {
 
-    private static final String gameMenu = ("\nm = View Map"
+    private static final String gameMenu = (" \n Find the Treasure Game Menu \n \n "
+            + "\nm = View Map"
             + "\ni = Open Inventory"
             + "\nc = Checklist"
             + "\ns = Save Game"
@@ -77,7 +78,7 @@ public class GameMenuView extends View {
                 System.exit(0);
                 break;
             default:
-                System.out.println("\ninvalid selection");
+                //System.out.println("\ninvalid selection");
                 ErrorView.display(this.getClass().getName(), "\ninvalid selection");
         }
 

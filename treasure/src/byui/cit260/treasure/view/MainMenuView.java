@@ -20,7 +20,8 @@ import java.util.logging.Logger;
 public class MainMenuView extends View {
 private GameControl gameControl;
 GameMenuView GameMenu;
-    public static String mainMenu = ("\nn = New Game"
+    public static String mainMenu = ("Main Menu"
+            + "\nn = New Game"
             + "\nl = Load Game"
             + "\no = Options"
             + "\nq = Quit");
@@ -35,6 +36,7 @@ GameMenuView GameMenu;
     @Override
     public void doAction(Object obj) {
         //string value = (String) obj;
+
         String value = (String) obj;
         //value = value.toUpperCase();
 
@@ -63,7 +65,7 @@ GameMenuView GameMenu;
                 System.exit(0);
                 break;
             default:
-                System.out.println("\ninvalid selection");
+               // System.out.println("\ninvalid selection");
                 ErrorView.display(this.getClass().getName(), "\ninvalid selection");
         }
     }
@@ -98,7 +100,8 @@ GameMenuView GameMenu;
     }
 
     private void mainMenu() {
-        mainMenu = ("\nn = New Game"
+        mainMenu = (" \n  Wrong Main Menu (see MainMenuView ln102) \n \n "
+                + "\nn = New Game"
                 + "\nl = Load Game"
                 + "\no = Options"
                 + "\nq = Quit");

@@ -18,10 +18,11 @@ import java.util.logging.Logger;
  */
 public class StartProgramView extends View{
 
-    public static String Introduction = ("\n Welcome to the game Find the Treasure!"
-            + "You have received an old treasure map from your uncle"
-            + "who recently passed away. You are to collect items and"
-            + "perform tasks to get to the island where the treasure is!");
+    public static String Introduction = ("\n Welcome to the game Find the Treasure! \n \n"
+            + "\n You have received 50 gold pieces and an old treasure map from your uncle \n"
+            + "\n who recently passed away. You see that the map says to start on the beach \n"
+            + "\n near the town where he lived. You are to start at the beach then collect items and \n"
+            + "\n perform tasks to cross the ocean and get to the island where the treasure is! \n");
 
     
     //MapView map = new MapView();
@@ -71,7 +72,7 @@ public class StartProgramView extends View{
                 + "\n*                                                                 *"
                 + "\n*                            HAVE FUN!!                           *"
                 + "\n*******************************************************************");
-
+this.console.print(Introduction);
     }
 
     public String getPlayersName() throws IOException {
@@ -83,7 +84,7 @@ public class StartProgramView extends View{
         while (!valid) {//while a valid name has not been retrieved
             //prompt for the player's name
             
-             this.console.println("Enter the player's name below;");
+             this.console.println(" \n ENTER THE PLAYER'S NAME BELOW: \n");
              
             //get the name from the keyboard and trim off the blanks
              
@@ -92,8 +93,8 @@ public class StartProgramView extends View{
 
             //if the name is invalid (less than two character in length)
             if (playersName.length() < 2) {
-                System.out.println("invalid name - the name must not be blank");
-                 ErrorView.display(this.getClass().getName(), "invalid name - the name must not be blank");
+                //System.out.println("invalid name - the name must not be blank");
+                 ErrorView.display(this.getClass().getName(), "\n invalid name - the name must not be blank");
                 continue; // and repeat again
             }
             break; // out of the (exit) the repetition
@@ -103,7 +104,7 @@ public class StartProgramView extends View{
     }
 
     private void displayWelcomeMessage(Player player) {
-         this.console.println("\tWelcome to the game " + player.getName() + "!");
+         this.console.println("\n \tWelcome to the game " + player.getName() + "! \n");
     }
 
 //    @Override

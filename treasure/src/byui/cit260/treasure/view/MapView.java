@@ -19,42 +19,50 @@ public class MapView extends View {
 
     public static String mapCharacter;
     public static String mapLocation;
-    public static String mainMapMenu = ("\np = Visit Beach"
+    public static String mainMapMenu = (" \n  Main Map Menu \n \n "
+            + "\np = Visit Beach (Start Here)"
             + "\no = Visit Ocean"
             + "\ni = Visit Island"
             + "\nb = Back");
-    public static String beachMapMenu = ("\nm = Visit Main Map"
+    public static String beachMapMenu = ("\n  Beach Level Menu"
+            + "\nm = Visit Main Map"
             + "\nt = Visit Trader"
             + "\ns = Visit Shore"
             + "\no = Visit Ocean"
             + "\ni = Visit Island"
             + "\nb = Back");
-    public static String shoreMenu = ("See that island off in the Distance?"
+    public static String shoreMenu = (" \n Beach Shore Menu \n \n "
+            + "See that island off in the Distance?"
             + "You probably need to build a boat to get there!"
             + "\nc = Construct Boat"
             + "\nb = Back\" ");
-    public static String traderMenu = ("Hi! my name is trader. what'll it be."
+    public static String traderMenu = ("\n  Trader Menu \n \n "
+            + "Hi! my name is trader. what'll it be."
             + "\nl = Lumber"
             + "\ns = Sail"
             + "\nb = Back\" ");
-    public static String oceanMapMenu = ("You are sailing the ocean, don't get seasick!"
+    public static String oceanMapMenu = ("\n Ocean Level Menu \n \n "
+            + "You are sailing the ocean, don't get seasick!"
             + "\nu = Go to Turtle"
             + "\nd = Go to Dolphin"
             + "\nb = Go to Beach"
             + "\ni = Go to Island"
             + "\nb = Back\" ");
-    public static String turtleMenu = ("Hey! Help! I got myself locked in this cage!"
+    public static String turtleMenu = ("\n Turtle Menu \n \n "
+            + "Hey! Help! I got myself locked in this cage!"
             + "?\n"
             + "\nh = Help"
             + "\ns = Step away and let the turtle rot."
             + "\nb = Back");
-    public static String dolphinMenu = ("Hey! Help! I need to know how fast I can get to my family. they are 5 miles east"
+    public static String dolphinMenu = ("\n  Dolphin Menu \n \n "
+            + "Hey! Help! I need to know how fast I can get to my family. they are 5 miles east"
             + "\n I can swim about 2 kilometers per hour"
             + "?\n"
             + "\nh = Help"
             + "\ns = Step away and let the dolphin drown in its own stupidity."
             + "\nb = Back");
-    public static String islandMapMenu = ("Welcome to the Island, you're almost there!"
+    public static String islandMapMenu = ("\n  Island Level Menu \n \n "
+            + "Welcome to the Island, you're almost there!"
             + "\nt = Go to Trader"
             + "\nj = Go to Jungle and climb a tree"
             + "\nf = Go to River and fix the Bridge"
@@ -150,6 +158,7 @@ mapcontrol = new MapControl();
                 case "b": // Quit Help menu
                     mapLocation = "Main";
                     this.console.println("Back...");
+                    break;
                 default:
                     System.out.println("\ninvalid selection");
                     ErrorView.display(this.getClass().getName(), "\ninvalid selection");

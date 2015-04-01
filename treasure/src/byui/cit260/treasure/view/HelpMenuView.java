@@ -12,7 +12,8 @@ package byui.cit260.treasure.view;
 public class HelpMenuView extends View {
 
     public HelpMenuView() {
-        super("\ng = What is the goal of the game?"
+        super(" \n Help Menu \n \n "
+                + "\ng = What is the goal of the game?"
                 + "\nm = How to Move"
                 + "\nl = Estimating the amount of lumber"
                 + "\nc = Convert from Metric to Standard"
