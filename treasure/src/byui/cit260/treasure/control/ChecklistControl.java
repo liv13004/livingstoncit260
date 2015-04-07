@@ -59,15 +59,15 @@ public class ChecklistControl {
         return complete;
     }
 
-    public void HelpTurtle() {
-        double weight = random.nextInt(50);
-        double counter = weight * (1.05);
-        if (math.turtle(weight, counter)) {
-            System.out.println("congrats");
-        } else {
-            System.out.println("you fail");
-        }
-    }
+//    public void HelpTurtle() {
+//        double weight = random.nextInt(50);
+//        double counter = weight * (1.05);
+//        if (math.turtle(weight)) {
+//            System.out.println("congrats");
+//        } else {
+//            System.out.println("you fail");
+//        }
+//    }
 
     public static boolean GetBearings(boolean input) {
         boolean complete = input;

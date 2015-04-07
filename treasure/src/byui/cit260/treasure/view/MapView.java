@@ -1,6 +1,7 @@
 package byui.cit260.treasure.view;
 
 import byui.cit260.treasure.control.GameControl;
+import byui.cit260.treasure.control.InventoryControl;
 import byui.cit260.treasure.control.MapControl;
 import byui.cit260.treasure.model.Location;
 import byui.cit260.treasure.model.Map;
@@ -12,6 +13,7 @@ import treasure.Treasure;
  */
 @SuppressWarnings("InitializerMayBeStatic")
 public class MapView extends View {
+    
 
     MapControl mapcontrol;
     public static int displayPromptMessage = 0;
@@ -25,17 +27,21 @@ public class MapView extends View {
             + "\ni = Visit Island"
             + "\nb = Back");
     public static String beachMapMenu = ("\n  Beach Level Menu"
-            + "\nm = Visit Main Map"
+           // + "\nm = Visit Main Map"
             + "\nt = Visit Trader"
             + "\ns = Visit Shore"
             + "\no = Visit Ocean"
             + "\ni = Visit Island"
             + "\nb = Back");
-    public static String shoreMenu = (" \n Beach Shore Menu \n \n "
+ 
+    public static String beachShoreMenu = (" \n Beach Shore Menu \n \n "
             + "See that island off in the Distance?"
             + "You probably need to build a boat to get there!"
             + "\nc = Construct Boat"
+            + "\ns = Go to Boat"
+            + "\np = Head to main Beach"
             + "\nb = Back\" ");
+    
     public static String traderMenu = ("\n  Trader Menu \n \n "
             + "Hi! my name is trader. what'll it be."
             + "\nl = Lumber"
@@ -47,17 +53,19 @@ public class MapView extends View {
             + "\nd = Go to Dolphin"
             + "\nb = Go to Beach"
             + "\ni = Go to Island"
-            + "\nb = Back\" ");
+            + "\nb = Back");
     public static String turtleMenu = ("\n Turtle Menu \n \n "
             + "Hey! Help! I got myself locked in this cage!"
             + "?\n"
-            + "\nh = Help"
+            + "\na = Help the Turtle"
             + "\ns = Step away and let the turtle rot."
+            + "\nh = Get some Math Help"
             + "\nb = Back");
     public static String dolphinMenu = ("\n  Dolphin Menu \n \n "
-            + "Hey! Help! I need to know how fast I can get to my family. they are 5 miles east"
+            + "Hey! Help! I need to know how fast I can get to my family."
             + "\n I can swim about 2 kilometers per hour"
             + "?\n"
+            + "\na = Help the Dolphin"
             + "\nh = Help"
             + "\ns = Step away and let the dolphin drown in its own stupidity."
             + "\nb = Back");
@@ -74,7 +82,7 @@ public class MapView extends View {
 
     public MapView() {
         
-        super(defaultMenu);
+super(defaultMenu);
 mapcontrol = new MapControl();
         displayMap();
         
@@ -135,11 +143,11 @@ mapcontrol = new MapControl();
             String value = (String) obj;
             switch (value) {
                 
-                case "m":  //Visit Main Map
-                    mapLocation = "Main Map";
-                    this.displayMap();
-                   // this.mainMapView();
-                    break;
+//                case "m":  //Visit Main Map
+//                    mapLocation = "Main Map";
+//                    this.displayMap();
+//                   // this.mainMapView();
+//                    break;
 
                 case "t":  //Visit Trader
                     mapCharacter = "Beach Trader";
@@ -149,11 +157,11 @@ mapcontrol = new MapControl();
 
                 case "s": // Visit Shore
                     mapLocation = "Beach Shore";
-                    this.visitShore();
-                    this.console.println("display Shore menu");
-                    MapView shore = new MapView();
-                    shore.display();
-                    MapView.defaultMenu = MapView.shoreMenu;
+                    this.console.println("display Beach Shore menu");
+                    //MapView shore = new MapView();
+                    //shore.display();
+                    MapView.defaultMenu = MapView.beachShoreMenu;
+                    this.visitBeachShore();
                     break;
                 case "b": // Quit Help menu
                     mapLocation = "Main";
@@ -169,18 +177,35 @@ mapcontrol = new MapControl();
         if ("Beach Shore".equals(mapLocation)) {
             String value = (String) obj;
             switch (value) {
-
-                case "s": // Visit Boat
+                case "c": // Construct Boat
                     mapLocation = "Beach Shore";
-                    this.visitShore();
-                    this.console.println("display Shore menu");
+                    this.buildBoat();
+                   // this.visitBeachShore();
+                    this.console.println("display Boat menu");
                     MapView shore = new MapView();
                     shore.display();
-                    MapView.defaultMenu = MapView.shoreMenu;
+                    MapView.defaultMenu = MapView.beachShoreMenu;
+                    break;
+                case "s": // Visit Boat
+                    mapLocation = "Beach Shore";
+                    this.visitBeachShore();
+                    this.console.println("display Shore menu");
+                    MapView boat = new MapView();
+                    boat.display();
+                    MapView.defaultMenu = MapView.beachShoreMenu;
+                    break;
+                case "p": // Visit Main Beach
+                    mapLocation = "Beach";
+                    this.visitBeachShore();
+                    this.console.println("display Beach menu");
+                    MapView beach = new MapView();
+                    beach.display();
+                    MapView.defaultMenu = MapView.beachMapMenu;
                     break;
                 case "b": // Quit Beach menu
                     mapLocation = "Beach";
                     System.out.println("Back...");
+                    break;
                 default:
                     System.out.println("\ninvalid selection");
                     ErrorView.display(this.getClass().getName(), "\ninvalid selection");
@@ -207,7 +232,7 @@ mapcontrol = new MapControl();
                     MapView.defaultMenu = MapView.beachMapMenu;
                     //this.visitOcean();
                     break;
-                case "I":  //Visit Island
+                case "i":  //Visit Island
                     mapLocation = "Dolphin";
                     this.visitIsland();
                     MapView.defaultMenu = MapView.oceanMapMenu;
@@ -216,6 +241,7 @@ mapcontrol = new MapControl();
                 case "b": // Quit Ocean menu
                     mapLocation = "Main";
                     this.console.println("Back...");
+                    break;
                 default:
                     System.out.println("\ninvalid selection");
                     ErrorView.display(this.getClass().getName(), "\ninvalid selection");
@@ -249,11 +275,11 @@ mapcontrol = new MapControl();
 
                 case "s": // Visit Shore
                     mapLocation = "Island Shore";
-                    this.visitShore();
+                    this.visitBeachShore();
                     System.out.println("display Shore menu");
                     MapView shore = new MapView();
                     shore.display();
-                    MapView.defaultMenu = MapView.shoreMenu;
+                    MapView.defaultMenu = MapView.beachShoreMenu;
                     break;
                 case "o":  //Visit Ocean
                     mapLocation = "Ocean";
@@ -275,25 +301,24 @@ mapcontrol = new MapControl();
 
         }
 
-        // if ("Island Shore".equals(mapLocation)){
-        // String value = (String) obj;
-        //switch (value) {
-        // case "s": // Board Boat
-        //mapLocation = "On Boat";
-        //this.visitShore();
-        // System.out.println("display Island Shore menu");
-        // MapView shore = new MapView();
-        // shore.display();
-        // MapView.defaultMenu = MapView.shoreMenu;
-        // break;
-        // case "b": // Quit Island Shore menu
-        // mapLocation = "Island";
-        // System.out.println("Back...");
-        //default:
-        // System.out.println("\ninvalid selection");
-        // }
-        //return false;
-        // }
+//        if ("Island Shore".equals(mapLocation)){
+//        String value = (String) obj;
+//        switch (value) {
+//        case "s": // Board Boat
+//        mapLocation = "On Boat";
+//        this.visitShore();
+//        System.out.println("display Island Shore menu");
+//        MapView shore = new MapView();
+//        shore.display();
+//        MapView.defaultMenu = MapView.shoreMenu;
+//        break;
+//        case "b": // Quit Island Shore menu
+//        mapLocation = "Island";
+//        System.out.println("Back...");
+//        default:
+//        System.out.println("\ninvalid selection");
+//        }
+         //}
 
     }
 
@@ -316,6 +341,15 @@ mapcontrol = new MapControl();
         beach.display();
 
     }
+    
+//    private void beachShoreView() {
+//        //System.out.print(beachMapMenu);
+//
+//        MapView.defaultMenu = MapView.beachShoreMenu;
+//        MapView beach = new MapView();
+//        beach.display();
+//
+//    }
 
     private void Trader() {
         this.console.println(" Go to Trader ");
@@ -326,14 +360,26 @@ mapcontrol = new MapControl();
         trader.display();
     }
 
-    private void visitShore() {
-        this.console.println(" Go to Shore ");
-        MapView.mapLocation = "On boat";
+    private void visitBeachShore() {
+        this.console.println(" Go to Beach Shore ");
+        MapView.mapLocation = "Beach Shore";
+        MapView.defaultMenu = MapView.beachShoreMenu;
+        MapView buildBoat = new MapView();
+        buildBoat.display();
+       
+
+    }
+    
+    private void buildBoat() {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        InventoryControl inventory = new InventoryControl();
+        //if (inventory.displayInventory());
+        this.console.println(" You used the sail and lumber to build a boat, now you can cross the ocean!");
+        MapView.mapLocation = "Beach Shore";
         //System.out.print(shoreMenu);
 
-        BoatMenuView boat = new BoatMenuView();
-        boat.display();
-
+        //BoatMenuView boat = new BoatMenuView();
+       // boat.display()
     }
 
     private void visitOcean() {
@@ -440,4 +486,6 @@ mapcontrol = new MapControl();
         System.out.print("  |  ");
 
     }
+
+    
 }

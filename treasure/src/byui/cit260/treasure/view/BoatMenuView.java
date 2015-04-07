@@ -24,8 +24,10 @@ public class BoatMenuView extends View {
 
     public BoatMenuView() {
         super(" \n Boat Menu \n \n "
-                + "\ng = Board Boat"
-                + "\nl = Leave Boat"
+                + "(First choose an action.)"
+                + "\ng = Board Boat(If you are leaving a location))"
+                + "\nl = Leave Boat(If you have just arrived at a location))"
+                + "\n \n  NOW CHOOSE A LOCATION TO GO TO :\n \n"
                 + "\no = Sail Ocean"
                 + "\ni = Sail Island"
                 + "\np = Sail Beach"
@@ -40,19 +42,19 @@ public class BoatMenuView extends View {
 //value = value.toUpperCase();
             //if ((boat.onBoat(true))){//&&(( value.equals(("o"))))){//||(value.equals("i"))||(value.equals("b"))))){
             //boolean valid = false;
-            if (!boat.onBoat(false)) {
+            if (!boat.onBoat(true)) {
                 String value = (String) obj;
                 switch (value) {//{
                     case "i":
-                        this.console.println("Leaving for the island...");
+                        this.console.println("  Leaving for the island...\n");
                         this.sailIsland();
                         break;
                     case "o":
-                        this.console.println("Leaving for the ocean...");
+                        this.console.println("  Leaving for the ocean...");
                         this.sailOcean();
                         break;
                     case "p":
-                        this.console.println("Leaving for the beach...");
+                        this.console.println("  Leaving for the beach...");
                         this.sailBeach();
                         break;
                         //}
@@ -147,7 +149,26 @@ public class BoatMenuView extends View {
         this.console.println("Step Lightly! You are now getting off the boat!");
         //onBoat.onBoat(false);
         //boat.offBoat(true);
+        if ("Main".equals(MapView.mapLocation));
+                        {
+                            MapView.defaultMenu = MapView.mainMapMenu;
+                            //MapView main = new MapView();
+                            //main.display();
+                        }
+        if ("Beach Shore".equals(MapView.mapLocation));
+                        {
+                            MapView.defaultMenu = MapView.beachMapMenu;
+                            //MapView beach = new MapView();
+                            //beach.display();
+                        }
+        if ("Island Shore".equals(MapView.mapLocation));
+                        {
+                            MapView.defaultMenu = MapView.islandMapMenu;
+                            //MapView island = new MapView();
+                            //island.display();
+                        }
         boat.onBoat(false);
+        
         super.display();
 
     }
@@ -161,14 +182,16 @@ public class BoatMenuView extends View {
     }
 
     private void sailIsland() {
-        this.console.println("sailIsland function called");
+        this.console.println(""
+                + "\n   sailIsland function called");
         MapView.mapLocation = "Island";
-        this.console.println("You Have Arrived at the Island."
+        this.console.println(""
+                + "\n   You Have Arrived at the Island.\n"
                 + "\n"
-                + "Since you're feeling pretty seasick, \n"
-                + "\n you should probably get off the boat");
-
-        this.boatMenuView();
+                + "Since you're feeling pretty seasick,you should probably get off the boat \n"
+                + "\n");
+        MapView.mapLocation="Island Shore";
+       // this.boatMenuView();
 
         MapView.defaultMenu = MapView.islandMapMenu;
 

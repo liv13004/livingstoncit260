@@ -50,7 +50,8 @@ public abstract class View implements ViewInterface {
             if (displayPromptMessage == 0) {
 
 
-                this.console.println(promptMessage);
+
+      this.console.println(promptMessage);
                 displayPromptMessage++;
 
             } else {
