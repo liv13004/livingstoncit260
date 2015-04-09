@@ -8,6 +8,8 @@ package byui.cit260.treasure.control;
 import java.util.Random;
 import java.util.Scanner;
 import byui.cit260.treasure.control.MathControl;
+import byui.cit260.treasure.model.Checklist;
+import byui.cit260.treasure.view.ChecklistDialogView;
 
 /**
  *
@@ -18,9 +20,18 @@ public class ChecklistControl {
     public static MathControl math = new MathControl();
     Random random = new Random();
 
+    public ChecklistControl() {
+       // Checklist checklist = new Checklist(); 
+        ChecklistDialogView updateChecklist = new ChecklistDialogView();
+    }
+   
+
     public void SetSail() {
         // TODO - implement Checklistcontrol.SetSail
-
+        Checklist checklist = new Checklist(); 
+        int stage = 2;
+       
+        checklist.setProgress(stage);
         boolean valid = true;
     }
 
@@ -51,12 +62,28 @@ public class ChecklistControl {
 
     public boolean GetLumber(boolean input) {
         // TODO - implement Checklistcontrol.GetLumber
-        throw new UnsupportedOperationException();
+        Checklist checklist = new Checklist(); 
+        int stage = 1;
+       
+        checklist.setProgress(stage);
+        //throw new UnsupportedOperationException();
+        return false;
+       
+       
+       
     }
 
     public static boolean BuildBoat(boolean input) {
-        boolean complete = input;
-        return complete;
+         Checklist checklist = new Checklist();
+         ChecklistDialogView dialog = new ChecklistDialogView();
+       int stage = 3;
+       
+        checklist.setProgress(stage);
+        
+       
+        
+        //boolean complete = input;
+        return input;
     }
 
 //    public void HelpTurtle() {
