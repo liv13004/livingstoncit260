@@ -22,7 +22,7 @@ public class ChecklistControl {
 
     public ChecklistControl() {
        // Checklist checklist = new Checklist(); 
-        ChecklistDialogView updateChecklist = new ChecklistDialogView();
+        //ChecklistDialogView updateChecklist = new ChecklistDialogView();
     }
    
 
@@ -75,7 +75,7 @@ public class ChecklistControl {
 
     public static boolean BuildBoat(boolean input) {
          Checklist checklist = new Checklist();
-         ChecklistDialogView dialog = new ChecklistDialogView();
+        // ChecklistDialogView dialog = new ChecklistDialogView();
        int stage = 3;
        
         checklist.setProgress(stage);

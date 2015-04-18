@@ -19,7 +19,7 @@ import treasure.Treasure;
 
 /**
  *
- * @author andrew
+ * @author Braden
  */
 public class GameMenuView extends View {
 
