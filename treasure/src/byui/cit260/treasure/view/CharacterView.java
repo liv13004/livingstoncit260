@@ -28,15 +28,17 @@ public class CharacterView extends View {
     private static String charOutput;
     public static String defaultMenu = "";
     //private static String turtpt1 = "The turtle says its weight is 0 kilograms";
-    public static String turtpt2 = "kilograms" + "\n \n How many pounds should be placed on the counter weight \n to make it 5% higher than the turtles weight?\n" +
-"Enter your answer Below...(to two decimal places)";
+    public static String turtpt2 = "kilograms" + "\n \n How many pounds should be placed on the counter weight \n to make it 5% higher than the turtles weight?\n" 
+//"Enter your answer Below...(to two decimal places)"
+            + "\n \n You get 3 tries before you have to start over.....\n\n";
     public static String turtpt3 = "Ok, now that I'm free I need one last favor from you, which I will reward you for...."
-            + "Can you solve the following math problem for me correctly?";
+            + "\n Can you solve the following math problem for me correctly?\n";
     
     public static String dolphpt1 = "miles" + "\n \n How long will it take me to swim that far of a distance in miles does the dolphin need to swim in addition \n to make it 15% farther in order to catch up with it's family?\n" +
-"\n Enter your answer Below...(to two decimal places)\n";
+"\n Enter your answer Below...(to two decimal places)\n"
+            + "\n \n You get 3 tries before you have to start over.....\n\n";
     public static String dolphpt2 = "Ok, now that I know where to go I need one last favor from you, which I will reward you for...."
-            + "Can you solve the following math problem for me correctly?";
+            + "\n Can you solve the following math problem for me correctly?\n";
 
     MathControl math = new MathControl();
     
@@ -111,16 +113,17 @@ public class CharacterView extends View {
                     
                    
 
-                        this.console.println("ahh! thank you I thought I would rot for the rest of my life."
-                                + "\nhere take this.");
+                        this.console.println("\n \nAhh! thank you I thought I would rot for the rest of my life."
+                                + "\n \nHere is 10 pieces of Gold as payment."
+                                + "\n You truly are a gentleman and a scholar!");
 
                         goldcontrol.addGold(10);
                         MapView.defaultMenu = MapView.turtleMenu;
                    MapView turtleMen = new MapView();
-                   //turtleMen.display();
+                   turtleMen.display();
                     break;
                 case "s":
-                    this.console.println("you are an evil person.");
+                    this.console.println("\nYou are an evil person.\n");
                     break;
                     case "h":
                     //this.console.print();
@@ -129,9 +132,11 @@ public class CharacterView extends View {
                     break;
                 case "b":
                     this.console.println("Back...");
+                    
                     MapView.defaultMenu = MapView.oceanMapMenu;
-//               MapView ocean = new MapView();
-//               ocean.display();
+                    mapLocation = "Ocean";
+                    MapView ocean = new MapView();
+                    ocean.display();
                     break;
                 default:
                    this.console.println("\ninvalid selection");
@@ -159,9 +164,11 @@ public class CharacterView extends View {
                 case "b":
                     this.console.println("Back...");
                     MapView.defaultMenu = MapView.oceanMapMenu;
+                    
+                    defaultMenu = "";
                     break;
                 default:
-                    System.out.println("\ninvalid selection");
+                    //System.out.println("\ninvalid selection");
                     ErrorView.display(this.getClass().getName(), "\ninvalid selection");
 
             }
@@ -171,6 +178,9 @@ public class CharacterView extends View {
     }
 
     private void turtleTest() {
+        GetInput change = new GetInput();
+        //change.selectionOut = "Enter your answer below....(Test)";
+        GetInput.selectionOut = "Enter your answer below...(to two decimal places)";
         this.console.println("The turtle got trapped in a cage, and now it needs your help to get out.\n"
                 + "\n You will need to convert the turtles weight from Kilograms to pounds \n "
                 + "\n This will enable you to know how much pounds are needed for counterweight to release the turtle from the trap \n \n");
@@ -180,10 +190,11 @@ public class CharacterView extends View {
                // this.console.print(turtpt2);
                 math.turtle(50);
     
-        MapView turtleMen = new MapView();
-        turtleMen.display();
+        //MapView turtleMen = new MapView();
+        //turtleMen.display();
     }
     private void dolphinTest() {
+        
         this.console.println("The dolphin says it got separated from it's family and is lost!\n"
                 + "\n It has a map but it's units are in miles and the dolphin only knows how to use kilometers \n "
                 + "\n This will enable you to know how much farther distance it needs to swim to catch them! \n \n");
@@ -193,8 +204,8 @@ public class CharacterView extends View {
                // this.console.print(turtpt2);
                 math.dolphin(50);
  
-        MapView dolphinMen = new MapView();
-        dolphinMen.display();
+       // MapView dolphinMen = new MapView();
+       // dolphinMen.display();
     }
     
 

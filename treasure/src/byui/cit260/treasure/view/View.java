@@ -15,7 +15,7 @@ import treasure.Treasure;
 
 /**
  *
- * @author andrew
+ * @author Braden
  */
 public abstract class View implements ViewInterface {
     

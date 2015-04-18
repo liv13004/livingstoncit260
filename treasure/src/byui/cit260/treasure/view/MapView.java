@@ -36,7 +36,7 @@ public class MapView extends View {
  
     public static String beachShoreMenu = (" \n Beach Shore Menu \n \n "
             + "See that island off in the Distance?"
-            + "You probably need to build a boat to get there!"
+            + "\n You probably need to build a boat to get there!"
             + "\nc = Construct Boat"
             + "\ns = Go to Boat"
             + "\np = Head to main Beach"
@@ -51,7 +51,7 @@ public class MapView extends View {
             + "You are sailing the ocean, don't get seasick!"
             + "\nu = Go to Turtle"
             + "\nd = Go to Dolphin"
-            + "\nb = Go to Beach"
+            + "\np = Go to Beach"
             + "\ni = Go to Island"
             + "\nb = Back");
     public static String turtleMenu = ("\n Turtle Menu \n \n "
@@ -188,9 +188,9 @@ mapcontrol = new MapControl();
                     break;
                 case "s": // Visit Boat
                     mapLocation = "Beach Shore";
-                    this.visitBeachShore();
-                    this.console.println("display Shore menu");
-                    MapView boat = new MapView();
+                    //this.visitBeachShore();
+                    this.console.println("display Boat menu");
+                    BoatMenuView boat = new BoatMenuView();
                     boat.display();
                     MapView.defaultMenu = MapView.beachShoreMenu;
                     break;
@@ -413,7 +413,7 @@ mapcontrol = new MapControl();
 //                    + "\nh = Help"
 //                    + "\ns = Step away and let the turtle rot."
 //                    + "\nb = Back");
-
+        displayPromptMessage = 0;
     }
 
     private void visitDolphin() {
@@ -427,6 +427,7 @@ mapcontrol = new MapControl();
 //                    + "\nh = Help"
 //                    + "\ns = Step away and let the dolphin drown in its own stupidity."
 //                    + "\nb = Back");
+        displayPromptMessage = 0;
     }
     int colCount;
     int rowCount;

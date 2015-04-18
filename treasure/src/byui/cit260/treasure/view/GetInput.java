@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @author andrew
  */
 public class GetInput extends View {
-    
+    public static String selectionOut = "Enter your selection below...";
 
     public GetInput() {
         super(" ");
@@ -31,7 +31,7 @@ public class GetInput extends View {
 
         while (true) {//while a valid name has not been retrieved
             //prompt for the player's name
-            this.console.println("Enter your selection below...");
+            this.console.print(selectionOut);
             try {
                 //get the name from the keyboard and trim off the blanks
                 //selection = scanner.nextLine();
@@ -56,7 +56,7 @@ public class GetInput extends View {
     public String getString() {
         String selection = null;
         while (true) {
-            this.console.println("Enter your selection Below...");
+            this.console.print(selectionOut);
             try {
                 selection = this.keyboard.readLine();
             } catch (IOException ex) {
@@ -77,7 +77,7 @@ public class GetInput extends View {
     public String getNumber() {
         String selection = null;
         while (true) {
-            this.console.println("Enter your selection Below...");
+            this.console.println(selectionOut);
 
             try {
                 selection = this.keyboard.readLine();
