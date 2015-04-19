@@ -107,7 +107,7 @@ public class GameControl {
     }
 
     public enum Item {
-
+        
         lumber,
         sail,
         seashell,
@@ -117,7 +117,8 @@ public class GameControl {
         phone,
         matches,
         flashlight,
-        knife;
+        knife,
+        binoculars;
     }
 
     public static InventoryItem[] createInventoryList() {
@@ -186,6 +187,12 @@ public class GameControl {
         knife.setAmount(0);
         knife.setRequiredAmount(0);
         inventory[Item.knife.ordinal()] = knife;
+        
+        InventoryItem binoculars = new InventoryItem();
+        binoculars.setDescription("Binoculars");
+        binoculars.setAmount(0);
+        binoculars.setRequiredAmount(0);
+        inventory[Item.binoculars.ordinal()] = binoculars;
 
         return inventory;
     }

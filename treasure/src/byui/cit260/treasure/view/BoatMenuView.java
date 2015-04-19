@@ -24,8 +24,8 @@ public class BoatMenuView extends View {
 
     public BoatMenuView() {
         super(" \n Boat Menu \n \n "
-                + "(First choose an action.)"
-                + "\ng = Board Boat(If you are leaving a location))"
+                + "       (FIRST CHOOSE AN ACTION)\n"
+                + "\ng = Board Boat(If you are leaving a location))\n"
                 + "\nl = Leave Boat(If you have just arrived at a location))"
                 + "\n \n  NOW CHOOSE A LOCATION TO GO TO :\n \n"
                 + "\no = Sail Ocean"
@@ -163,13 +163,13 @@ public class BoatMenuView extends View {
                         }
         if ("Island Shore".equals(MapView.mapLocation));
                         {
-                            MapView.defaultMenu = MapView.islandMapMenu;
-                            //MapView island = new MapView();
-                            //island.display();
+                            MapView.defaultMenu = MapView.islandShoreMenu;
+                            MapView island = new MapView();
+                            island.display();
                         }
         boat.onBoat(false);
         
-        super.display();
+        //super.display();
 
     }
 
@@ -186,17 +186,17 @@ public class BoatMenuView extends View {
                 + "\n   sailIsland function called");
         MapView.mapLocation = "Island";
         this.console.println(""
-                + "\n   You Have Arrived at the Island.\n"
+                + "\n   You Have Arrived at the Island Seashore.\n"
                 + "\n"
                 + "Since you're feeling pretty seasick,you should probably get off the boat \n"
                 + "\n");
         MapView.mapLocation="Island Shore";
-       // this.boatMenuView();
+       this.boatMenuView();
 
-        MapView.defaultMenu = MapView.islandMapMenu;
+        //MapView.defaultMenu = MapView.islandShoreMenu;
 
-        MapView island = new MapView();
-        island.display();
+        //MapView island = new MapView();
+        //island.display();
 
     }
 

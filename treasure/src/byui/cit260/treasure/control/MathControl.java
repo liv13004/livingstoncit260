@@ -136,7 +136,8 @@ public class MathControl {
         //System.out.printf(" " + "kilograms." + "\n \n But the counterweight is measured in pounds....\n \n");
         //, ((turtle * 100) / 100));
         //System.out.println("/n /n How many pounds should be placed on the counter weight to make it 5% higher than the turtles weight? \n /\n");
-           double dolphin = (((dolphKm * 1.60934) * (dolphEd)) / (3.21868));
+           //divide number by 3.21868 
+            double dolphin = (((dolphKm * 1.60934) * (dolphEd)) / (3.21868));
            DecimalFormat df = new DecimalFormat("#.00");
         String format = df.format(dolphin);
         dolphin = Double.parseDouble(format);
